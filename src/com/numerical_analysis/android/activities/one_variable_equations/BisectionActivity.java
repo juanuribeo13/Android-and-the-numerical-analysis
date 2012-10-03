@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class IncrementalSearchActivity extends Activity {
+public class BisectionActivity extends Activity {
 
 	private OneVariableEquations oneVariableEquations;
 
@@ -20,9 +20,9 @@ public class IncrementalSearchActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_incremental_search);
+		setContentView(R.layout.activity_bisection);
 
-		TextView function = (TextView) findViewById(R.id.textViewFunctionActivityIncrementalSearch);
+		TextView function = (TextView) findViewById(R.id.textViewFunctionActivityBisection);
 		oneVariableEquations = (OneVariableEquations) getIntent()
 				.getSerializableExtra("oneVariableEquations");
 		function.setText(oneVariableEquations.getFunction());
@@ -30,29 +30,32 @@ public class IncrementalSearchActivity extends Activity {
 
 	/**
 	 * Called when the user clicks on the Calculate button and calls the
-	 * incremental search method on the OneVariableEquation class to find the interval
+	 * bisection method on the OneVariableEquation class to find the root
 	 * 
 	 * @param view
 	 */
 	public void onCalculateButtonClick(View view) {
 
-		TextView textInterval = (TextView) findViewById(R.id.textViewIntervalActivityIncrementalSearch);
+		TextView textRoot = (TextView) findViewById(R.id.textViewRootActivityBisection);
 		try {
 			// Get the values entered by the user
 			double x0 = Double
-					.parseDouble(((EditText) findViewById(R.id.editTextX0ActivityIncrementalSearch))
+					.parseDouble(((EditText) findViewById(R.id.editTextX0ActivityBisection))
 							.getText().toString());
-			double delta = Double
-					.parseDouble(((EditText) findViewById(R.id.editTextDeltaActivityIncrementalSearch))
+			double x1 = Double
+					.parseDouble(((EditText) findViewById(R.id.editTextX1ActivityBisection))
 							.getText().toString());
 			int iterations = Integer
-					.parseInt(((EditText) findViewById(R.id.editTextIterationsActivityIncrementalSearch))
+					.parseInt(((EditText) findViewById(R.id.editTextIterationsActivityBisection))
+							.getText().toString());
+			double tolerance = Double
+					.parseDouble(((EditText) findViewById(R.id.editTextToleranceActivityBisection))
 							.getText().toString());
 
-			// Show the interval
-			double interval[] = oneVariableEquations.incrementalSearch(x0,
-					delta, iterations);
-			textInterval.setText("[" + interval[0] + ", " + interval[1] + "]");
+			// Show the root
+			double root[] = oneVariableEquations.bisection(x0, x1, iterations,
+					tolerance);
+			textRoot.setText(root[0] + " is root with tolerance " + root[1]);
 
 		} catch (NumberFormatException e) {
 			Toast.makeText(
@@ -60,9 +63,9 @@ public class IncrementalSearchActivity extends Activity {
 					"You have to enter all the values for the method to be executed",
 					Toast.LENGTH_LONG).show();
 		} catch (RootNotFoundException e) {
-			textInterval.setText(e.getMessage());
+			textRoot.setText(e.getMessage());
 		} catch (RootFoundException e) {
-			textInterval.setText(e.getMessage());
+			textRoot.setText(e.getMessage());
 		}
 	}
 

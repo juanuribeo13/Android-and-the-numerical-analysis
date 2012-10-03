@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textViewFunctionActivityBisection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:textSize="30dp" />
+
+    <EditText
+        android:id="@+id/editTextX0ActivityBisection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/textViewFunctionActivityBisection"
+        android:layout_marginTop="2dp"
+        android:hint="@string/hint_edit_text_x0_activity_bisection"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextX1ActivityBisection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/editTextX0ActivityBisection"
+        android:layout_toRightOf="@id/editTextX0ActivityBisection"
+        android:hint="@string/hint_edit_text_x1_activity_bisection"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextIterationsActivityBisection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/editTextX0ActivityBisection"
+        android:layout_toRightOf="@id/editTextX1ActivityBisection"
+        android:hint="@string/hint_edit_text_iterations_activity_bisection"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextToleranceActivityBisection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/editTextX0ActivityBisection"
+        android:layout_toRightOf="@id/editTextIterationsActivityBisection"
+        android:hint="@string/hint_edit_text_tolerance_activity_bisection"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textViewRootActivityBisection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextX0ActivityBisection"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:maxLines="2"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/buttonCalculateActivityBisection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="93dp"
+        android:onClick="onCalculateButtonClick"
+        android:text="@string/button_calculate_activity_bisection" />
+
+</RelativeLayout>

@@ -14,5 +14,11 @@
     <string name="hint_edit_text_delta_activity_incremental_search">Delta</string>
     <string name="hint_edit_text_iterations_activity_incremental_search">Iterations</string>
     <string name="button_calculate_activity_incremental_search">Calculate</string>
+    
+    <string name="hint_edit_text_x0_activity_bisection">X0</string>
+    <string name="hint_edit_text_x1_activity_bisection">X1</string>
+    <string name="hint_edit_text_iterations_activity_bisection">Iterations</string>
+    <string name="hint_edit_text_tolerance_activity_bisection">Tolerance</string>
+    <string name="button_calculate_activity_bisection">Calculate</string>
 
 </resources>

@@ -34,6 +34,10 @@
             android:name=".activities.one_variable_equations.IncrementalSearchActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".activities.one_variable_equations.BisectionActivity"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

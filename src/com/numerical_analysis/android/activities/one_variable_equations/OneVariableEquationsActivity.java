@@ -55,6 +55,10 @@ public class OneVariableEquationsActivity extends ListActivity {
 			Intent intent = new Intent(this, IncrementalSearchActivity.class);
 			intent.putExtra("oneVariableEquations", oneVariableEquations);
 			startActivity(intent);
+		} else if (action.equals("Bisection")) {
+			Intent intent = new Intent(this, BisectionActivity.class);
+			intent.putExtra("oneVariableEquations", oneVariableEquations);
+			startActivity(intent);
 		}
 	}
 
