@@ -1,60 +1,71 @@
 package com.numerical_analysis.android.methods;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
-import org.apache.commons.jexl2.Expression;
-import org.apache.commons.jexl2.JexlEngine;
+import org.nfunk.jep.JEP;
 
-import org.apache.commons.jexl2.MapContext;
-
-import com.numerical_analysis.android.exceptions.RootNotFounException;
+import com.numerical_analysis.android.exceptions.RootFoundException;
+import com.numerical_analysis.android.exceptions.RootNotFoundException;
 
 public class OneVariableEquations implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String function;
+	private ArrayList<double[]> executionTable;
 
 	public double[] incrementalSearch(double x0, double delta, int iterations)
-			throws RootNotFounException {
+			throws RootNotFoundException, RootFoundException {
 		double[] interval = new double[2];
 		double y0 = evaluateFunction(x0);
 
 		if (y0 == 0) {
-			// TODO: Ask Pacho if we shuold return x0 and x0 or x0 and x0 +
-			// delta
-			interval[0] = x0;
-			interval[1] = x0;
+			throw new RootFoundException("The root is " + x0);
 		} else {
 			double x1 = x0 + delta;
 			int counter = 1;
 			double y1 = evaluateFunction(x1);
+			executionTable = new ArrayList<double[]>();
+			double row[] = new double[5];
+			row[0] = counter;
+			row[1] = x0;
+			row[2] = x1;
+			row[3] = y0;
+			row[4] = y1;
+			executionTable.add(row);
 			while ((y0 * y1) > 0 && counter < iterations) {
 				x0 = x1;
 				y0 = y1;
 				x1 = x0 + delta;
 				y1 = evaluateFunction(x1);
 				counter++;
+				row = new double[5];
+				row[0] = counter;
+				row[1] = x0;
+				row[2] = x1;
+				row[3] = y0;
+				row[4] = y1;
+				executionTable.add(row);
 			}
 			if (y1 == 0) {
-				// TODO: Ask Pacho if we shuold return x1 and x1 or x0 and x1
-				interval[0] = x1;
-				interval[1] = x1;
+				throw new RootFoundException("The root is " + x1);
 			} else if ((y0 * y1) < 0) {
 				interval[0] = x0;
 				interval[1] = x1;
 			} else {
-				throw new RootNotFounException("Root not found in these iterations");
+				throw new RootNotFoundException(
+						"Root not found in these iterations");
 			}
 		}
 		return interval;
 	}
 
 	public double evaluateFunction(double value) {
-		JexlEngine engine = new JexlEngine();
-		Expression expression = engine.createExpression(function);
-		MapContext context = new MapContext();
-		context.set("x", value);
-		return (Double) expression.evaluate(context);
+		JEP jep = new JEP();
+		jep.addStandardFunctions();
+		jep.addVariable("x", value);
+		jep.parseExpression(function);
+		return jep.getValue();
 	}
 
 	/**
@@ -70,5 +81,12 @@ public class OneVariableEquations implements Serializable {
 	 */
 	public void setFunction(String function) {
 		this.function = function;
+	}
+
+	/**
+	 * @return the executionTable generated in the last execution
+	 */
+	public ArrayList<double[]> getExecutionTable() {
+		return executionTable;
 	}
 }

@@ -1,6 +1,6 @@
 package com.numerical_analysis.android.exceptions;
 
-public class RootNotFounException extends Exception {
+public class RootFoundException extends Exception {
 
 	/**
 	 * 
@@ -10,15 +10,14 @@ public class RootNotFounException extends Exception {
 	/**
 	 * 
 	 */
-	public RootNotFounException() {
+	public RootFoundException() {
 		super();
 	}
 
 	/**
 	 * @param detailMessage
 	 */
-	public RootNotFounException(String detailMessage) {
+	public RootFoundException(String detailMessage) {
 		super(detailMessage);
 	}
-
 }

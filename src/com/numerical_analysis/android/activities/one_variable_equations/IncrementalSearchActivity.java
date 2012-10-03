@@ -1,7 +1,8 @@
 package com.numerical_analysis.android.activities.one_variable_equations;
 
 import com.numerical_analysis.android.R;
-import com.numerical_analysis.android.exceptions.RootNotFounException;
+import com.numerical_analysis.android.exceptions.RootFoundException;
+import com.numerical_analysis.android.exceptions.RootNotFoundException;
 import com.numerical_analysis.android.methods.OneVariableEquations;
 
 import android.app.Activity;
@@ -35,6 +36,7 @@ public class IncrementalSearchActivity extends Activity {
 	 */
 	public void onCalculateButtonClick(View view) {
 
+		TextView textInterval = (TextView) findViewById(R.id.textViewIntervalActivityIncrementalSearch);
 		try {
 			// Get the values entered by the user
 			double x0 = Double
@@ -47,18 +49,20 @@ public class IncrementalSearchActivity extends Activity {
 					.parseInt(((EditText) findViewById(R.id.editTextIterationsActivityIncrementalSearch))
 							.getText().toString());
 
+			// Show the interval
 			double interval[] = oneVariableEquations.incrementalSearch(x0,
 					delta, iterations);
-
-			TextView textInterval = (TextView) findViewById(R.id.textViewIntervalActivityIncrementalSearch);
 			textInterval.setText("[" + interval[0] + ", " + interval[1] + "]");
+
 		} catch (NumberFormatException e) {
 			Toast.makeText(
 					this,
 					"You have to enter all the values for the method to be executed",
 					Toast.LENGTH_LONG).show();
-		} catch (RootNotFounException e) {
-			Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+		} catch (RootNotFoundException e) {
+			textInterval.setText(e.getMessage());
+		} catch (RootFoundException e) {
+			textInterval.setText(e.getMessage());
 		}
 	}
 
