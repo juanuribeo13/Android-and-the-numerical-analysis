@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textViewFunctionActivityIncrementalSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:textSize="30dp"
+        tools:context=".IncrementalSearchActivity" />
+
+    <EditText
+        android:id="@+id/editTextDeltaActivityIncrementalSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewFunctionActivityIncrementalSearch"
+        android:layout_centerHorizontal="true"
+        android:ems="5"
+        android:hint="@string/hint_edit_text_delta_activity_incremental_search"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextX0ActivityIncrementalSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/editTextDeltaActivityIncrementalSearch"
+        android:layout_toLeftOf="@id/editTextDeltaActivityIncrementalSearch"
+        android:ems="5"
+        android:hint="@string/hint_edit_text_x0_activity_incremental_search"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextIterationsActivityIncrementalSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/editTextDeltaActivityIncrementalSearch"
+        android:layout_toRightOf="@id/editTextDeltaActivityIncrementalSearch"
+        android:ems="5"
+        android:hint="@string/hint_edit_text_iterations_activity_incremental_search"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textViewIntervalActivityIncrementalSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextDeltaActivityIncrementalSearch"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:textSize="30dp"
+        tools:context=".IncrementalSearchActivity" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="93dp"
+        android:layout_toLeftOf="@+id/editTextDeltaActivityIncrementalSearch"
+        android:onClick="onCalculateButtonClick"
+        android:text="@string/button_calculate_activity_incremental_search" />
+
+</RelativeLayout>

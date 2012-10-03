@@ -1,8 +1,19 @@
 <resources>
 
     <string name="app_name">Numerical Analysis</string>
-    <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="image_activity_topic_list">Image Android Teacher</string>
+    <string name="instruction_activity_topic_list">Touch to start</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_one_variable_equations">OneVariableEquations</string>
+    
+    <string name="title_activity_set_function">SetFunctionActivity</string>
+    <string name="hint_edit_text_function_activity_set_fuction">Insert the function</string>
+    <string name="button_set_activity_set_function">Set</string>
+    
+    <string name="hint_edit_text_x0_activity_incremental_search">X0</string>
+    <string name="hint_edit_text_delta_activity_incremental_search">Delta</string>
+    <string name="hint_edit_text_iterations_activity_incremental_search">Iterations</string>
+    <string name="button_calculate_activity_incremental_search">Calculate</string>
 
 </resources>
