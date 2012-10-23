@@ -38,6 +38,24 @@
             android:name=".activities.one_variable_equations.BisectionActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".activities.one_variable_equations.FalseRuleActivity"
+            android:label="@string/title_activity_false_rule" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.one_variable_equations.FixedPointActivity"
+            android:label="@string/title_activity_fixed_point" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -21,7 +21,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="2dp"
         android:ems="5"
-        android:hint="@string/hint_edit_text_delta_activity_incremental_search"
+        android:hint="@string/hint_edit_text_delta"
         android:inputType="numberDecimal" />
 
     <EditText
@@ -31,7 +31,7 @@
         android:layout_alignBottom="@id/editTextDeltaActivityIncrementalSearch"
         android:layout_toLeftOf="@id/editTextDeltaActivityIncrementalSearch"
         android:ems="5"
-        android:hint="@string/hint_edit_text_x0_activity_incremental_search"
+        android:hint="@string/hint_edit_text_x0"
         android:inputType="numberDecimal" >
 
         <requestFocus />
@@ -44,7 +44,7 @@
         android:layout_alignBottom="@id/editTextDeltaActivityIncrementalSearch"
         android:layout_toRightOf="@id/editTextDeltaActivityIncrementalSearch"
         android:ems="5"
-        android:hint="@string/hint_edit_text_iterations_activity_incremental_search"
+        android:hint="@string/hint_edit_text_iterations"
         android:inputType="numberDecimal" />
 
     <TextView
@@ -66,6 +66,6 @@
         android:layout_marginBottom="93dp"
         android:layout_toLeftOf="@+id/editTextDeltaActivityIncrementalSearch"
         android:onClick="onCalculateButtonClick"
-        android:text="@string/button_calculate_activity_incremental_search" />
+        android:text="@string/button_calculate" />
 
 </RelativeLayout>

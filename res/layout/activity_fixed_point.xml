@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/textViewFunctionActivityBisection"
+        android:id="@+id/textViewFunctionActivityFixedPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -13,11 +13,11 @@
         android:textSize="30dp" />
 
     <EditText
-        android:id="@+id/editTextX0ActivityBisection"
+        android:id="@+id/editTextX0ActivityFixedPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/textViewFunctionActivityBisection"
+        android:layout_below="@id/textViewFunctionActivityFixedPoint"
         android:layout_marginTop="2dp"
         android:hint="@string/hint_edit_text_x0"
         android:inputType="numberDecimal" >
@@ -26,44 +26,44 @@
     </EditText>
 
     <EditText
-        android:id="@+id/editTextX1ActivityBisection"
+        android:id="@+id/editTextIterationsActivityFixedPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/editTextX0ActivityBisection"
-        android:layout_toRightOf="@id/editTextX0ActivityBisection"
-        android:hint="@string/hint_edit_text_x1"
-        android:inputType="numberDecimal" />
-
-    <EditText
-        android:id="@+id/editTextIterationsActivityBisection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/editTextX0ActivityBisection"
-        android:layout_toRightOf="@id/editTextX1ActivityBisection"
+        android:layout_alignTop="@id/editTextX0ActivityFixedPoint"
+        android:layout_toRightOf="@id/editTextX0ActivityFixedPoint"
         android:hint="@string/hint_edit_text_iterations"
         android:inputType="numberDecimal" />
 
     <EditText
-        android:id="@+id/editTextToleranceActivityBisection"
+        android:id="@+id/editTextToleranceActivityFixedPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/editTextX0ActivityBisection"
-        android:layout_toRightOf="@id/editTextIterationsActivityBisection"
+        android:layout_alignTop="@id/editTextX0ActivityFixedPoint"
+        android:layout_toRightOf="@id/editTextIterationsActivityFixedPoint"
         android:hint="@string/hint_edit_text_tolerance"
+        android:inputType="numberDecimal" />
+    
+    <EditText
+        android:id="@+id/editTextGActivityFixedPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/editTextX0ActivityFixedPoint"
+        android:layout_toRightOf="@id/editTextToleranceActivityFixedPoint"
+        android:hint="@string/hint_edit_text_g"
         android:inputType="numberDecimal" />
 
     <TextView
-        android:id="@+id/textViewRootActivityBisection"
+        android:id="@+id/textViewRootActivityFixedPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextX0ActivityBisection"
+        android:layout_below="@id/editTextX0ActivityFixedPoint"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="2dp"
         android:maxLines="2"
         android:textSize="20dp" />
 
     <Button
-        android:id="@+id/buttonCalculateActivityBisection"
+        android:id="@+id/buttonCalculateActivityFixedPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

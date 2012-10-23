@@ -5,66 +5,65 @@ import com.numerical_analysis.android.exceptions.RootFoundException;
 import com.numerical_analysis.android.exceptions.RootNotFoundException;
 import com.numerical_analysis.android.methods.OneVariableEquations;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class BisectionActivity extends Activity {
+public class FixedPointActivity extends Activity {
 
 	private OneVariableEquations oneVariableEquations;
 
-	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_bisection);
+		setContentView(R.layout.activity_fixed_point);
 
-		TextView function = (TextView) findViewById(R.id.textViewFunctionActivityBisection);
+		TextView function = (TextView) findViewById(R.id.textViewFunctionActivityFixedPoint);
 		oneVariableEquations = (OneVariableEquations) getIntent()
 				.getSerializableExtra("oneVariableEquations");
 		function.setText(oneVariableEquations.getFunction());
 	}
 
-	/**
-	 * Called when the user clicks on the Calculate button and calls the
-	 * bisection method on the OneVariableEquation class to find the root
-	 * 
-	 * @param view
-	 */
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.activity_fixed_point, menu);
+		return true;
+	}
+
 	public void onCalculateButtonClick(View view) {
 
-		TextView textRoot = (TextView) findViewById(R.id.textViewRootActivityBisection);
+		TextView textRoot = (TextView) findViewById(R.id.textViewRootActivityFixedPoint);
 		try {
 			// Get the values entered by the user
 			double x0 = Double
-					.parseDouble(((EditText) findViewById(R.id.editTextX0ActivityBisection))
+					.parseDouble(((EditText) findViewById(R.id.editTextX0ActivityFixedPoint))
 							.getText().toString());
-			double x1 = Double
-					.parseDouble(((EditText) findViewById(R.id.editTextX1ActivityBisection))
-							.getText().toString());
+
 			int iterations = Integer
-					.parseInt(((EditText) findViewById(R.id.editTextIterationsActivityBisection))
+					.parseInt(((EditText) findViewById(R.id.editTextIterationsActivityFixedPoint))
 							.getText().toString());
 			double tolerance = Double
-					.parseDouble(((EditText) findViewById(R.id.editTextToleranceActivityBisection))
+					.parseDouble(((EditText) findViewById(R.id.editTextToleranceActivityFixedPoint))
 							.getText().toString());
 
-			// Show the root
-			double root[] = oneVariableEquations.bisection(x0, x1, iterations,
-					tolerance);
-			textRoot.setText(root[0] + " is root with tolerance " + root[1]);
+			String g = ((EditText) findViewById(R.id.editTextGActivityFixedPoint))
+					.getText().toString();
 
+			// Show the root
+			double root[] = oneVariableEquations.fixedPoint(x0, iterations,
+					tolerance, g);
+			textRoot.setText(root[0] + " is root with tolerance " + root[1]);
 		} catch (NumberFormatException e) {
 			Toast.makeText(this, getString(R.string.invalid_parameters),
 					Toast.LENGTH_LONG).show();
-		} catch (RootNotFoundException e) {
-			textRoot.setText(e.getMessage());
 		} catch (RootFoundException e) {
+			textRoot.setText(e.getMessage());
+		} catch (RootNotFoundException e) {
 			textRoot.setText(e.getMessage());
 		}
 	}
-
 }

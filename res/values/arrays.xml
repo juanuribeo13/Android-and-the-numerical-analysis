@@ -10,6 +10,8 @@
         <item>Set function</item>
         <item>Incremental search</item>
         <item>Bisection</item>
+        <item>False rule</item>
+        <item>Fixed point</item>
     </string-array>
 
 </resources>

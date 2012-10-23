@@ -59,6 +59,14 @@ public class OneVariableEquationsActivity extends ListActivity {
 			Intent intent = new Intent(this, BisectionActivity.class);
 			intent.putExtra("oneVariableEquations", oneVariableEquations);
 			startActivity(intent);
+		} else if (action.equals("False rule")) {
+			Intent intent = new Intent(this, FalseRuleActivity.class);
+			intent.putExtra("oneVariableEquations", oneVariableEquations);
+			startActivity(intent);
+		} else if (action.equals("Fixed point")) {
+			Intent intent = new Intent(this, FixedPointActivity.class);
+			intent.putExtra("oneVariableEquations", oneVariableEquations);
+			startActivity(intent);
 		}
 	}
 

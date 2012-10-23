@@ -2,23 +2,22 @@
 
     <string name="app_name">Numerical Analysis</string>
     <string name="menu_settings">Settings</string>
+    <string name="invalid_parameters">You have to enter all the values for the method to be executed</string>
     <string name="image_activity_topic_list">Image Android Teacher</string>
     <string name="instruction_activity_topic_list">Touch to start</string>
     <string name="title_activity_one_variable_equations">OneVariableEquations</string>
-    
     <string name="title_activity_set_function">SetFunctionActivity</string>
     <string name="hint_edit_text_function_activity_set_fuction">Insert the function</string>
     <string name="button_set_activity_set_function">Set</string>
-    
-    <string name="hint_edit_text_x0_activity_incremental_search">X0</string>
-    <string name="hint_edit_text_delta_activity_incremental_search">Delta</string>
-    <string name="hint_edit_text_iterations_activity_incremental_search">Iterations</string>
-    <string name="button_calculate_activity_incremental_search">Calculate</string>
-    
-    <string name="hint_edit_text_x0_activity_bisection">X0</string>
-    <string name="hint_edit_text_x1_activity_bisection">X1</string>
-    <string name="hint_edit_text_iterations_activity_bisection">Iterations</string>
-    <string name="hint_edit_text_tolerance_activity_bisection">Tolerance</string>
-    <string name="button_calculate_activity_bisection">Calculate</string>
+    <string name="hint_edit_text_x0">X0</string>
+    <string name="hint_edit_text_x1">X1</string>
+    <string name="hint_edit_text_delta">Delta</string>
+    <string name="hint_edit_text_iterations">Iterations</string>
+    <string name="hint_edit_text_tolerance">Tolerance</string>
+    <string name="hint_edit_text_g">G(x)</string>
+    <string name="button_calculate">Calculate</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_false_rule">FalseRuleActivity</string>
+    <string name="title_activity_fixed_point">FixedPointActivity</string>
 
 </resources>

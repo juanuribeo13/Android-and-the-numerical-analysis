@@ -30,7 +30,8 @@ public class IncrementalSearchActivity extends Activity {
 
 	/**
 	 * Called when the user clicks on the Calculate button and calls the
-	 * incremental search method on the OneVariableEquation class to find the interval
+	 * incremental search method on the OneVariableEquation class to find the
+	 * interval
 	 * 
 	 * @param view
 	 */
@@ -55,9 +56,7 @@ public class IncrementalSearchActivity extends Activity {
 			textInterval.setText("[" + interval[0] + ", " + interval[1] + "]");
 
 		} catch (NumberFormatException e) {
-			Toast.makeText(
-					this,
-					"You have to enter all the values for the method to be executed",
+			Toast.makeText(this, getString(R.string.invalid_parameters),
 					Toast.LENGTH_LONG).show();
 		} catch (RootNotFoundException e) {
 			textInterval.setText(e.getMessage());
