@@ -12,6 +12,8 @@
         <item>Bisection</item>
         <item>False rule</item>
         <item>Fixed point</item>
+        <item>Newton</item>
+        <item>Secant</item>
     </string-array>
 
 </resources>

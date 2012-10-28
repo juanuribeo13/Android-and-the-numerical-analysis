@@ -41,20 +41,18 @@
         <activity
             android:name=".activities.one_variable_equations.FalseRuleActivity"
             android:label="@string/title_activity_false_rule" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.one_variable_equations.FixedPointActivity"
             android:label="@string/title_activity_fixed_point" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.one_variable_equations.NewtonActivity"
+            android:label="@string/title_activity_newton" >
+        </activity>
+        <activity
+            android:name=".activities.one_variable_equations.SecantActivity"
+            android:label="@string/title_activity_secant" >
         </activity>
     </application>
 

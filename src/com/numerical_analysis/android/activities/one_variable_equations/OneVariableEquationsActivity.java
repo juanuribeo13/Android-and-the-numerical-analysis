@@ -67,6 +67,14 @@ public class OneVariableEquationsActivity extends ListActivity {
 			Intent intent = new Intent(this, FixedPointActivity.class);
 			intent.putExtra("oneVariableEquations", oneVariableEquations);
 			startActivity(intent);
+		} else if (action.equals("Newton")) {
+			Intent intent = new Intent(this, NewtonActivity.class);
+			intent.putExtra("oneVariableEquations", oneVariableEquations);
+			startActivity(intent);
+		} else if (action.equals("Secant")) {
+			Intent intent = new Intent(this, SecantActivity.class);
+			intent.putExtra("oneVariableEquations", oneVariableEquations);
+			startActivity(intent);
 		}
 	}
 

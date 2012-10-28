@@ -5,8 +5,6 @@
     <string name="invalid_parameters">You have to enter all the values for the method to be executed</string>
     <string name="image_activity_topic_list">Image Android Teacher</string>
     <string name="instruction_activity_topic_list">Touch to start</string>
-    <string name="title_activity_one_variable_equations">OneVariableEquations</string>
-    <string name="title_activity_set_function">SetFunctionActivity</string>
     <string name="hint_edit_text_function_activity_set_fuction">Insert the function</string>
     <string name="button_set_activity_set_function">Set</string>
     <string name="hint_edit_text_x0">X0</string>
@@ -15,9 +13,14 @@
     <string name="hint_edit_text_iterations">Iterations</string>
     <string name="hint_edit_text_tolerance">Tolerance</string>
     <string name="hint_edit_text_g">G(x)</string>
+    <string name="hint_edit_text_df">df</string>
     <string name="button_calculate">Calculate</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_false_rule">FalseRuleActivity</string>
-    <string name="title_activity_fixed_point">FixedPointActivity</string>
+    <string name="title_activity_one_variable_equations">One Variable Equations</string>
+    <string name="title_activity_set_function">Set Function</string>
+    <string name="title_activity_false_rule">False Rule</string>
+    <string name="title_activity_fixed_point">Fixed Point</string>
+    <string name="title_activity_newton">Newton</string>
+    <string name="title_activity_secant">Secant</string>
 
 </resources>

@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textViewFunctionActivitySecant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:textSize="30dp" />
+
+    <EditText
+        android:id="@+id/editTextX0ActivitySecant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/textViewFunctionActivitySecant"
+        android:layout_marginTop="2dp"
+        android:hint="@string/hint_edit_text_x0"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextX1ActivitySecant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/editTextX0ActivitySecant"
+        android:layout_toRightOf="@id/editTextX0ActivitySecant"
+        android:hint="@string/hint_edit_text_x1"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextIterationsActivitySecant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/editTextX0ActivitySecant"
+        android:layout_toRightOf="@id/editTextX1ActivitySecant"
+        android:hint="@string/hint_edit_text_iterations"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextToleranceActivitySecant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/editTextX0ActivitySecant"
+        android:layout_toRightOf="@id/editTextIterationsActivitySecant"
+        android:hint="@string/hint_edit_text_tolerance"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textViewRootActivitySecant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextX0ActivitySecant"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:maxLines="2"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/buttonCalculateActivitySecant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="93dp"
+        android:onClick="onCalculateButtonClick"
+        android:text="@string/button_calculate" />
+
+</RelativeLayout>

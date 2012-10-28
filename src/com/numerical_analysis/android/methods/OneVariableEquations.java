@@ -312,8 +312,8 @@ public class OneVariableEquations implements Serializable {
 	 * @throws RootNotFoundException
 	 *             When the method doesn't find a root
 	 */
-	public double[] secant(double x0, double x1, double tolerance,
-			int iterations) throws RootFoundException,
+	public double[] secant(double x0, double x1, int iterations,
+			double tolerance) throws RootFoundException,
 			MultipleRootFoundException, RootNotFoundException {
 		double root[] = new double[2];
 		double y0 = evaluateFunction(function, x0);
