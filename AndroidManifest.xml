@@ -44,15 +44,23 @@
         </activity>
         <activity
             android:name=".activities.one_variable_equations.FixedPointActivity"
-            android:label="@string/title_activity_fixed_point" >
+            android:label="@string/title_activity_fixed_point"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".activities.one_variable_equations.NewtonActivity"
-            android:label="@string/title_activity_newton" >
+            android:label="@string/title_activity_newton"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".activities.one_variable_equations.SecantActivity"
-            android:label="@string/title_activity_secant" >
+            android:label="@string/title_activity_secant"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.ErrorTheoryActivity"
+            android:label="@string/title_activity_error_theory"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 

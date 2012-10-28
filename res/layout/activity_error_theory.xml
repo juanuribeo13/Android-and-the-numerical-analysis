@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/TextViewResultActivityErrorTheory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:hint="@string/hint_text_view_result"
+        android:textSize="28dp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TextViewResultActivityErrorTheory"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="47dp" >
+
+        <TextView
+            android:id="@+id/TextViewSmallestPositiveNumberActivityErrorTheory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/text_view_smallest_positive_number"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/ButtonSmallestPositiveNumberSimpleActivityErrorTheory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TextViewSmallestPositiveNumberActivityErrorTheory"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:onClick="onSmallestPositiveNumberSimpleButtonClick"
+            android:text="@string/button_simple" />
+
+        <Button
+            android:id="@+id/ButtonSmallestPositiveNumberDoubleActivityErrorTheory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ButtonSmallestPositiveNumberSimpleActivityErrorTheory"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:onClick="onSmallestPositiveNumberDoubleButtonClick"
+            android:text="@string/button_double" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TextViewResultActivityErrorTheory"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="47dp" >
+
+        <TextView
+            android:id="@+id/TextViewMachineEpsilonActivityErrorTheory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/text_view_machine_epsilon"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/ButtonMachineEpsilonSimpleActivityErrorTheory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/TextViewMachineEpsilonActivityErrorTheory"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:onClick="onMachineEpsilonSimpleButtonClick"
+            android:text="@string/button_simple" />
+
+        <Button
+            android:id="@+id/ButtonMachineEpsilonDoubleActivityErrorTheory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ButtonMachineEpsilonSimpleActivityErrorTheory"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:onClick="onMachineEpsilonDoubleButtonClick"
+            android:text="@string/button_double" />
+    </RelativeLayout>
+
+</RelativeLayout>

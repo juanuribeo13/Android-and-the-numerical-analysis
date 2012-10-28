@@ -37,6 +37,9 @@ public class TopicListActivity extends ListActivity {
 		if (topic.equals("One Variable Equation")) {
 			Intent intent = new Intent(this, OneVariableEquationsActivity.class);
 			startActivity(intent);
+		} else if (topic.equals("Error Theory")) {
+			Intent intent = new Intent(this, ErrorTheoryActivity.class);
+			startActivity(intent);
 		}
 	}
 
