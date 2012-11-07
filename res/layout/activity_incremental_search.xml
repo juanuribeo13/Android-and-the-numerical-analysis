@@ -14,58 +14,71 @@
         tools:context=".IncrementalSearchActivity" />
 
     <EditText
-        android:id="@+id/editTextDeltaActivityIncrementalSearch"
-        android:layout_width="wrap_content"
+        android:id="@+id/editTextX0ActivityIncrementalSearch"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewFunctionActivityIncrementalSearch"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="2dp"
-        android:ems="5"
-        android:hint="@string/hint_edit_text_delta"
-        android:inputType="numberDecimal" />
-
-    <EditText
-        android:id="@+id/editTextX0ActivityIncrementalSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/editTextDeltaActivityIncrementalSearch"
-        android:layout_toLeftOf="@id/editTextDeltaActivityIncrementalSearch"
         android:ems="5"
         android:hint="@string/hint_edit_text_x0"
-        android:inputType="numberDecimal" >
+        android:inputType="numberDecimal|numberSigned" >
 
         <requestFocus />
     </EditText>
 
     <EditText
-        android:id="@+id/editTextIterationsActivityIncrementalSearch"
-        android:layout_width="wrap_content"
+        android:id="@+id/editTextDeltaActivityIncrementalSearch"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/editTextDeltaActivityIncrementalSearch"
-        android:layout_toRightOf="@id/editTextDeltaActivityIncrementalSearch"
+        android:layout_below="@id/editTextX0ActivityIncrementalSearch"
+        android:layout_marginTop="2dp"
+        android:ems="5"
+        android:hint="@string/hint_edit_text_delta"
+        android:inputType="numberDecimal|numberSigned" />
+
+    <EditText
+        android:id="@+id/editTextIterationsActivityIncrementalSearch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextDeltaActivityIncrementalSearch"
         android:ems="5"
         android:hint="@string/hint_edit_text_iterations"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal|numberSigned" />
 
     <TextView
         android:id="@+id/textViewIntervalActivityIncrementalSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextDeltaActivityIncrementalSearch"
+        android:layout_below="@id/editTextIterationsActivityIncrementalSearch"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="2dp"
-        android:maxLines="2"
+        android:layout_marginTop="5dp"
         android:textSize="20dp"
         tools:context=".IncrementalSearchActivity" />
 
-    <Button
-        android:id="@+id/buttonCalculateActivityIncrementalSearch"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="93dp"
-        android:layout_toLeftOf="@+id/editTextDeltaActivityIncrementalSearch"
-        android:onClick="onCalculateButtonClick"
-        android:text="@string/button_calculate" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp" >
+
+        <Button
+            android:id="@+id/buttonCalculateActivityIncrementalSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:onClick="onCalculateButtonClick"
+            android:text="@string/button_calculate" />
+
+        <Button
+            android:id="@+id/buttonExecutionTableActivityIncrementalSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonCalculateActivityIncrementalSearch"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:onClick="showExecutionTable"
+            android:text="@string/button_execution_table"
+            android:visibility="invisible" />
+    </RelativeLayout>
 
 </RelativeLayout>

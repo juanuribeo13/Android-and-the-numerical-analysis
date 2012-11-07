@@ -28,19 +28,23 @@
         </activity>
         <activity
             android:name=".activities.SetFunctionActivity"
-            android:label="@string/title_activity_set_function" >
+            android:label="@string/title_activity_set_function"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".activities.one_variable_equations.IncrementalSearchActivity"
+            android:label="@string/title_activity_incremental_search"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".activities.one_variable_equations.BisectionActivity"
+            android:label="@string/title_activity_bisection"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".activities.one_variable_equations.FalseRuleActivity"
-            android:label="@string/title_activity_false_rule" >
+            android:label="@string/title_activity_false_rule"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".activities.one_variable_equations.FixedPointActivity"
@@ -61,6 +65,11 @@
             android:name=".activities.ErrorTheoryActivity"
             android:label="@string/title_activity_error_theory"
             android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.ExecutionTableActivity"
+            android:label="@string/title_activity_execution_table"
+            android:screenOrientation="landscape" >
         </activity>
     </application>
 

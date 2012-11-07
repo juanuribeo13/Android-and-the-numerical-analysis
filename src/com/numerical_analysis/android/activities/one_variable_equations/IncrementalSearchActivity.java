@@ -1,11 +1,14 @@
 package com.numerical_analysis.android.activities.one_variable_equations;
 
 import com.numerical_analysis.android.R;
+import com.numerical_analysis.android.activities.ExecutionTableActivity;
+import com.numerical_analysis.android.adapters.one_variable_equations.IncrementalSearchExecutionTableAdapter;
 import com.numerical_analysis.android.exceptions.RootFoundException;
 import com.numerical_analysis.android.exceptions.RootNotFoundException;
 import com.numerical_analysis.android.methods.OneVariableEquations;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -55,14 +58,30 @@ public class IncrementalSearchActivity extends Activity {
 					delta, iterations);
 			textInterval.setText("[" + interval[0] + ", " + interval[1] + "]");
 
+			enableExecutionTable();
+
 		} catch (NumberFormatException e) {
 			Toast.makeText(this, getString(R.string.invalid_parameters),
 					Toast.LENGTH_LONG).show();
 		} catch (RootNotFoundException e) {
 			textInterval.setText(e.getMessage());
+			enableExecutionTable();
 		} catch (RootFoundException e) {
 			textInterval.setText(e.getMessage());
+			enableExecutionTable();
 		}
 	}
 
+	public void showExecutionTable(View view) {
+		IncrementalSearchExecutionTableAdapter adapter = new IncrementalSearchExecutionTableAdapter();
+		Intent intent = new Intent(this, ExecutionTableActivity.class);
+		intent.putExtra("oneVariableEquations", oneVariableEquations);
+		intent.putExtra("adapter", adapter);
+		startActivity(intent);
+	}
+
+	private void enableExecutionTable() {
+		findViewById(R.id.buttonExecutionTableActivityIncrementalSearch)
+				.setVisibility(View.VISIBLE);
+	}
 }

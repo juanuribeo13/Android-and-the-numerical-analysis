@@ -43,11 +43,13 @@ public class OneVariableEquationsActivity extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 
 		String action = ((TextView) v).getText().toString();
+		oneVariableEquations.setFunction("x^2-1");
 
 		if (action.equals("Set function")) {
 			Intent intent = new Intent(this, SetFunctionActivity.class);
 			startActivityForResult(intent, SET_FUNCTION);
-		} else if (oneVariableEquations.getFunction() == null) {
+		} else if (oneVariableEquations.getFunction() == null
+				|| oneVariableEquations.getFunction().equals("")) {
 			Toast.makeText(this,
 					"Please set the function before you use any method",
 					Toast.LENGTH_LONG).show();

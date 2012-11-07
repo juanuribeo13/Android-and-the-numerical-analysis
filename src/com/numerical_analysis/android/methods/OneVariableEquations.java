@@ -13,7 +13,7 @@ public class OneVariableEquations implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String function;
-	private ArrayList<double[]> executionTable;
+	private ArrayList<Double[]> executionTable;
 
 	/**
 	 * 
@@ -34,6 +34,7 @@ public class OneVariableEquations implements Serializable {
 	 */
 	public double[] incrementalSearch(double x0, double delta, int iterations)
 			throws RootNotFoundException, RootFoundException {
+		executionTable = new ArrayList<Double[]>();
 		double[] interval = new double[2];
 		double y0 = evaluateFunction(function, x0);
 
@@ -43,9 +44,8 @@ public class OneVariableEquations implements Serializable {
 			double x1 = x0 + delta;
 			int counter = 1;
 			double y1 = evaluateFunction(function, x1);
-			executionTable = new ArrayList<double[]>();
-			double row[] = new double[5];
-			row[0] = counter;
+			Double row[] = new Double[5];
+			row[0] = (double) counter;
 			row[1] = x0;
 			row[2] = x1;
 			row[3] = y0;
@@ -57,8 +57,8 @@ public class OneVariableEquations implements Serializable {
 				x1 = x0 + delta;
 				y1 = evaluateFunction(function, x1);
 				counter++;
-				row = new double[5];
-				row[0] = counter;
+				row = new Double[5];
+				row[0] = (double) counter;
 				row[1] = x0;
 				row[2] = x1;
 				row[3] = y0;
@@ -97,6 +97,7 @@ public class OneVariableEquations implements Serializable {
 	 */
 	public double[] bisection(double x0, double x1, int iterations,
 			double tolerance) throws RootFoundException, RootNotFoundException {
+		executionTable = new ArrayList<Double[]>();
 		double root[] = new double[2];
 		double y0 = evaluateFunction(function, x0);
 		double y1 = evaluateFunction(function, x1);
@@ -110,6 +111,13 @@ public class OneVariableEquations implements Serializable {
 			double ym = evaluateFunction(function, xm);
 			int counter = 1;
 			double error = tolerance + 1;
+			Double row[] = new Double[5];
+			row[0] = x0;
+			row[1] = x1;
+			row[2] = xm;
+			row[3] = ym;
+			row[4] = error;
+			executionTable.add(row);
 			while (ym != 0 && error > tolerance && counter < iterations) {
 				if ((y0 * ym) < 0) {
 					x1 = xm;
@@ -123,6 +131,13 @@ public class OneVariableEquations implements Serializable {
 				ym = evaluateFunction(function, xm);
 				error = Math.abs(xm - xmAux);
 				counter++;
+				row = new Double[5];
+				row[0] = x0;
+				row[1] = x1;
+				row[2] = xm;
+				row[3] = ym;
+				row[4] = error;
+				executionTable.add(row);
 			}
 
 			if (ym == 0) {
@@ -157,6 +172,7 @@ public class OneVariableEquations implements Serializable {
 	 */
 	public double[] falseRule(double x0, double x1, int iterations,
 			double tolerance) throws RootFoundException, RootNotFoundException {
+		executionTable = new ArrayList<Double[]>();
 		double root[] = new double[2];
 		double y0 = evaluateFunction(function, x0);
 		double y1 = evaluateFunction(function, x1);
@@ -170,6 +186,16 @@ public class OneVariableEquations implements Serializable {
 			double ym = evaluateFunction(function, xm);
 			int counter = 1;
 			double error = tolerance + 1;
+			Double row[] = new Double[8];
+			row[0] = (double) counter;
+			row[1] = x0;
+			row[2] = x1;
+			row[3] = xm;
+			row[4] = ym;
+			row[5] = error;
+			row[6] = y0;
+			row[7] = y1;
+			executionTable.add(row);
 			while (ym != 0 && error > tolerance && counter < iterations) {
 				if ((y0 * ym) < 0) {
 					x1 = xm;
@@ -183,6 +209,16 @@ public class OneVariableEquations implements Serializable {
 				ym = evaluateFunction(function, xm);
 				error = Math.abs(xm - xmAux);
 				counter++;
+				row = new Double[8];
+				row[0] = (double) counter;
+				row[1] = x0;
+				row[2] = x1;
+				row[3] = xm;
+				row[4] = ym;
+				row[5] = error;
+				row[6] = y0;
+				row[7] = y1;
+				executionTable.add(row);
 			}
 
 			if (ym == 0) {
@@ -378,7 +414,7 @@ public class OneVariableEquations implements Serializable {
 	/**
 	 * @return the executionTable generated in the last execution
 	 */
-	public ArrayList<double[]> getExecutionTable() {
+	public ArrayList<Double[]> getExecutionTable() {
 		return executionTable;
 	}
 }
