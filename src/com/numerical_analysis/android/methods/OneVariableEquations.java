@@ -253,6 +253,7 @@ public class OneVariableEquations implements Serializable {
 	 */
 	public double[] fixedPoint(double x0, int iterations, double tolerance,
 			String g) throws RootFoundException, RootNotFoundException {
+		executionTable = new ArrayList<Double[]>();
 		double root[] = new double[2];
 		double y0 = evaluateFunction(function, x0);
 		int counter = 0;
@@ -263,6 +264,12 @@ public class OneVariableEquations implements Serializable {
 			error = Math.abs(xn - x0);
 			x0 = xn;
 			counter++;
+			Double row[] = new Double[4];
+			row[0] = (double) counter;
+			row[1] = x0;
+			row[2] = y0;
+			row[3] = error;
+			executionTable.add(row);
 		}
 		if (y0 == 0) {
 			throw new RootFoundException(x0 + " is root");

@@ -65,7 +65,6 @@
             android:id="@+id/buttonCalculateActivityIncrementalSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:onClick="onCalculateButtonClick"
             android:text="@string/button_calculate" />
 
@@ -73,9 +72,8 @@
             android:id="@+id/buttonExecutionTableActivityIncrementalSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/buttonCalculateActivityIncrementalSearch"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/buttonCalculateActivityIncrementalSearch"
             android:onClick="showExecutionTable"
             android:text="@string/button_execution_table"
             android:visibility="invisible" />
