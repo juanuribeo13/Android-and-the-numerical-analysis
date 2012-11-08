@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextX1ActivityBisection"
         android:hint="@string/hint_edit_text_iterations"
-        android:inputType="numberDecimal|numberSigned" />
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextToleranceActivityBisection"
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextIterationsActivityBisection"
         android:hint="@string/hint_edit_text_tolerance"
-        android:inputType="numberDecimal|numberSigned" />
+        android:inputType="numberDecimal" />
 
     <TextView
         android:id="@+id/textViewRootActivityBisection"
