@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.nfunk.jep.JEP;
 
+import com.numerical_analysis.android.exceptions.DivisionByZeroException;
 import com.numerical_analysis.android.exceptions.MultipleRootFoundException;
 import com.numerical_analysis.android.exceptions.RootFoundException;
 import com.numerical_analysis.android.exceptions.RootNotFoundException;
@@ -419,6 +420,58 @@ public class OneVariableEquations implements Serializable {
 						"Root not found in these iterations");
 			}
 
+		}
+		return root;
+	}
+
+	public double[] multipleRoots(double x0, int iterations, double tolerance,
+			String df, String ddf) throws RootFoundException,
+			DivisionByZeroException, RootNotFoundException {
+		executionTable = new ArrayList<Double[]>();
+		double root[] = new double[2];
+		double y0 = evaluateFunction(function, x0);
+		double dy0 = evaluateFunction(df, x0);
+		double ddy0 = evaluateFunction(ddf, x0);
+		int counter = 0;
+		double error = tolerance + 1;
+		double denominator = Math.pow(dy0, 2) - y0 * ddy0;
+		Double row[] = new Double[6];
+		row[0] = (double) counter;
+		row[1] = x0;
+		row[2] = y0;
+		row[3] = dy0;
+		row[4] = ddy0;
+		row[5] = error;
+		executionTable.add(row);
+		while (y0 != 0 && denominator != 0 && error > tolerance
+				&& counter < iterations) {
+			double xn = (y0 * dy0) / denominator;
+			y0 = evaluateFunction(function, xn);
+			dy0 = evaluateFunction(df, xn);
+			ddy0 = evaluateFunction(ddf, xn);
+			denominator = Math.pow(dy0, 2) - y0 * ddy0;
+			error = Math.abs(xn - x0);
+			x0 = xn;
+			counter++;
+			row = new Double[6];
+			row[0] = (double) counter;
+			row[1] = x0;
+			row[2] = y0;
+			row[3] = dy0;
+			row[4] = ddy0;
+			row[5] = error;
+			executionTable.add(row);
+		}
+		if (y0 == 0) {
+			throw new RootFoundException(x0 + " is root");
+		} else if (error <= tolerance) {
+			root[0] = x0;
+			root[1] = tolerance;
+		} else if (denominator == 0) {
+			throw new DivisionByZeroException("There is a division by zero");
+		} else {
+			throw new RootNotFoundException(
+					"Root not found in these iterations");
 		}
 		return root;
 	}

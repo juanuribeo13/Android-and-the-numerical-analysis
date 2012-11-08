@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textViewFunctionActivityMultipleRoots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:textSize="30dp" />
+
+    <EditText
+        android:id="@+id/editTextX0ActivityMultipleRoots"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewFunctionActivityMultipleRoots"
+        android:layout_marginTop="2dp"
+        android:hint="@string/hint_edit_text_x0"
+        android:inputType="numberDecimal|numberSigned" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextIterationsActivityMultipleRoots"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextX0ActivityMultipleRoots"
+        android:hint="@string/hint_edit_text_iterations"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextToleranceActivityMultipleRoots"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextIterationsActivityMultipleRoots"
+        android:hint="@string/hint_edit_text_tolerance"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextDFActivityMultipleRoots"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextToleranceActivityMultipleRoots"
+        android:hint="@string/hint_edit_text_df" />
+
+    <EditText
+        android:id="@+id/editTextDDFActivityMultipleRoots"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextDFActivityMultipleRoots"
+        android:hint="@string/hint_edit_text_df" />
+
+    <TextView
+        android:id="@+id/textViewRootActivityMultipleRoots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextDDFActivityMultipleRoots"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:textSize="20dp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp" >
+
+        <Button
+            android:id="@+id/buttonCalculateActivityMultipleRoots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCalculateButtonClick"
+            android:text="@string/button_calculate" />
+
+        <Button
+            android:id="@+id/buttonExecutionTableActivityMultipleRoots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/buttonCalculateActivityMultipleRoots"
+            android:onClick="showExecutionTable"
+            android:text="@string/button_execution_table"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+</RelativeLayout>

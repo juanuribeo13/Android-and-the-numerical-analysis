@@ -71,6 +71,15 @@
             android:label="@string/title_activity_execution_table"
             android:screenOrientation="landscape" >
         </activity>
+        <activity
+            android:name=".activities.one_variable_equations.MultipleRootsActivity"
+            android:label="@string/title_activity_multiple_roots" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

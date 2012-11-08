@@ -78,6 +78,10 @@ public class OneVariableEquationsActivity extends ListActivity {
 			Intent intent = new Intent(this, SecantActivity.class);
 			intent.putExtra("oneVariableEquations", oneVariableEquations);
 			startActivity(intent);
+		} else if (action.equals("Multiple Roots")) {
+			Intent intent = new Intent(this, MultipleRootsActivity.class);
+			intent.putExtra("oneVariableEquations", oneVariableEquations);
+			startActivity(intent);
 		}
 	}
 
