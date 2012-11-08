@@ -52,7 +52,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextDFActivityMultipleRoots"
-        android:hint="@string/hint_edit_text_df" />
+        android:hint="@string/hint_edit_text_ddf" />
 
     <TextView
         android:id="@+id/textViewRootActivityMultipleRoots"

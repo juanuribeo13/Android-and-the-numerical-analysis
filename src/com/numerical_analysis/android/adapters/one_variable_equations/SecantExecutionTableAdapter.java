@@ -20,23 +20,6 @@ public class SecantExecutionTableAdapter implements ExecutionTableAdapter {
 	public TableRow getTitle(Activity activity) {
 		TableRow tableRow = (TableRow) activity.getLayoutInflater().inflate(
 				R.layout.row_execution_table_activity_secant, null);
-
-		TextView iteration = (TextView) tableRow
-				.findViewById(R.id.textViewIterationRowSecant);
-		iteration.setText(activity.getString(R.string.title_table_iteration));
-
-		TextView x0 = (TextView) tableRow
-				.findViewById(R.id.textViewX0RowSecant);
-		x0.setText(activity.getString(R.string.title_table_x0));
-
-		TextView y0 = (TextView) tableRow
-				.findViewById(R.id.textViewY0RowSecant);
-		y0.setText(activity.getString(R.string.title_table_y0));
-
-		TextView error = (TextView) tableRow
-				.findViewById(R.id.textViewErrorRowSecant);
-		error.setText(activity.getString(R.string.title_table_error));
-
 		return tableRow;
 	}
 
