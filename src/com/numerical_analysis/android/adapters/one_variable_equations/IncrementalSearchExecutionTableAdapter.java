@@ -21,23 +21,23 @@ public class IncrementalSearchExecutionTableAdapter implements
 
 		TextView iteration = (TextView) tableRow
 				.findViewById(R.id.textViewIterationRowIncrementalSearch);
-		iteration.setText("Iteration");
+		iteration.setText(activity.getString(R.string.title_table_iteration));
 
 		TextView x0 = (TextView) tableRow
 				.findViewById(R.id.textViewX0RowIncrementalSearch);
-		x0.setText("X0");
+		x0.setText(activity.getString(R.string.title_table_x0));
 
 		TextView x1 = (TextView) tableRow
 				.findViewById(R.id.textViewX1RowIncrementalSearch);
-		x1.setText("X1");
+		x1.setText(activity.getString(R.string.title_table_x1));
 
 		TextView y0 = (TextView) tableRow
 				.findViewById(R.id.textViewY0RowIncrementalSearch);
-		y0.setText("Y0");
+		y0.setText(activity.getString(R.string.title_table_y0));
 
 		TextView y1 = (TextView) tableRow
 				.findViewById(R.id.textViewY1RowIncrementalSearch);
-		y1.setText("Y1");
+		y1.setText(activity.getString(R.string.title_table_y1));
 		return tableRow;
 	}
 

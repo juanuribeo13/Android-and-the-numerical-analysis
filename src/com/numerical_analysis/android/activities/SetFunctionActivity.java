@@ -14,6 +14,12 @@ public class SetFunctionActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_set_function);
+
+		String function = (String) getIntent().getSerializableExtra("function");
+		if (function != null) {
+			EditText textFunction = (EditText) findViewById(R.id.editTextFunctionActivitySetFunction);
+			textFunction.setText(function);
+		}
 	}
 
 	@Override
@@ -30,7 +36,7 @@ public class SetFunctionActivity extends Activity {
 	 */
 	public void onSetButtonClick(View view) {
 		EditText function = (EditText) findViewById(R.id.editTextFunctionActivitySetFunction);
-		
+
 		Intent returnIntent = new Intent();
 		returnIntent.putExtra("Function", function.getText().toString());
 		setResult(RESULT_OK, returnIntent);

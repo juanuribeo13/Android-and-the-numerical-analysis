@@ -33,7 +33,7 @@
         android:layout_marginTop="2dp"
         android:ems="5"
         android:hint="@string/hint_edit_text_delta"
-        android:inputType="numberDecimal|numberSigned" />
+        android:inputType="numberDecimal" />
 
     <EditText
         android:id="@+id/editTextIterationsActivityIncrementalSearch"
@@ -42,7 +42,7 @@
         android:layout_below="@id/editTextDeltaActivityIncrementalSearch"
         android:ems="5"
         android:hint="@string/hint_edit_text_iterations"
-        android:inputType="numberDecimal|numberSigned" />
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/textViewIntervalActivityIncrementalSearch"

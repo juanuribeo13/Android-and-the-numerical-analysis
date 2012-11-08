@@ -307,12 +307,20 @@ public class OneVariableEquations implements Serializable {
 	public double[] newton(double x0, int iterations, double tolerance,
 			String derivative) throws RootFoundException,
 			MultipleRootFoundException, RootNotFoundException {
+		executionTable = new ArrayList<Double[]>();
 		double root[] = new double[2];
 		double y0 = evaluateFunction(function, x0);
 		double dy = evaluateFunction(derivative, x0);
 		int counter = 0;
 		double error = tolerance + 1;
 		Double x1 = null;
+		Double row[] = new Double[5];
+		row[0] = (double) counter;
+		row[1] = x0;
+		row[2] = y0;
+		row[3] = dy;
+		row[4] = error;
+		executionTable.add(row);
 		while (y0 != 0 && dy != 0 && error > tolerance && counter < iterations) {
 			x1 = x0 - (y0 / dy);
 			y0 = evaluateFunction(function, x1);
@@ -320,6 +328,13 @@ public class OneVariableEquations implements Serializable {
 			error = Math.abs(x1 - x0);
 			x0 = x1;
 			counter++;
+			row = new Double[5];
+			row[0] = (double) counter;
+			row[1] = x0;
+			row[2] = y0;
+			row[3] = dy;
+			row[4] = error;
+			executionTable.add(row);
 		}
 		if (y0 == 0) {
 			throw new RootFoundException(x0 + " is root");
@@ -358,6 +373,7 @@ public class OneVariableEquations implements Serializable {
 	public double[] secant(double x0, double x1, int iterations,
 			double tolerance) throws RootFoundException,
 			MultipleRootFoundException, RootNotFoundException {
+		executionTable = new ArrayList<Double[]>();
 		double root[] = new double[2];
 		double y0 = evaluateFunction(function, x0);
 		if (y0 == 0) {
@@ -367,6 +383,12 @@ public class OneVariableEquations implements Serializable {
 			int counter = 0;
 			double error = tolerance + 1;
 			double denominator = y1 - y0;
+			Double row[] = new Double[4];
+			row[0] = (double) counter;
+			row[1] = x0;
+			row[2] = y0;
+			row[3] = error;
+			executionTable.add(row);
 			while (y1 != 0 && denominator != 0 && error > tolerance
 					&& counter < iterations) {
 				double x2 = x1 - y1 * (x1 - x0) / denominator;
@@ -377,6 +399,12 @@ public class OneVariableEquations implements Serializable {
 				y1 = evaluateFunction(function, x1);
 				denominator = y1 - y0;
 				counter++;
+				row = new Double[4];
+				row[0] = (double) counter;
+				row[1] = x0;
+				row[2] = y0;
+				row[3] = error;
+				executionTable.add(row);
 			}
 			if (y1 == 0) {
 				throw new RootFoundException(x0 + " is root");

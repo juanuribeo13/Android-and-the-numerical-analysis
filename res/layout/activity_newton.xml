@@ -14,61 +14,71 @@
 
     <EditText
         android:id="@+id/editTextX0ActivityNewton"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_below="@id/textViewFunctionActivityNewton"
         android:layout_marginTop="2dp"
         android:hint="@string/hint_edit_text_x0"
-        android:inputType="numberDecimal" >
+        android:inputType="numberDecimal|numberSigned" >
 
         <requestFocus />
     </EditText>
 
     <EditText
         android:id="@+id/editTextIterationsActivityNewton"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/editTextX0ActivityNewton"
-        android:layout_toRightOf="@id/editTextX0ActivityNewton"
+        android:layout_below="@id/editTextX0ActivityNewton"
         android:hint="@string/hint_edit_text_iterations"
-        android:inputType="numberDecimal" />
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextToleranceActivityNewton"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/editTextX0ActivityNewton"
-        android:layout_toRightOf="@id/editTextIterationsActivityNewton"
+        android:layout_below="@id/editTextIterationsActivityNewton"
         android:hint="@string/hint_edit_text_tolerance"
         android:inputType="numberDecimal" />
-    
+
     <EditText
         android:id="@+id/editTextDFActivityNewton"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/editTextX0ActivityNewton"
-        android:layout_toRightOf="@id/editTextToleranceActivityNewton"
-        android:hint="@string/hint_edit_text_df"
-        android:inputType="numberDecimal" />
+        android:layout_below="@id/editTextToleranceActivityNewton"
+        android:hint="@string/hint_edit_text_df" />
 
     <TextView
         android:id="@+id/textViewRootActivityNewton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextX0ActivityNewton"
+        android:layout_below="@id/editTextDFActivityNewton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="2dp"
-        android:maxLines="2"
         android:textSize="20dp" />
 
-    <Button
-        android:id="@+id/buttonCalculateActivityNewton"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="93dp"
-        android:onClick="onCalculateButtonClick"
-        android:text="@string/button_calculate" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp" >
+
+        <Button
+            android:id="@+id/buttonCalculateActivityNewton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCalculateButtonClick"
+            android:text="@string/button_calculate" />
+
+        <Button
+            android:id="@+id/buttonExecutionTableActivityNewton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/buttonCalculateActivityNewton"
+            android:onClick="showExecutionTable"
+            android:text="@string/button_execution_table"
+            android:visibility="invisible" />
+    </RelativeLayout>
 
 </RelativeLayout>
