@@ -1,6 +1,7 @@
 package com.numerical_analysis.android.activities.one_variable_equations;
 
 import com.numerical_analysis.android.R;
+import com.numerical_analysis.android.activities.PlotterActivity;
 import com.numerical_analysis.android.activities.SetFunctionActivity;
 import com.numerical_analysis.android.methods.OneVariableEquations;
 
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -95,5 +97,25 @@ public class OneVariableEquationsActivity extends ListActivity {
 						.getStringExtra("Function"));
 			}
 		}
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(final MenuItem item) {
+
+		// Handle item selection
+		switch (item.getItemId()) {
+
+		case R.id.menu_plot:
+			Intent intent = new Intent(this, PlotterActivity.class);
+			intent.putExtra("oneVariableEquations", oneVariableEquations);
+			startActivity(intent);
+			return true;
+
+		case R.id.menu_settings:
+
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
 	}
 }

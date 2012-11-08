@@ -42,5 +42,7 @@
     <string name="title_table_error">Error</string>
     <string name="title_table_dy0">F\'(X0)</string>
     <string name="title_activity_multiple_roots">MultipleRootsActivity</string>
+    <string name="title_activity_plotter">PlotterActivity</string>
+    <string name="menu_plot">Plot</string>
 
 </resources>
