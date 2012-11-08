@@ -43,7 +43,6 @@ public class OneVariableEquationsActivity extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 
 		String action = ((TextView) v).getText().toString();
-		oneVariableEquations.setFunction("(x*exp(x))-x^2-(5*x)-3");
 
 		if (action.equals("Set function")) {
 			Intent intent = new Intent(this, SetFunctionActivity.class);

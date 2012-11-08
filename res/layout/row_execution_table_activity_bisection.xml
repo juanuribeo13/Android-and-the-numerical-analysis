@@ -6,30 +6,35 @@
     <TextView
         android:id="@+id/textViewX0RowBisection"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/title_table_x0" />
 
     <TextView
         android:id="@+id/textViewX1RowBisection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:text="@string/title_table_x1" />
 
     <TextView
         android:id="@+id/textViewXMRowBisection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:text="@string/title_table_xm" />
 
     <TextView
         android:id="@+id/textViewYMRowBisection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:text="@string/title_table_ym" />
 
     <TextView
         android:id="@+id/textViewErrorRowBisection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:text="@string/title_table_error" />
 
 </TableRow>

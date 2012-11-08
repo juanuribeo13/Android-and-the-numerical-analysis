@@ -20,27 +20,6 @@ public class BisectionExecutionTableAdapter implements ExecutionTableAdapter {
 	public TableRow getTitle(Activity activity) {
 		TableRow tableRow = (TableRow) activity.getLayoutInflater().inflate(
 				R.layout.row_execution_table_activity_bisection, null);
-
-		TextView x0 = (TextView) tableRow
-				.findViewById(R.id.textViewX0RowBisection);
-		x0.setText(activity.getString(R.string.title_table_x0));
-
-		TextView x1 = (TextView) tableRow
-				.findViewById(R.id.textViewX1RowBisection);
-		x1.setText(activity.getString(R.string.title_table_x1));
-
-		TextView xm = (TextView) tableRow
-				.findViewById(R.id.textViewXMRowBisection);
-		xm.setText(activity.getString(R.string.title_table_xm));
-
-		TextView ym = (TextView) tableRow
-				.findViewById(R.id.textViewYMRowBisection);
-		ym.setText(activity.getString(R.string.title_table_ym));
-
-		TextView error = (TextView) tableRow
-				.findViewById(R.id.textViewErrorRowBisection);
-		error.setText(activity.getString(R.string.title_table_error));
-
 		return tableRow;
 	}
 

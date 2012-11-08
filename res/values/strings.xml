@@ -22,6 +22,7 @@
     <string name="hint_edit_text_tolerance">Tolerance</string>
     <string name="hint_edit_text_g">G(x)</string>
     <string name="hint_edit_text_df">F\'(X0)</string>
+    <string name="hint_edit_text_ddf">F\'\'(X0)</string>
     <string name="title_activity_one_variable_equations">One Variable Equations</string>
     <string name="title_activity_set_function">Set Function</string>
     <string name="title_activity_incremental_search">Incremental Search</string>
@@ -32,6 +33,7 @@
     <string name="title_activity_secant">Secant</string>
     <string name="title_activity_error_theory">ErrorTheoryActivity</string>
     <string name="title_activity_execution_table">Execution Table</string>
+    <string name="title_activity_multiple_roots">Multiple Roots</string>
     <string name="title_table_iteration">Iteration</string>
     <string name="title_table_x0">X0</string>
     <string name="title_table_x1">X1</string>
@@ -41,6 +43,6 @@
     <string name="title_table_ym">F(XM)</string>
     <string name="title_table_error">Error</string>
     <string name="title_table_dy0">F\'(X0)</string>
-    <string name="title_activity_multiple_roots">MultipleRootsActivity</string>
+    <string name="title_table_ddy0">F\'\'(X0)</string>
 
 </resources>

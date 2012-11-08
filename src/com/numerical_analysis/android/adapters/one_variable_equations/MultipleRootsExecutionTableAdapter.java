@@ -10,7 +10,8 @@ import android.widget.TextView;
 import com.numerical_analysis.android.R;
 import com.numerical_analysis.android.adapters.ExecutionTableAdapter;
 
-public class NewtonExecutionTableAdapter implements ExecutionTableAdapter {
+public class MultipleRootsExecutionTableAdapter implements
+		ExecutionTableAdapter {
 
 	/**
 	 * 
@@ -19,7 +20,7 @@ public class NewtonExecutionTableAdapter implements ExecutionTableAdapter {
 
 	public TableRow getTitle(Activity activity) {
 		TableRow tableRow = (TableRow) activity.getLayoutInflater().inflate(
-				R.layout.row_execution_table_activity_newton, null);
+				R.layout.row_execution_table_activity_multiple_roots, null);
 		return tableRow;
 	}
 
@@ -27,27 +28,31 @@ public class NewtonExecutionTableAdapter implements ExecutionTableAdapter {
 		NumberFormat formatter = new DecimalFormat("0.##E0");
 
 		TableRow tableRow = (TableRow) activity.getLayoutInflater().inflate(
-				R.layout.row_execution_table_activity_newton, null);
+				R.layout.row_execution_table_activity_multiple_roots, null);
 
 		TextView iteration = (TextView) tableRow
-				.findViewById(R.id.textViewIterationRowNewton);
+				.findViewById(R.id.textViewIterationRowMultipleRoots);
 		iteration.setText(String.valueOf(row[0].intValue()));
 
 		TextView x0 = (TextView) tableRow
-				.findViewById(R.id.textViewX0RowNewton);
+				.findViewById(R.id.textViewX0RowMultipleRoots);
 		x0.setText(row[1].toString());
 
 		TextView y0 = (TextView) tableRow
-				.findViewById(R.id.textViewY0RowNewton);
+				.findViewById(R.id.textViewY0RowMultipleRoots);
 		y0.setText(row[2].toString());
 
 		TextView dy0 = (TextView) tableRow
-				.findViewById(R.id.textViewDY0RowNewton);
+				.findViewById(R.id.textViewDY0RowMultipleRoots);
 		dy0.setText(row[3].toString());
 
+		TextView ddy0 = (TextView) tableRow
+				.findViewById(R.id.textViewDDY0RowMultipleRoots);
+		ddy0.setText(row[4].toString());
+
 		TextView error = (TextView) tableRow
-				.findViewById(R.id.textViewErrorRowNewton);
-		error.setText(formatter.format(row[4]));
+				.findViewById(R.id.textViewErrorRowMultipleRoots);
+		error.setText(formatter.format(row[5]));
 
 		return tableRow;
 	}

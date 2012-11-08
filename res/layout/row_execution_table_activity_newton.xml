@@ -6,30 +6,35 @@
     <TextView
         android:id="@+id/textViewIterationRowNewton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/title_table_iteration" />
 
     <TextView
         android:id="@+id/textViewX0RowNewton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:text="@string/title_table_x0" />
 
     <TextView
         android:id="@+id/textViewY0RowNewton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:text="@string/title_table_y0" />
 
     <TextView
         android:id="@+id/textViewDY0RowNewton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:text="@string/title_table_dy0" />
 
     <TextView
         android:id="@+id/textViewErrorRowNewton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:text="@string/title_table_error" />
 
 </TableRow>

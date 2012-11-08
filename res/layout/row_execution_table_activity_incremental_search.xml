@@ -6,30 +6,35 @@
     <TextView
         android:id="@+id/textViewIterationRowIncrementalSearch"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/title_table_iteration" />
 
     <TextView
         android:id="@+id/textViewX0RowIncrementalSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:text="@string/title_table_x0" />
 
     <TextView
         android:id="@+id/textViewX1RowIncrementalSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:text="@string/title_table_x1" />
 
     <TextView
         android:id="@+id/textViewY0RowIncrementalSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:text="@string/title_table_y0" />
 
     <TextView
         android:id="@+id/textViewY1RowIncrementalSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:text="@string/title_table_y1" />
 
 </TableRow>
