@@ -31,6 +31,7 @@ public class InputMatrixActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_input_matrix);
 		inputMatrixActivity = this;
+		matrix = (Matrix) getIntent().getSerializableExtra("Matrix");
 		matrix = new Matrix(matrixSize, matrixSize);
 		a = matrix.getMatrix();
 		gridViewMatrix = (GridView) findViewById(R.id.gridViewActivityInputMatrix);
@@ -52,7 +53,7 @@ public class InputMatrixActivity extends Activity {
 				TextView textView;
 				if (convertView == null) {
 					textView = new TextView(inputMatrixActivity);
-					textView.setLayoutParams(new GridView.LayoutParams(40, 40));
+					textView.setLayoutParams(new GridView.LayoutParams(90, 40));
 				} else {
 					textView = (TextView) convertView;
 				}
@@ -69,8 +70,9 @@ public class InputMatrixActivity extends Activity {
 	}
 
 	public void onFinishButtonClick(View view) {
+		matrix.setMatrix(a);
 		Intent returnIntent = new Intent();
-		// returnIntent.putExtra("Matrix", ???getMatrix???);
+		returnIntent.putExtra("Matrix", matrix);
 		setResult(RESULT_OK, returnIntent);
 		finish();
 	}

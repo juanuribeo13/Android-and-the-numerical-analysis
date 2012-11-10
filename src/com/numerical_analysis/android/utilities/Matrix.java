@@ -1,7 +1,13 @@
 package com.numerical_analysis.android.utilities;
 
-public class Matrix {
+import java.io.Serializable;
 
+public class Matrix implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private double[][] matrix;
 	private int rows;
 	private int columns;
