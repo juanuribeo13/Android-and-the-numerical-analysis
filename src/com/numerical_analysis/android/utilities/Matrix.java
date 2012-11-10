@@ -3,28 +3,49 @@ package com.numerical_analysis.android.utilities;
 public class Matrix {
 
 	private double[][] matrix;
-
-	private int m;
-	private int n;
+	private int rows;
+	private int columns;
+	private int[] marks;
 
 	/**
 	 * 
-	 * @param m
+	 * @param rows
 	 *            The number of rows in the matrix
-	 * @param n
+	 * @param columns
 	 *            The number of columns in the matrix
 	 */
-	public Matrix(int m, int n) {
-		this.m = m;
-		this.n = n;
-		matrix = new double[m][n];
+	public Matrix(int rows, int columns) {
+		this.rows = rows;
+		this.columns = columns;
+		matrix = new double[rows][columns];
 
 		// Initialize the matrix to zeros
-		for (int i = 0; i < m; i++) {
-			for (int j = 0; j < n; j++)
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < columns; j++)
 				matrix[i][j] = 0;
 		}
 
+		// Initialize the marks
+		marks = new int[columns];
+		for (int i = 0; i < columns; i++)
+			marks[i] = i + 1;
+	}
+
+	public Matrix(int size) {
+		this.rows = size;
+		this.columns = size;
+		matrix = new double[rows][columns];
+
+		// Initialize the matrix to zeros
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < columns; j++)
+				matrix[i][j] = 0;
+		}
+
+		// Initialize the marks
+		marks = new int[columns];
+		for (int i = 0; i < columns; i++)
+			marks[i] = i + 1;
 	}
 
 	/**
@@ -34,12 +55,36 @@ public class Matrix {
 	 */
 	public Matrix(double[][] matrix) {
 		this.matrix = matrix;
-		this.m = matrix.length;
-		this.n = matrix[0].length;
+		this.rows = matrix.length;
+		this.columns = matrix[0].length;
+
+		// Initialize the marks
+		marks = new int[columns];
+		for (int i = 0; i < columns; i++)
+			marks[i] = i + 1;
+	}
+
+	public Matrix(double[][] matrix, int[] marks) {
+		this.matrix = matrix;
+		this.rows = matrix.length;
+		this.columns = matrix[0].length;
+		this.marks = marks;
+	}
+
+	public double[] getAsLinearArray() {
+		double[] temp = new double[rows * columns];
+		int i = 0;
+		for (int k = 0; k < rows; k++) {
+			for (int l = 0; l < columns; l++) {
+				temp[i] = matrix[k][l];
+				i++;
+			}
+		}
+		return temp;
 	}
 
 	public Matrix createAugmentedMatrix(Matrix matrixA, double[] b) {
-		int n = matrixA.getN();
+		int n = matrixA.getColumns();
 		int n1 = n + 1;
 		double[][] a = matrixA.getMatrix();
 		double[][] ab = new double[n][n1];
@@ -61,22 +106,44 @@ public class Matrix {
 		matrix[row2] = temp;
 	}
 
+	public void swapColumns(int column1, int column2) {
+		for (int row = 0; row < rows; row++) {
+			double temp = matrix[row][column1];
+			matrix[row][column1] = matrix[row][column2];
+			matrix[row][column2] = temp;
+		}
+	}
+
+	public void swapMarks(int a, int b) {
+		int temp = marks[a];
+		marks[a] = marks[b];
+		marks[b] = temp;
+	}
+
 	public double[][] getMatrix() {
 		return matrix;
 	}
 
 	public void setMatrix(double[][] matrix) {
 		this.matrix = matrix;
-		this.m = matrix.length;
-		this.n = matrix[0].length;
+		this.rows = matrix.length;
+		this.columns = matrix[0].length;
 	}
 
-	public int getM() {
-		return m;
+	public int getRows() {
+		return rows;
 	}
 
-	public int getN() {
-		return n;
+	public int getColumns() {
+		return columns;
+	}
+
+	public int[] getMarks() {
+		return marks;
+	}
+
+	public void setMarks(int[] marks) {
+		this.marks = marks;
 	}
 
 	// Only for testing
@@ -87,12 +154,18 @@ public class Matrix {
 		double[] b = { 5, 6 };
 		matrix = matrix.createAugmentedMatrix(matrix, b);
 		matrix.swapRows(0, 1);
+		matrix.swapColumns(0, 1);
 		m = matrix.getMatrix();
 		for (int i = 0; i < m.length; i++) {
 			for (int j = 0; j < m[i].length; j++) {
 				System.out.print(m[i][j] + " ");
 			}
 			System.out.println("\n");
+		}
+		System.out.println("\n\n");
+		double[] x = matrix.getAsLinearArray();
+		for (double d : x) {
+			System.out.println(d + " ");
 		}
 
 	}

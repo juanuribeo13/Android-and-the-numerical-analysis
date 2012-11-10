@@ -4,6 +4,7 @@
     <string-array name="topics">
         <item>Error Theory</item>
         <item>One Variable Equation</item>
+        <item>Systems of Equations</item>
     </string-array>
     <string-array name="errorTheoryList"></string-array>
     <string-array name="oneVariableEquationList">
@@ -16,5 +17,11 @@
         <item>Secant</item>
         <item>Multiple Roots</item>
     </string-array>
-
+	<string-array name="systemsOfEquationsList">
+        <item>Direct Methods</item>
+    </string-array>
+    <string-array name="directMethodsList">
+        <item>Input Matrix</item>
+        <item>Simple Gaussian Elimination</item>
+    </string-array>
 </resources>

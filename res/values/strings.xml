@@ -8,12 +8,17 @@
     <string name="image_activity_topic_list">Image Android Teacher</string>
     <string name="instruction_activity_topic_list">Touch to start</string>
     <string name="button_set_activity_set_function">Set</string>
+    <string name="button_set_activity_input_matrix">Set</string>
     <string name="button_simple">Simple</string>
     <string name="button_double">Double</string>
     <string name="button_execution_table">Execution Table</string>
     <string name="button_calculate">Calculate</string>
+    <string name="button_finish_activity_input_matrix">Finish</string>
+    <string name="button_next_activity_input_matrix">Next</string>
     <string name="text_view_smallest_positive_number">Smallest Positive Number</string>
     <string name="text_view_machine_epsilon">Machine Epsilon</string>
+    <string name="text_view_current_matrix_field_activity_input_matrix">Please enter A11</string>
+    <string name="text_view_matrix_size_activity_input_matrix">Please enter n</string>
     <string name="hint_edit_text_function_activity_set_fuction">Insert the function</string>
     <string name="hint_text_view_result">Result</string>
     <string name="hint_edit_text_x0">X0</string>
@@ -24,6 +29,8 @@
     <string name="hint_edit_text_g">G(x)</string>
     <string name="hint_edit_text_df">F\'(X0)</string>
     <string name="hint_edit_text_ddf">F\'\'(X0)</string>
+    <string name="hint_edit_text_matrix_field_activity_input_matrix">A[i][j]</string>
+    <string name="hint_edit_text_matrix_size_activity_input_matrix">Matrix size -> "n"</string>
     <string name="title_activity_one_variable_equations">One Variable Equations</string>
     <string name="title_activity_set_function">Set Function</string>
     <string name="title_activity_incremental_search">Incremental Search</string>
@@ -46,5 +53,10 @@
     <string name="title_table_error">Error</string>
     <string name="title_table_dy0">F\'(X0)</string>
     <string name="title_table_ddy0">F\'\'(X0)</string>
+    <string name="title_activity_direct_methods">DirectMethodsActivity</string>
+    <string name="title_activity_iterative_methods">IterativeMethodsActivity</string>
+    <string name="title_activity_systems_of_equations">SystemsOfEquationsActivity</string>
+    <string name="title_activity_input_matrix">InputMatrixActivity</string>
+    <string name="title_activity_simple_gaussian_elimination">SimpleGaussianEliminationActivity</string>
 
 </resources>

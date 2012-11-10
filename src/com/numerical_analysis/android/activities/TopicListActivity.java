@@ -2,6 +2,7 @@ package com.numerical_analysis.android.activities;
 
 import com.numerical_analysis.android.R;
 import com.numerical_analysis.android.activities.one_variable_equations.OneVariableEquationsActivity;
+import com.numerical_analysis.android.activities.systems_of_equations.SystemsOfEquationsActivity;
 
 import android.os.Bundle;
 import android.app.ListActivity;
@@ -39,6 +40,9 @@ public class TopicListActivity extends ListActivity {
 			startActivity(intent);
 		} else if (topic.equals("Error Theory")) {
 			Intent intent = new Intent(this, ErrorTheoryActivity.class);
+			startActivity(intent);
+		}else if (topic.equals("Systems of Equations")) {
+			Intent intent = new Intent(this, SystemsOfEquationsActivity.class);
 			startActivity(intent);
 		}
 	}

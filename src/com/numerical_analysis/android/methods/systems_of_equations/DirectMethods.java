@@ -16,7 +16,7 @@ public class DirectMethods implements Serializable {
 	}
 
 	public Matrix simpleGaussianElimination(Matrix matrixA, double[] b) {
-		int n = matrixA.getN();
+		int n = matrixA.getColumns();
 		Matrix matrixAb = matrixA.createAugmentedMatrix(matrixA, b);
 		double[][] ab = matrixA.getMatrix();
 		for (int k = 0; k < n - 1; k++) {
@@ -43,7 +43,6 @@ public class DirectMethods implements Serializable {
 				highestRow = s;
 			}
 		}
-		matrixAb.setMatrix(ab);
 		if (higher == 0) {
 			throw new NoUniqueSolutionException(
 					"The system has no unique solution");
@@ -53,4 +52,35 @@ public class DirectMethods implements Serializable {
 		return matrixAb;
 	}
 
+	public Matrix totalPivoting(Matrix matrixAb, int k)
+			throws NoUniqueSolutionException {
+		double[][] ab = matrixAb.getMatrix();
+		int n = ab.length;
+		double higher = 0;
+		int highestRow = k;
+		int highestColumn = k;
+		for (int r = k; r < n; r++) {
+			for (int s = k; s < n; s++) {
+				if (Math.abs(ab[r][s]) > higher) {
+					higher = ab[r][s];
+					highestRow = r;
+					highestColumn = s;
+				}
+			}
+		}
+		if (higher == 0) {
+			throw new NoUniqueSolutionException(
+					"The system has no unique solution");
+		} else {
+
+			if (highestRow != k)
+				matrixAb.swapRows(highestRow, k);
+			if (highestColumn != k) {
+				matrixAb.swapColumns(highestColumn, k);
+				matrixAb.swapMarks(highestColumn, k);
+			}
+		}
+
+		return matrixAb;
+	}
 }
