@@ -4,6 +4,57 @@
     android:layout_height="match_parent"
     android:scrollbarAlwaysDrawVerticalTrack="false" >
 
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollViewInputVectorActivityInputMatrix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <LinearLayout
+            android:id="@+id/linearLayoutInputVectorActivityInputMatrix"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal" >
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textViewInputVectorActivityInputMatrix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/horizontalScrollViewInputVectorActivityInputMatrix"
+        android:layout_marginRight="42dp"
+        android:layout_toLeftOf="@+id/horizontalScrollViewInputVectorActivityInputMatrix"
+        android:text="@string/text_view_input_vector_activity_input_matrix" />
+
+    <EditText
+        android:id="@+id/editTextMatrixFieldActivityInputMatrix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewCurrentMatrixFieldActivityInputMatrix"
+        android:layout_below="@+id/textViewCurrentMatrixFieldActivityInputMatrix"
+        android:ems="10"
+        android:hint="@string/hint_edit_text_matrix_field_activity_input_matrix"
+        android:inputType="numberDecimal|numberSigned" />
+
+    <GridView
+        android:id="@+id/gridViewActivityInputMatrix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/textViewInputVectorActivityInputMatrix"
+        android:layout_below="@id/editTextMatrixFieldActivityInputMatrix"
+        android:columnWidth="90dp"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="3"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbars="horizontal|vertical"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp"
+        android:visibility="visible" >
+    </GridView>
+
     <EditText
         android:id="@+id/editTextMatrixSizeActivityInputMatrix"
         android:layout_width="wrap_content"
@@ -34,24 +85,14 @@
         android:layout_marginTop="17dp"
         android:text="@string/text_view_current_matrix_field_activity_input_matrix" />
 
-    <EditText
-        android:id="@+id/editTextMatrixFieldActivityInputMatrix"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textViewCurrentMatrixFieldActivityInputMatrix"
-        android:layout_below="@+id/textViewCurrentMatrixFieldActivityInputMatrix"
-        android:ems="10"
-        android:hint="@string/hint_edit_text_matrix_field_activity_input_matrix"
-        android:inputType="numberDecimal|numberSigned" />
-
     <Button
         android:id="@+id/buttonNextActivityInputMatrix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/buttonSetActivityInputMatrix"
         android:layout_below="@+id/textViewCurrentMatrixFieldActivityInputMatrix"
-        android:onClick="onNextButtonClick"
         android:enabled="false"
+        android:onClick="onNextButtonClick"
         android:text="@string/button_next_activity_input_matrix" />
 
     <TextView
@@ -66,27 +107,11 @@
         android:id="@+id/buttonFinishActivityInputMatrix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonNextActivityInputMatrix"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="onFinishButtonClick"
+        android:layout_below="@id/gridViewActivityInputMatrix"
         android:enabled="false"
+        android:onClick="onFinishButtonClick"
         android:text="@string/button_finish_activity_input_matrix" />
-
-    <GridView
-        android:id="@+id/gridViewActivityInputMatrix"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/buttonFinishActivityInputMatrix"
-        android:layout_below="@id/editTextMatrixFieldActivityInputMatrix"
-        android:numColumns="3"
-        android:verticalSpacing="10dp"
-    	android:horizontalSpacing="10dp"
-    	android:stretchMode="columnWidth"
-    	android:columnWidth="90dp"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
-        android:scrollbars="horizontal|vertical"
-        android:gravity="center"
-        android:visibility="visible" >
-    </GridView>
 
 </RelativeLayout>

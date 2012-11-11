@@ -2,7 +2,7 @@ package com.numerical_analysis.android.utilities;
 
 import java.io.Serializable;
 
-public class Matrix implements Serializable{
+public class Matrix implements Serializable {
 
 	/**
 	 * 
@@ -12,6 +12,15 @@ public class Matrix implements Serializable{
 	private int rows;
 	private int columns;
 	private int[] marks;
+	private double[] b;
+
+	public double[] getB() {
+		return b;
+	}
+
+	public void setB(double[] b) {
+		this.b = b;
+	}
 
 	/**
 	 * 

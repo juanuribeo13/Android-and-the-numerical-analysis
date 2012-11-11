@@ -1,22 +1,36 @@
 package com.numerical_analysis.android.activities.systems_of_equations;
 
 import com.numerical_analysis.android.R;
+import com.numerical_analysis.android.methods.systems_of_equations.DirectMethods;
+import com.numerical_analysis.android.utilities.Matrix;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class SimpleGaussianEliminationActivity extends Activity {
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_simple_gaussian_elimination);
-    }
+	private DirectMethods directMethods;
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_simple_gaussian_elimination, menu);
-        return true;
-    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_simple_gaussian_elimination);
+		directMethods = (DirectMethods) getIntent().getSerializableExtra(
+				"directMethods");
+		Matrix matrix = (Matrix) getIntent().getSerializableExtra("Matrix");
+		LinearLayout linearLayoutResult = (LinearLayout) findViewById(R.id.linearLayoutResultActivitySimpleGaussianElimination);
+		TextView textView=new TextView(this);
+		textView.setText("asdasd");
+		linearLayoutResult.addView(textView);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.activity_simple_gaussian_elimination,
+				menu);
+		return true;
+	}
 }

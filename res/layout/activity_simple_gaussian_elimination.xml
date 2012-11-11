@@ -1,14 +1,25 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
     <TextView
+        android:id="@+id/textViewResultActivitySimpleGaussianElimination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world"
-        tools:context=".SimpleGaussianEliminationActivity" />
+        android:text="@string/text_view_result_activity_simple_gaussian_elimination" />
 
-</RelativeLayout>
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollViewResultActivitySimpleGaussianElimination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/linearLayoutResultActivitySimpleGaussianElimination"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </HorizontalScrollView>
+    
+</LinearLayout>
