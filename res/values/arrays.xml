@@ -19,9 +19,13 @@
     </string-array>
 	<string-array name="systemsOfEquationsList">
         <item>Direct Methods</item>
+        <item>Iterative Methods</item>
     </string-array>
     <string-array name="directMethodsList">
         <item>Input Matrix</item>
         <item>Simple Gaussian Elimination</item>
+    </string-array>
+    <string-array name="iterativeMethodsList">
+        <item>Jacobi</item>
     </string-array>
 </resources>

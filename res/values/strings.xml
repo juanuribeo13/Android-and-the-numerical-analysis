@@ -54,9 +54,9 @@
     <string name="title_table_dy0">F\'(X0)</string>
     <string name="title_table_ddy0">F\'\'(X0)</string>
     <string name="title_activity_direct_methods">DirectMethodsActivity</string>
-    <string name="title_activity_iterative_methods">IterativeMethodsActivity</string>
     <string name="title_activity_systems_of_equations">SystemsOfEquationsActivity</string>
     <string name="title_activity_input_matrix">InputMatrixActivity</string>
     <string name="title_activity_simple_gaussian_elimination">SimpleGaussianEliminationActivity</string>
+    <string name="title_activity_iterative_methods">Iterative Methods</string>
 
 </resources>

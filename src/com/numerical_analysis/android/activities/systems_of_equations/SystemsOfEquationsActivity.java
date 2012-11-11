@@ -38,6 +38,9 @@ public class SystemsOfEquationsActivity extends ListActivity {
 		if (action.equals("Direct Methods")) {
 			Intent intent = new Intent(this, DirectMethodsActivity.class);
 			startActivity(intent);
+		} else if (action.equals("Iterative Methods")) {
+			Intent intent = new Intent(this, IterativeMethodsActivity.class);
+			startActivity(intent);
 		}
 	}
 }

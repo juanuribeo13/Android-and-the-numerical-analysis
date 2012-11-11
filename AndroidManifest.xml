@@ -81,56 +81,26 @@
         <activity
             android:name=".activities.PlotterActivity"
             android:label="@string/title_activity_plotter" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.systems_of_equations.DirectMethodsActivity"
             android:label="@string/title_activity_direct_methods" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activities.systems_of_equations.IterativeMethodsActivity"
-            android:label="@string/title_activity_iterative_methods" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.systems_of_equations.SystemsOfEquationsActivity"
             android:label="@string/title_activity_systems_of_equations" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.InputMatrixActivity"
             android:label="@string/title_activity_input_matrix" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.systems_of_equations.SimpleGaussianEliminationActivity"
             android:label="@string/title_activity_simple_gaussian_elimination" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.systems_of_equations.IterativeMethodsActivity"
+            android:label="@string/title_activity_iterative_methods" >
         </activity>
     </application>
 
