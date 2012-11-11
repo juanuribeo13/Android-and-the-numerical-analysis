@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textViewWarningActivityJacobi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:drawableTop="@drawable/warning"
+        android:gravity="center_horizontal"
+        android:text="@string/text_view_warning_iterative_methods"
+        android:textSize="20dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textViewValueToEnterActivityJacobi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:id="@+id/buttonPreviousActivityJacobi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewValueToEnterActivityJacobi"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:onClick="onPreviousButtonClick"
+        android:text="@string/button_previous" />
+
+    <EditText
+        android:id="@+id/editTextValueActivityJacobi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/buttonPreviousActivityJacobi"
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@id/buttonPreviousActivityJacobi"
+        android:ems="10"
+        android:inputType="numberDecimal|numberSigned" />
+
+    <Button
+        android:id="@+id/buttonNextActivityJacobi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextValueActivityJacobi"
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@+id/editTextValueActivityJacobi"
+        android:onClick="onNextButtonClick"
+        android:text="@string/button_next_activity_input_matrix" />
+
+</RelativeLayout>
