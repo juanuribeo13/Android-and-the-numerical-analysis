@@ -21,6 +21,14 @@ public class DirectMethodsActivity extends ListActivity {
 	private DirectMethods directMethods;
 	private Matrix matrix = null;
 
+	public Matrix getMatrix() {
+		return matrix;
+	}
+
+	public void setMatrix(Matrix matrix) {
+		this.matrix = matrix;
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,17 +53,32 @@ public class DirectMethodsActivity extends ListActivity {
 		String action = ((TextView) v).getText().toString();
 
 		if (action.equals("Input Matrix")) {
-			Intent intent = new Intent(this, InputMatrixActivity.class);
-			startActivityForResult(intent, INPUT_MATRIX);
+			Intent inputMatrix = new Intent(this, InputMatrixActivity.class);
+			if (matrix != null) {
+				inputMatrix.putExtra("Matrix", matrix);
+			}
+			startActivityForResult(inputMatrix, INPUT_MATRIX);
 		} else if (matrix == null) {
 			Toast.makeText(this,
-					"Please set the function before you use any method",
+					"Please enter the matrix before you use any method",
 					Toast.LENGTH_LONG).show();
 		} else if (action.equals("Simple Gaussian Elimination")) {
 			Intent intent = new Intent(this,
 					SimpleGaussianEliminationActivity.class);
+			intent.putExtra("Matrix", getMatrix());
 			intent.putExtra("directMethods", directMethods);
 			startActivity(intent);
+		}
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+
+		if (resultCode == RESULT_OK) {
+			if (requestCode == INPUT_MATRIX) {
+				setMatrix((Matrix) data.getSerializableExtra("Matrix"));
+			}
 		}
 	}
 

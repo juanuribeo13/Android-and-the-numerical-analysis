@@ -15,7 +15,7 @@ public class DirectMethods implements Serializable {
 	public DirectMethods() {
 	}
 
-	public Matrix simpleGaussianElimination(Matrix matrixA, double[] b) {
+	public double[] simpleGaussianElimination(Matrix matrixA, double[] b) {
 		int n = matrixA.getColumns();
 		Matrix matrixAb = matrixA.createAugmentedMatrix(matrixA, b);
 		double[][] ab = matrixA.getMatrix();
@@ -28,7 +28,23 @@ public class DirectMethods implements Serializable {
 			}
 		}
 		matrixAb.setMatrix(ab);
-		return matrixAb;
+		return regressiveSubstitution(matrixAb);
+	}
+
+	public double[] regressiveSubstitution(Matrix matrixAb) {
+		int n = matrixAb.getRows();
+		double[] x = new double[n];
+		double[][] ab = matrixAb.getMatrix();
+		x[n] = ab[n][n + 1] / ab[n][n];
+		double summation = 0;
+		for (int i = n - 1; i > 0; i--) {
+			summation = 0;
+			for (int p = i + 1; p < n; p++) {
+				summation += ab[i][p] * x[p];
+			}
+			x[i] = (ab[i][n + 1] - summation) / ab[i][i];
+		}
+		return x;
 	}
 
 	public Matrix partialPivoting(Matrix matrixAb, int k)

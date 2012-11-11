@@ -6,6 +6,7 @@ import com.numerical_analysis.android.utilities.Matrix;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,25 +14,34 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
 public class InputMatrixActivity extends Activity {
 
 	private Matrix matrix = null;
-	private int matrixSize = 3;
+	private int matrixSize = 1;
 	private double a[][];
+	private double b[];
 	private GridView gridViewMatrix;
 	private InputMatrixActivity inputMatrixActivity;
-	private int row = 0;
-	private int column = 0;
+	private int row;
+	private int column;
+	private EditText[] inputs;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_input_matrix);
 		inputMatrixActivity = this;
-		matrix = new Matrix(matrixSize, matrixSize);
+		column = 0;
+		row = 0;
+		matrix = (Matrix) getIntent().getSerializableExtra("Matrix");
+		if (matrix == null) {
+			matrix = new Matrix(matrixSize, matrixSize);
+		} else
+			matrixSize = matrix.getRows();
 		a = matrix.getMatrix();
 		gridViewMatrix = (GridView) findViewById(R.id.gridViewActivityInputMatrix);
 		gridViewMatrix.setAdapter(new BaseAdapter() {
@@ -52,14 +62,15 @@ public class InputMatrixActivity extends Activity {
 				TextView textView;
 				if (convertView == null) {
 					textView = new TextView(inputMatrixActivity);
-					textView.setLayoutParams(new GridView.LayoutParams(40, 40));
+					textView.setLayoutParams(new GridView.LayoutParams(90, 40));
 				} else {
 					textView = (TextView) convertView;
 				}
-				textView.setText((matrix.getAsLinearArray())[position] + "");
+				textView.setText(((matrix.getAsLinearArray())[position]) + "");
 				return textView;
 			}
 		});
+		gridViewMatrix.setNumColumns(matrixSize);
 	}
 
 	@Override
@@ -69,8 +80,14 @@ public class InputMatrixActivity extends Activity {
 	}
 
 	public void onFinishButtonClick(View view) {
+		b = new double[matrixSize];
+		for (int i = 0; i < inputs.length; i++) {
+			b[i] = Double.parseDouble(inputs[i].getText().toString());
+		}
+		matrix.setB(b);
+		matrix.setMatrix(a);
 		Intent returnIntent = new Intent();
-		// returnIntent.putExtra("Matrix", ???getMatrix???);
+		returnIntent.putExtra("Matrix", matrix);
 		setResult(RESULT_OK, returnIntent);
 		finish();
 	}
@@ -90,6 +107,15 @@ public class InputMatrixActivity extends Activity {
 					.setEnabled(false);
 			((Button) findViewById(R.id.buttonFinishActivityInputMatrix))
 					.setEnabled(true);
+			LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayoutInputVectorActivityInputMatrix);
+			inputs = new EditText[matrixSize];
+			for (int i = 0; i < matrixSize; i++) {
+				EditText editText = new EditText(this);
+				editText.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL
+						| InputType.TYPE_NUMBER_FLAG_SIGNED);
+				inputs[i] = editText;
+				layout.addView(inputs[i]);
+			}
 		}
 		currentField.setText("Please enter A" + (row + 1) + "" + (column + 1));
 		matrixField.setText("");
