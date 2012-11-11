@@ -23,7 +23,8 @@
     <string name="text_view_machine_epsilon">Machine Epsilon</string>
     <string name="text_view_current_matrix_field_activity_input_matrix">Please enter A11</string>
     <string name="text_view_matrix_size_activity_input_matrix">Please enter n</string>
-    <string name="text_view_result_activity_simple_gaussian_elimination">Result</string>
+    <string name="text_view_result_activity_simple_gaussian_elimination">Result: </string>
+    <string name="text_view_execution_activity_simple_gaussian_elimination">Execution: </string>
     <string name="text_view_input_vector_activity_input_matrix">Please enter b: </string>
     
     <string name="hint_edit_text_function_activity_set_fuction">Insert the function</string>

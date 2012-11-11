@@ -1,6 +1,7 @@
 package com.numerical_analysis.android.methods.systems_of_equations;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import com.numerical_analysis.android.exceptions.NoUniqueSolutionException;
 import com.numerical_analysis.android.utilities.Matrix;
@@ -11,8 +12,10 @@ public class DirectMethods implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private ArrayList<Matrix> execution;
 
 	public DirectMethods() {
+		execution = new ArrayList<Matrix>();
 	}
 
 	public double[] simpleGaussianElimination(Matrix matrixA, double[] b) {
@@ -23,12 +26,17 @@ public class DirectMethods implements Serializable {
 			for (int i = k + 1; i < n; i++) {
 				double multiplier = ab[i][k] / ab[k][k];
 				for (int j = k; j < n + 1; j++) {
-					ab[i][j] = ab[i][j] - multiplier * ab[k][j];
+					ab[i][j] = ab[i][j] - (multiplier * ab[k][j]);
 				}
 			}
+			execution.add(new Matrix(ab));
 		}
 		matrixAb.setMatrix(ab);
 		return regressiveSubstitution(matrixAb);
+	}
+
+	public ArrayList<Matrix> getExecution() {
+		return execution;
 	}
 
 	public double[] regressiveSubstitution(Matrix matrixAb) {
@@ -38,12 +46,26 @@ public class DirectMethods implements Serializable {
 		n--;
 		x[n] = ab[n][n + 1] / ab[n][n];
 		double summation = 0;
-		for (int i = n - 1; i >=0; i--) {
+		for (int i = n - 1; i >= 0; i--) {
 			summation = 0;
 			for (int p = i + 1; p < n; p++) {
 				summation += ab[i][p] * x[p];
 			}
 			x[i] = (ab[i][n + 1] - summation) / ab[i][i];
+		}
+		return x;
+	}
+
+	public double[] progressiveSubstitution(Matrix matrixAb) {
+		int n = matrixAb.getRows();
+		double[][] ab = matrixAb.getMatrix();
+		double x[] = new double[n];
+		for (int i = 0; i < n; i++) {
+			double summation = 0;
+			for (int j = 0; j < n; j++) {
+				summation = summation + ab[i][j] * x[j];
+			}
+			x[i] = (ab[i][n] - summation) / ab[i][i];
 		}
 		return x;
 	}
@@ -100,4 +122,16 @@ public class DirectMethods implements Serializable {
 
 		return matrixAb;
 	}
+
+	public double[] matrixFactorization(Matrix matrixA, double[] b) {
+		// TODO implement
+		return null;
+	}
+
+	// function matrixFactorization(A, b, n)
+	// L,U <- lUFactorization(A, n)
+	// z <- progressiveSubstitution(L, b)
+	// x <- backSubstitution(U, z)
+	// return x
+	// EndFunction
 }

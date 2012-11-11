@@ -103,10 +103,6 @@
             android:label="@string/title_activity_iterative_methods"
             android:screenOrientation="portrait" >
         </activity>
-        <activity
-            android:name=".activities.SetBVectorActivity"
-            android:label="@string/title_activity_set_bvector" >
-        </activity>
     </application>
 
 </manifest>
