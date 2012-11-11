@@ -35,9 +35,10 @@ public class DirectMethods implements Serializable {
 		int n = matrixAb.getRows();
 		double[] x = new double[n];
 		double[][] ab = matrixAb.getMatrix();
+		n--;
 		x[n] = ab[n][n + 1] / ab[n][n];
 		double summation = 0;
-		for (int i = n - 1; i > 0; i--) {
+		for (int i = n - 1; i >=0; i--) {
 			summation = 0;
 			for (int p = i + 1; p < n; p++) {
 				summation += ab[i][p] * x[p];

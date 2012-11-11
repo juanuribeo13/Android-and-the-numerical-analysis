@@ -38,6 +38,13 @@ public class DirectMethodsActivity extends ListActivity {
 		this.setListAdapter(new ArrayAdapter<String>(this,
 				R.layout.activity_direct_methods, list));
 		directMethods = new DirectMethods();
+		// This is only for testing remove it when testing be done
+		double[][] m = { { 20, -1, 1, -1 }, { 5, 35, -4, 8, 50 },
+				{ 2, -10, 75, -1 }, { 3, -7, 4, -27 } };
+		double[] b = { 8, 50, -114, 10 };
+		matrix = new Matrix(m);
+		matrix.setB(b);
+		// Testing
 	}
 
 	@Override

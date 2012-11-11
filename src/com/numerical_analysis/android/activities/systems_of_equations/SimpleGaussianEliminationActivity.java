@@ -22,9 +22,14 @@ public class SimpleGaussianEliminationActivity extends Activity {
 				"directMethods");
 		Matrix matrix = (Matrix) getIntent().getSerializableExtra("Matrix");
 		LinearLayout linearLayoutResult = (LinearLayout) findViewById(R.id.linearLayoutResultActivitySimpleGaussianElimination);
-		TextView textView=new TextView(this);
-		textView.setText("asdasd");
-		linearLayoutResult.addView(textView);
+		TextView[] results=new TextView[matrix.getRows()];
+		double[] x=directMethods.simpleGaussianElimination(matrix, matrix.getB());
+		for (int i = 0; i < x.length; i++) {
+			TextView textView=new TextView(this);
+			textView.setText(x[i]+"");
+			results[i]=textView;
+			linearLayoutResult.addView(textView);
+		}
 	}
 
 	@Override
