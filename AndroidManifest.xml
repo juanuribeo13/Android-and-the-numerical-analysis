@@ -107,6 +107,11 @@
             android:name=".activities.SetBVectorActivity"
             android:label="@string/title_activity_set_bvector" >
         </activity>
+        <activity
+            android:name=".activities.SetIndependentTermsActivity"
+            android:label="@string/title_activity_set_independent_terms"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

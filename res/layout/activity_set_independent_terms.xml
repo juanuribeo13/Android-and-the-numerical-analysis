@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/text_view_enter_n"
+        tools:context=".SetIndependentTermsActivity" />
+
+    <EditText
+        android:id="@+id/editTextNActivitySetIndependentTerms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:hint="@string/hint_edit_text_matrix_size_activity_input_matrix"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/buttonSetActivitySetIndependentTerms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editTextNActivitySetIndependentTerms"
+        android:layout_alignBottom="@+id/editTextNActivitySetIndependentTerms"
+        android:layout_marginLeft="26dp"
+        android:layout_toRightOf="@+id/editTextNActivitySetIndependentTerms"
+        android:onClick="onSetButtonClick"
+        android:text="@string/button_set_activity_input_matrix" />
+
+    <TextView
+        android:id="@+id/textViewTermToEnter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextNActivitySetIndependentTerms"
+        android:layout_below="@+id/buttonSetActivitySetIndependentTerms"
+        android:layout_marginTop="18dp"
+        android:visibility="invisible" />
+
+    <EditText
+        android:id="@+id/editTextTermActivitySetIndependentTerms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewTermToEnter"
+        android:layout_below="@+id/textViewTermToEnter"
+        android:ems="10"
+        android:inputType="text"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/buttonNextActivitySetIndependentTerms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextTermActivitySetIndependentTerms"
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@+id/editTextTermActivitySetIndependentTerms"
+        android:onClick="onNextButtonClick"
+        android:text="@string/button_next_activity_input_matrix"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/buttonFinishActivitySetIndependentTerms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextTermActivitySetIndependentTerms"
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@+id/editTextTermActivitySetIndependentTerms"
+        android:onClick="onFinishButtonClick"
+        android:text="@string/button_finish_activity_input_matrix"
+        android:visibility="invisible" />
+
+</RelativeLayout>
