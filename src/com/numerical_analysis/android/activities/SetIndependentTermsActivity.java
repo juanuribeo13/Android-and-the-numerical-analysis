@@ -1,8 +1,6 @@
 package com.numerical_analysis.android.activities;
 
 import com.numerical_analysis.android.R;
-import com.numerical_analysis.android.methods.systems_of_equations.IterativeMethods;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -13,7 +11,6 @@ import android.widget.TextView;
 
 public class SetIndependentTermsActivity extends Activity {
 
-	private IterativeMethods iterativeMethods;
 	private String[] independentTerms;
 	int term;
 
@@ -22,8 +19,18 @@ public class SetIndependentTermsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_set_independent_terms);
 
-		iterativeMethods = (IterativeMethods) getIntent().getSerializableExtra(
-				"iterativeMethods");
+		independentTerms = (String[]) getIntent().getSerializableExtra(
+				"independentTerms");
+
+		if (independentTerms != null) {
+			term = 0;
+			EditText editTerm = (EditText) findViewById(R.id.editTextTermActivitySetIndependentTerms);
+			editTerm.setText(independentTerms[term]);
+			setVisibilities(View.VISIBLE);
+
+			TextView viewTerm = (TextView) findViewById(R.id.textViewTermToEnter);
+			viewTerm.setText("Please insert x" + (term + 1));
+		}
 	}
 
 	@Override
@@ -41,11 +48,7 @@ public class SetIndependentTermsActivity extends Activity {
 		TextView viewTerm = (TextView) findViewById(R.id.textViewTermToEnter);
 		viewTerm.setText("Please insert x" + (term + 1));
 
-		viewTerm.setVisibility(View.VISIBLE);
-		findViewById(R.id.editTextTermActivitySetIndependentTerms)
-				.setVisibility(View.VISIBLE);
-		findViewById(R.id.buttonNextActivitySetIndependentTerms).setVisibility(
-				View.VISIBLE);
+		setVisibilities(View.VISIBLE);
 	}
 
 	public void onNextButtonClick(View view) {
@@ -57,6 +60,9 @@ public class SetIndependentTermsActivity extends Activity {
 		if (term != independentTerms.length) {
 			TextView viewTerm = (TextView) findViewById(R.id.textViewTermToEnter);
 			viewTerm.setText("Please insert x" + (term + 1));
+
+			EditText editTerm = (EditText) findViewById(R.id.editTextTermActivitySetIndependentTerms);
+			editTerm.setText(independentTerms[term]);
 		} else {
 			findViewById(R.id.buttonNextActivitySetIndependentTerms)
 					.setVisibility(View.INVISIBLE);
@@ -66,9 +72,17 @@ public class SetIndependentTermsActivity extends Activity {
 	}
 
 	public void onFinishButtonClick(View view) {
-		iterativeMethods.setIndependentTerms(independentTerms);
 		Intent returnIntent = new Intent();
+		returnIntent.putExtra("independentTerms", independentTerms);
 		setResult(RESULT_OK, returnIntent);
 		finish();
+	}
+
+	private void setVisibilities(int visibility) {
+		findViewById(R.id.textViewTermToEnter).setVisibility(visibility);
+		findViewById(R.id.editTextTermActivitySetIndependentTerms)
+				.setVisibility(visibility);
+		findViewById(R.id.buttonNextActivitySetIndependentTerms).setVisibility(
+				visibility);
 	}
 }

@@ -112,6 +112,11 @@
             android:label="@string/title_activity_set_independent_terms"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".activities.systems_of_equations.JacobiActivity"
+            android:label="@string/title_activity_jacobi"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>
