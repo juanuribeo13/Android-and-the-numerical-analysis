@@ -19,8 +19,8 @@ public class IterativeMethods implements MethodGroup {
 	private String[] independentTerms;
 	private Double[] initialValues;
 
-	public ArrayList<Double> jacobi(int iterations, double tolerance)
-			throws MaximumNumberOfIterationsExceededExeption {
+	public ArrayList<Double> jacobi(double lambda, int iterations,
+			double tolerance) throws MaximumNumberOfIterationsExceededExeption {
 		Double[] initialValues = this.initialValues.clone();
 		ArrayList<Double> result = null;
 		executionTable = new ArrayList<Double[]>();
@@ -40,6 +40,8 @@ public class IterativeMethods implements MethodGroup {
 			row[0] = (double) counter;
 			for (int i = 0; i < independentTerms.length; i++) {
 				values[i] = evaluateFunction(independentTerms[i], initialValues);
+				values[i] = lambda * values[i] + (1 - lambda)
+						* initialValues[i];
 				row[i + 1] = values[i];
 				error += Math.pow(values[i] - initialValues[i], 2);
 			}
@@ -59,8 +61,8 @@ public class IterativeMethods implements MethodGroup {
 		return result;
 	}
 
-	public ArrayList<Double> gaussSeidel(int iterations, double tolerance)
-			throws MaximumNumberOfIterationsExceededExeption {
+	public ArrayList<Double> gaussSeidel(double lambda, int iterations,
+			double tolerance) throws MaximumNumberOfIterationsExceededExeption {
 		Double[] initialValues = this.initialValues.clone();
 		ArrayList<Double> result = null;
 		executionTable = new ArrayList<Double[]>();
@@ -80,6 +82,8 @@ public class IterativeMethods implements MethodGroup {
 			row[0] = (double) counter;
 			for (int i = 0; i < independentTerms.length; i++) {
 				values[i] = evaluateFunction(independentTerms[i], initialValues);
+				values[i] = lambda * values[i] + (1 - lambda)
+						* initialValues[i];
 				row[i + 1] = values[i];
 				error += Math.pow(values[i] - initialValues[i], 2);
 				initialValues[i] = values[i];

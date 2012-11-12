@@ -158,7 +158,10 @@ public class GaussSeidelActivity extends Activity {
 			double tolerance = Double
 					.parseDouble(((EditText) findViewById(R.id.editTextToleranceActivityGaussSeidel))
 							.getText().toString());
-			ArrayList<Double> results = iterativeMethods.gaussSeidel(
+			double lambda = Double
+					.parseDouble(((EditText) findViewById(R.id.editTextRelaxationActivityGaussSeidel))
+							.getText().toString());
+			ArrayList<Double> results = iterativeMethods.gaussSeidel(lambda,
 					iterations, tolerance);
 
 			for (int i = 0; i < results.size() - 1; i++) {
@@ -196,6 +199,8 @@ public class GaussSeidelActivity extends Activity {
 		findViewById(R.id.editTextIterationsActivityGaussSeidel).setVisibility(
 				visibility);
 		findViewById(R.id.editTextToleranceActivityGaussSeidel).setVisibility(
+				visibility);
+		findViewById(R.id.editTextRelaxationActivityGaussSeidel).setVisibility(
 				visibility);
 		findViewById(R.id.buttonCalculateActivityGaussSeidel).setVisibility(
 				visibility);
