@@ -52,4 +52,45 @@
         android:onClick="onNextButtonClick"
         android:text="@string/button_next_activity_input_matrix" />
 
+    <EditText
+        android:id="@+id/editTextIterationsActivityJacobi"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextValueActivityJacobi"
+        android:hint="@string/hint_edit_text_iterations"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextToleranceActivityJacobi"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextIterationsActivityJacobi"
+        android:hint="@string/hint_edit_text_tolerance"
+        android:inputType="numberDecimal" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp" >
+
+        <Button
+            android:id="@+id/buttonCalculateActivityJacobi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCalculateButtonClick"
+            android:text="@string/button_calculate" />
+
+        <Button
+            android:id="@+id/buttonExecutionTableActivityJacobi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/buttonCalculateActivityJacobi"
+            android:onClick="showExecutionTable"
+            android:text="@string/button_execution_table"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
 </RelativeLayout>

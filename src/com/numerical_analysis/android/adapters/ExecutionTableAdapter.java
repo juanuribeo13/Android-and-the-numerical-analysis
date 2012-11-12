@@ -7,7 +7,7 @@ import android.widget.TableRow;
 
 public interface ExecutionTableAdapter extends Serializable{
 
-	public TableRow getTitle(Activity activity);
+	public TableRow getTitle(int columns, Activity activity);
 
 	public TableRow getRow(Double[] row, Activity activity);
 }

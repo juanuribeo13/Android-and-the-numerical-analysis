@@ -77,7 +77,7 @@ public class FalseRuleActivity extends Activity {
 	public void showExecutionTable(View view) {
 		FalseRuleExecutionTableAdapter adapter = new FalseRuleExecutionTableAdapter();
 		Intent intent = new Intent(this, ExecutionTableActivity.class);
-		intent.putExtra("oneVariableEquations", oneVariableEquations);
+		intent.putExtra("methodGroup", oneVariableEquations);
 		intent.putExtra("adapter", adapter);
 		startActivity(intent);
 	}

@@ -17,7 +17,7 @@ public class NewtonExecutionTableAdapter implements ExecutionTableAdapter {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public TableRow getTitle(Activity activity) {
+	public TableRow getTitle(int columns, Activity activity) {
 		TableRow tableRow = (TableRow) activity.getLayoutInflater().inflate(
 				R.layout.row_execution_table_activity_newton, null);
 		return tableRow;

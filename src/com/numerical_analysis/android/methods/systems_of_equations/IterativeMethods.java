@@ -7,8 +7,9 @@ import java.util.Arrays;
 import org.nfunk.jep.JEP;
 
 import com.numerical_analysis.android.exceptions.MaximumNumberOfIterationsExceededExeption;
+import com.numerical_analysis.android.methods.MethodGroup;
 
-public class IterativeMethods implements Serializable {
+public class IterativeMethods implements MethodGroup {
 
 	/**
 	 * 
@@ -97,5 +98,9 @@ public class IterativeMethods implements Serializable {
 	 */
 	public void setInitialValues(Double[] initialValues) {
 		this.initialValues = initialValues;
+	}
+
+	public ArrayList<Double[]> getExecutionTable() {
+		return executionTable;
 	}
 }

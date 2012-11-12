@@ -75,7 +75,7 @@ public class IncrementalSearchActivity extends Activity {
 	public void showExecutionTable(View view) {
 		IncrementalSearchExecutionTableAdapter adapter = new IncrementalSearchExecutionTableAdapter();
 		Intent intent = new Intent(this, ExecutionTableActivity.class);
-		intent.putExtra("oneVariableEquations", oneVariableEquations);
+		intent.putExtra("methodGroup", oneVariableEquations);
 		intent.putExtra("adapter", adapter);
 		startActivity(intent);
 	}
