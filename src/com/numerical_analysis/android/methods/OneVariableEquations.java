@@ -1,6 +1,5 @@
 package com.numerical_analysis.android.methods;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 import org.nfunk.jep.JEP;
@@ -10,7 +9,7 @@ import com.numerical_analysis.android.exceptions.MultipleRootFoundException;
 import com.numerical_analysis.android.exceptions.RootFoundException;
 import com.numerical_analysis.android.exceptions.RootNotFoundException;
 
-public class OneVariableEquations implements Serializable {
+public class OneVariableEquations implements MethodGroup {
 
 	private static final long serialVersionUID = 1L;
 	private String function;

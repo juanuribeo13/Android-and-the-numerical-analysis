@@ -81,7 +81,7 @@ public class NewtonActivity extends Activity {
 	public void showExecutionTable(View view) {
 		NewtonExecutionTableAdapter adapter = new NewtonExecutionTableAdapter();
 		Intent intent = new Intent(this, ExecutionTableActivity.class);
-		intent.putExtra("oneVariableEquations", oneVariableEquations);
+		intent.putExtra("methodGroup", oneVariableEquations);
 		intent.putExtra("adapter", adapter);
 		startActivity(intent);
 	}
