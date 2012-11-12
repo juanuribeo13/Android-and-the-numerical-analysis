@@ -169,7 +169,91 @@ public class DirectMethods implements Serializable {
 	}
 
 	public double[] croult(Matrix matrixA) {
-		return null;
+		int n = matrixA.getRows();
+		double[][] a = matrixA.getMatrix();
+		double[][] u = new double[n][n];
+		double[][] l = new double[n][n];
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				l[i][j] = 0;
+				if (i == j) {
+					u[i][j] = 1;
+				} else {
+					u[i][j] = 0;
+				}
+			}
+		}
+		for (int k = 0; k < n; k++) {
+			double sum = 0;
+			for (int p = 0; p < k - 1; p++) {
+				sum += l[k][p] * u[p][k];
+			}
+			l[k][k] = a[k][k] - sum;
+			for (int i = k + 1; i < n; i++) {
+				sum = 0;
+				for (int r = 0; r < k - 1; r++) {
+					sum += l[i][r] * u[r][k];
+				}
+				l[i][k] = a[i][k] - sum;
+			}
+			for (int j = k + 1; j < n; j++) {
+				sum = 0;
+				for (int s = 0; s < k - 1; s++) {
+					sum += l[k][s] * u[s][j];
+				}
+				u[k][j] = (a[k][j] - sum) / l[k][k];
+			}
+		}
+		Matrix matrixLb = matrixA.createAugmentedMatrix(new Matrix(l),
+				matrixA.getB());
+		double[] z = progressiveSubstitution(matrixLb);
+		Matrix matrixUz = matrixA.createAugmentedMatrix(new Matrix(u), z);
+		double[] x = regressiveSubstitution(matrixUz);
+		return x;
+	}
+
+	public double[] doolitle(Matrix matrixA) {
+		int n = matrixA.getRows();
+		double[][] a = matrixA.getMatrix();
+		double[][] u = new double[n][n];
+		double[][] l = new double[n][n];
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				u[i][j] = 0;
+				if (i == j) {
+					l[i][j] = 1;
+				} else {
+					l[i][j] = 0;
+				}
+			}
+		}
+		for (int k = 0; k < n; k++) {
+			double sum = 0;
+			for (int p = 0; p < k - 1; p++) {
+				sum += l[k][p] * u[p][k];
+			}
+			u[k][k] = a[k][k] - sum;
+			for (int i = k + 1; i < n; i++) {
+				sum = 0;
+				for (int r = 0; r < k - 1; r++) {
+					sum += l[i][r] * u[r][k];
+				}
+				l[i][k] = (a[i][k] - sum) / u[k][k];
+			}
+			for (int j = k + 1; j < n; j++) {
+				sum = 0;
+				for (int s = 0; s < k - 1; s++) {
+					sum += l[k][s] * u[s][j];
+				}
+				u[k][j] = a[k][j] - sum;
+			}
+		}
+		Matrix matrixLb = matrixA.createAugmentedMatrix(new Matrix(l),
+				matrixA.getB());
+		double[] z = progressiveSubstitution(matrixLb);
+		Matrix matrixUz = matrixA.createAugmentedMatrix(new Matrix(u), z);
+		double[] x = regressiveSubstitution(matrixUz);
+		return x;
 	}
 
 	public double[] matrixFactorization(Matrix matrixA, double[] b) {
