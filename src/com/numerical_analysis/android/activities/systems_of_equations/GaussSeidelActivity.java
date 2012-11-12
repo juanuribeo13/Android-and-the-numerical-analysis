@@ -3,6 +3,7 @@ package com.numerical_analysis.android.activities.systems_of_equations;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+
 import com.numerical_analysis.android.R;
 import com.numerical_analysis.android.activities.ExecutionTableActivity;
 import com.numerical_analysis.android.activities.SetIndependentTermsActivity;
@@ -21,7 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class JacobiActivity extends Activity {
+public class GaussSeidelActivity extends Activity {
 
 	private IterativeMethods iterativeMethods;
 	static final int SET_INDEPENDENT_TERMS = 0;
@@ -30,13 +31,13 @@ public class JacobiActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_jacobi);
+		setContentView(R.layout.activity_gauss_seidel);
 
 		iterativeMethods = (IterativeMethods) getIntent().getSerializableExtra(
 				"iterativeMethods");
 
 		position = 0;
-		TextView viewValue = (TextView) findViewById(R.id.textViewValueToEnterActivityJacobi);
+		TextView viewValue = (TextView) findViewById(R.id.textViewValueToEnterActivityGaussSeidel);
 		viewValue.setText("Please insert x" + (position + 1));
 		if (iterativeMethods.getIndependentTerms() == null) {
 			setvisibilities(View.GONE);
@@ -45,7 +46,7 @@ public class JacobiActivity extends Activity {
 					.getIndependentTerms().length];
 			iterativeMethods.setInitialValues(initialValues);
 		}
-		findViewById(R.id.buttonPreviousActivityJacobi).setVisibility(
+		findViewById(R.id.buttonPreviousActivityGaussSeidel).setVisibility(
 				View.INVISIBLE);
 	}
 
@@ -84,8 +85,8 @@ public class JacobiActivity extends Activity {
 						.getIndependentTerms().length];
 				iterativeMethods.setInitialValues(initialValues);
 				setvisibilities(View.VISIBLE);
-				findViewById(R.id.buttonPreviousActivityJacobi).setVisibility(
-						View.INVISIBLE);
+				findViewById(R.id.buttonPreviousActivityGaussSeidel)
+						.setVisibility(View.INVISIBLE);
 			}
 		}
 	}
@@ -100,64 +101,65 @@ public class JacobiActivity extends Activity {
 
 	public void onPreviousButtonClick(View view) {
 		// In case that the next button where invisible
-		findViewById(R.id.buttonNextActivityJacobi).setVisibility(View.VISIBLE);
+		findViewById(R.id.buttonNextActivityGaussSeidel).setVisibility(
+				View.VISIBLE);
 
 		Double[] initialValues = iterativeMethods.getInitialValues();
-		EditText editValue = (EditText) findViewById(R.id.editTextValueActivityJacobi);
+		EditText editValue = (EditText) findViewById(R.id.editTextValueActivityGaussSeidel);
 		initialValues[position] = Double
 				.valueOf(editValue.getText().toString());
 		iterativeMethods.setInitialValues(initialValues);
 		position--;
 
-		TextView viewValue = (TextView) findViewById(R.id.textViewValueToEnterActivityJacobi);
+		TextView viewValue = (TextView) findViewById(R.id.textViewValueToEnterActivityGaussSeidel);
 		viewValue.setText("Please insert x" + (position + 1));
 
 		if (initialValues[position] != null) {
 			editValue.setText(initialValues[position].toString());
 		}
 		if (position == 0) {
-			findViewById(R.id.buttonPreviousActivityJacobi).setVisibility(
+			findViewById(R.id.buttonPreviousActivityGaussSeidel).setVisibility(
 					View.INVISIBLE);
 		}
 	}
 
 	public void onNextButtonClick(View view) {
 		// In case that the previous button where invisible
-		findViewById(R.id.buttonPreviousActivityJacobi).setVisibility(
+		findViewById(R.id.buttonPreviousActivityGaussSeidel).setVisibility(
 				View.VISIBLE);
 
 		Double[] initialValues = iterativeMethods.getInitialValues();
-		EditText editValue = (EditText) findViewById(R.id.editTextValueActivityJacobi);
+		EditText editValue = (EditText) findViewById(R.id.editTextValueActivityGaussSeidel);
 		initialValues[position] = Double
 				.valueOf(editValue.getText().toString());
 		iterativeMethods.setInitialValues(initialValues);
 		position++;
 
-		TextView viewValue = (TextView) findViewById(R.id.textViewValueToEnterActivityJacobi);
+		TextView viewValue = (TextView) findViewById(R.id.textViewValueToEnterActivityGaussSeidel);
 		viewValue.setText("Please insert x" + (position + 1));
 
 		if (initialValues[position] != null) {
 			editValue.setText(initialValues[position].toString());
 		}
 		if (position == initialValues.length - 1) {
-			findViewById(R.id.buttonNextActivityJacobi).setVisibility(
+			findViewById(R.id.buttonNextActivityGaussSeidel).setVisibility(
 					View.INVISIBLE);
 		}
 	}
 
 	public void onCalculateButtonClick(View view) {
-		LinearLayout layoutResults = (LinearLayout) findViewById(R.id.linearLayoutResultsActivityJacobi);
+		LinearLayout layoutResults = (LinearLayout) findViewById(R.id.linearLayoutResultsActivityGaussSeidel);
 		layoutResults.removeAllViews();
 
 		try {
 			int iterations = Integer
-					.parseInt(((EditText) findViewById(R.id.editTextIterationsActivityJacobi))
+					.parseInt(((EditText) findViewById(R.id.editTextIterationsActivityGaussSeidel))
 							.getText().toString());
 			double tolerance = Double
-					.parseDouble(((EditText) findViewById(R.id.editTextToleranceActivityJacobi))
+					.parseDouble(((EditText) findViewById(R.id.editTextToleranceActivityGaussSeidel))
 							.getText().toString());
-			ArrayList<Double> results = iterativeMethods.jacobi(iterations,
-					tolerance);
+			ArrayList<Double> results = iterativeMethods.gaussSeidel(
+					iterations, tolerance);
 
 			for (int i = 0; i < results.size() - 1; i++) {
 				Double result = results.get(i);
@@ -183,25 +185,26 @@ public class JacobiActivity extends Activity {
 	}
 
 	private void setvisibilities(int visibility) {
-		findViewById(R.id.textViewValueToEnterActivityJacobi).setVisibility(
-				visibility);
-		findViewById(R.id.editTextValueActivityJacobi)
+		findViewById(R.id.textViewValueToEnterActivityGaussSeidel)
 				.setVisibility(visibility);
-		findViewById(R.id.buttonNextActivityJacobi).setVisibility(visibility);
-		findViewById(R.id.buttonPreviousActivityJacobi).setVisibility(
+		findViewById(R.id.editTextValueActivityGaussSeidel).setVisibility(
 				visibility);
-		findViewById(R.id.editTextIterationsActivityJacobi).setVisibility(
+		findViewById(R.id.buttonNextActivityGaussSeidel).setVisibility(
 				visibility);
-		findViewById(R.id.editTextToleranceActivityJacobi).setVisibility(
+		findViewById(R.id.buttonPreviousActivityGaussSeidel).setVisibility(
 				visibility);
-		findViewById(R.id.buttonCalculateActivityJacobi).setVisibility(
+		findViewById(R.id.editTextIterationsActivityGaussSeidel).setVisibility(
+				visibility);
+		findViewById(R.id.editTextToleranceActivityGaussSeidel).setVisibility(
+				visibility);
+		findViewById(R.id.buttonCalculateActivityGaussSeidel).setVisibility(
 				visibility);
 		if (visibility == View.VISIBLE) {
-			findViewById(R.id.textViewWarningActivityJacobi).setVisibility(
-					View.GONE);
+			findViewById(R.id.textViewWarningActivityGaussSeidel)
+					.setVisibility(View.GONE);
 		} else {
-			findViewById(R.id.textViewWarningActivityJacobi).setVisibility(
-					View.VISIBLE);
+			findViewById(R.id.textViewWarningActivityGaussSeidel)
+					.setVisibility(View.VISIBLE);
 		}
 	}
 
@@ -214,7 +217,7 @@ public class JacobiActivity extends Activity {
 	}
 
 	private void enableExecutionTable() {
-		findViewById(R.id.buttonExecutionTableActivityJacobi).setVisibility(
-				View.VISIBLE);
+		findViewById(R.id.buttonExecutionTableActivityGaussSeidel)
+				.setVisibility(View.VISIBLE);
 	}
 }
