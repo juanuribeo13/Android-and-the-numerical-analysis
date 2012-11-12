@@ -12,30 +12,32 @@ public class DirectMethods implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Matrix> execution;
+	private ArrayList<double[][]> execution;
 
 	public DirectMethods() {
-		execution = new ArrayList<Matrix>();
+		execution = new ArrayList<double[][]>();
 	}
 
 	public double[] simpleGaussianElimination(Matrix matrixA, double[] b) {
-		int n = matrixA.getColumns();
 		Matrix matrixAb = matrixA.createAugmentedMatrix(matrixA, b);
-		double[][] ab = matrixA.getMatrix();
+		double[][] ab = matrixAb.getMatrix();
+		int n = ab.length;
+		execution.add(matrixAb.copy(ab));
 		for (int k = 0; k < n - 1; k++) {
 			for (int i = k + 1; i < n; i++) {
 				double multiplier = ab[i][k] / ab[k][k];
-				for (int j = k; j < n + 1; j++) {
+				for (int j = k; j <= n; j++) {
 					ab[i][j] = ab[i][j] - (multiplier * ab[k][j]);
 				}
 			}
-			execution.add(new Matrix(ab));
+			execution.add(matrixAb.copy(ab));
 		}
 		matrixAb.setMatrix(ab);
-		return regressiveSubstitution(matrixAb);
+		double[] x = regressiveSubstitution(matrixAb);
+		return x;
 	}
 
-	public ArrayList<Matrix> getExecution() {
+	public ArrayList<double[][]> getExecution() {
 		return execution;
 	}
 
@@ -123,15 +125,61 @@ public class DirectMethods implements Serializable {
 		return matrixAb;
 	}
 
-	public double[] matrixFactorization(Matrix matrixA, double[] b) {
-		// TODO implement
+	public double[] choleski(Matrix matrixA) {
+		int n = matrixA.getRows();
+		double[][] a = matrixA.getMatrix();
+		double[][] u = new double[n][n];
+		double[][] l = new double[n][n];
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				l[i][j] = 0;
+				u[i][j] = 0;
+			}
+		}
+		for (int k = 0; k < n; k++) {
+			double sum = 0;
+			for (int p = 0; p < k - 1; p++) {
+				sum += l[k][p] * u[p][k];
+			}
+			l[k][k] = Math.sqrt(a[k][k] - sum);
+			for (int i = k + 1; i < n; i++) {
+				sum = 0;
+				for (int r = 0; r < k - 1; r++) {
+					sum += l[i][r] * u[r][k];
+				}
+				l[i][k] = (a[i][k] - sum) / l[k][k];
+			}
+			for (int j = k + 1; j < n; j++) {
+				sum = 0;
+				for (int s = 0; s < k - 1; s++) {
+					sum += l[k][s] * u[s][j];
+				}
+				u[k][j] = (a[k][j] - sum) / l[k][k];
+			}
+		}
+		// for(int i = 0; i < n; i++){
+		// u[i][i] = l[i][i];
+		// }
+		Matrix matrixLb = matrixA.createAugmentedMatrix(new Matrix(l),
+				matrixA.getB());
+		double[] z = progressiveSubstitution(matrixLb);
+		Matrix matrixUz = matrixA.createAugmentedMatrix(new Matrix(u), z);
+		double[] x = regressiveSubstitution(matrixUz);
+		return x;
+	}
+
+	public double[] croult(Matrix matrixA) {
 		return null;
 	}
 
-	// function matrixFactorization(A, b, n)
-	// L,U <- lUFactorization(A, n)
-	// z <- progressiveSubstitution(L, b)
-	// x <- backSubstitution(U, z)
-	// return x
-	// EndFunction
+	public double[] matrixFactorization(Matrix matrixA, double[] b) {
+		// TODO implement
+		// function matrixFactorization(A, b, n)
+		// L,U <- lUFactorization(A, n)
+		// z <- progressiveSubstitution(L, b)
+		// x <- backSubstitution(U, z)
+		// return x
+		// EndFunction
+		return null;
+	}
 }

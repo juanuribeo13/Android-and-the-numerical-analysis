@@ -63,6 +63,16 @@ public class Matrix implements Serializable {
 			marks[i] = i + 1;
 	}
 
+	public double[][] copy(double[][] a) {
+		double[][] copy = new double[a.length][a[0].length];
+		for (int i = 0; i < copy.length; i++) {
+			for (int j = 0; j < copy[0].length; j++) {
+				copy[i][j] = a[i][j];
+			}
+		}
+		return copy;
+	}
+
 	/**
 	 * 
 	 * @param matrix
