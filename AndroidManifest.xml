@@ -80,23 +80,28 @@
         </activity>
         <activity
             android:name=".activities.PlotterActivity"
-            android:label="@string/title_activity_plotter" >
+            android:label="@string/title_activity_plotter"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".activities.systems_of_equations.DirectMethodsActivity"
-            android:label="@string/title_activity_direct_methods" >
+            android:label="@string/title_activity_direct_methods"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".activities.systems_of_equations.SystemsOfEquationsActivity"
-            android:label="@string/title_activity_systems_of_equations" >
+            android:label="@string/title_activity_systems_of_equations"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".activities.InputMatrixActivity"
-            android:label="@string/title_activity_input_matrix" >
+            android:label="@string/title_activity_input_matrix"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".activities.systems_of_equations.SimpleGaussianEliminationActivity"
-            android:label="@string/title_activity_simple_gaussian_elimination" >
+            android:label="@string/title_activity_simple_gaussian_elimination"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".activities.systems_of_equations.IterativeMethodsActivity"
@@ -112,6 +117,11 @@
             android:name=".activities.systems_of_equations.JacobiActivity"
             android:label="@string/title_activity_jacobi"
             android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".MatrixExecutionActivity"
+            android:label="@string/title_activity_matrix_execution"
+            android:screenOrientation="landscape" >
         </activity>
     </application>
 

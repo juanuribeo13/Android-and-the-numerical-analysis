@@ -19,6 +19,7 @@ public class DirectMethods implements Serializable {
 	}
 
 	public double[] simpleGaussianElimination(Matrix matrixA, double[] b) {
+		execution = new ArrayList<double[][]>();
 		Matrix matrixAb = matrixA.createAugmentedMatrix(matrixA, b);
 		double[][] ab = matrixAb.getMatrix();
 		int n = ab.length;
