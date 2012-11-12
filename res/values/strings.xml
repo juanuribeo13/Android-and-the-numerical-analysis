@@ -61,6 +61,7 @@
     <string name="title_activity_iterative_methods">Iterative Methods</string>
     <string name="title_activity_set_bvector">Set B Vector</string>
     <string name="title_activity_set_independent_terms">Set Independent Terms</string>
+    <string name="title_activity_matrix_execution">Execution</string>
     <string name="title_activity_jacobi">Jacobi</string>
     <string name="title_table_iteration">Iteration</string>
     <string name="title_table_x0">X0</string>
@@ -74,6 +75,6 @@
     <string name="title_table_ddy0">F\'\'(X0)</string>
     <string name="title_dialog_input_vector">Input B Vector</string>
     <string name="dialog_input_vector">Please enter the b vector (Solution vector)</string>
-    <string name="title_activity_matrix_execution">MatrixExecutionActivity</string>
+    
 
 </resources>

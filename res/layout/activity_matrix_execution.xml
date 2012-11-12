@@ -1,27 +1,18 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollbars="vertical|horizontal" >
+    android:layout_height="match_parent" >
 
-    <ScrollView
-        android:id="@+id/scrollViewResultAcitivitySimpleGaussianElimination"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical|horizontal" >
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
-        <LinearLayout
-            android:id="@+id/linearLayoutExecutionMatricesActivityMatrixExecution"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical" >
+        <TableLayout
+            android:id="@+id/tableLayoutMatrixExecution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" >
+        </TableLayout>
+    </HorizontalScrollView>
 
-            <TextView
-                android:id="@+id/textViewExecutionActivityMatrixExecution"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_view_execution_activity_matrix_execution" />
-        </LinearLayout>
-    </ScrollView>
-
-</RelativeLayout>
+</ScrollView>

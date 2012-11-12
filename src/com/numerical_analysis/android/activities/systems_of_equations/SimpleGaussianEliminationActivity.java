@@ -1,7 +1,8 @@
 package com.numerical_analysis.android.activities.systems_of_equations;
 
-import com.numerical_analysis.android.MatrixExecutionActivity;
 import com.numerical_analysis.android.R;
+import com.numerical_analysis.android.activities.MatrixExecutionActivity;
+import com.numerical_analysis.android.adapters.DirectMethodsMatrixExecutionAdapter;
 import com.numerical_analysis.android.methods.systems_of_equations.DirectMethods;
 import com.numerical_analysis.android.utilities.Matrix;
 
@@ -45,10 +46,12 @@ public class SimpleGaussianEliminationActivity extends Activity {
 				menu);
 		return true;
 	}
-	
-	public void showMatrixExecution(View view){
+
+	public void showMatrixExecution(View view) {
+		DirectMethodsMatrixExecutionAdapter adapter = new DirectMethodsMatrixExecutionAdapter();
 		Intent intent = new Intent(this, MatrixExecutionActivity.class);
 		intent.putExtra("directMethods", directMethods);
+		intent.putExtra("adapter", adapter);
 		startActivity(intent);
 	}
 

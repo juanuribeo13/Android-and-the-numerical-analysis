@@ -119,7 +119,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".MatrixExecutionActivity"
+            android:name=".activities.MatrixExecutionActivity"
             android:label="@string/title_activity_matrix_execution"
             android:screenOrientation="landscape" >
         </activity>
