@@ -47,6 +47,10 @@ public class IterativeMethodsActivity extends ListActivity {
 			Intent intent = new Intent(this, JacobiActivity.class);
 			intent.putExtra("iterativeMethods", iterativeMethods);
 			startActivityForResult(intent, METHOD);
+		} else if (action.equals("Gauss Seidel")) {
+			Intent intent = new Intent(this, GaussSeidelActivity.class);
+			intent.putExtra("iterativeMethods", iterativeMethods);
+			startActivityForResult(intent, METHOD);
 		}
 	}
 

@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textViewWarningActivityGaussSeidel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:drawableTop="@drawable/warning"
+        android:gravity="center_horizontal"
+        android:text="@string/text_view_warning_iterative_methods"
+        android:textSize="20dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textViewValueToEnterActivityGaussSeidel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:id="@+id/buttonPreviousActivityGaussSeidel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewValueToEnterActivityGaussSeidel"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:onClick="onPreviousButtonClick"
+        android:text="@string/button_previous" />
+
+    <EditText
+        android:id="@+id/editTextValueActivityGaussSeidel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/buttonPreviousActivityGaussSeidel"
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@id/buttonPreviousActivityGaussSeidel"
+        android:ems="10"
+        android:inputType="numberDecimal|numberSigned" />
+
+    <Button
+        android:id="@+id/buttonNextActivityGaussSeidel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextValueActivityGaussSeidel"
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@+id/editTextValueActivityGaussSeidel"
+        android:onClick="onNextButtonClick"
+        android:text="@string/button_next_activity_input_matrix" />
+
+    <EditText
+        android:id="@+id/editTextIterationsActivityGaussSeidel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextValueActivityGaussSeidel"
+        android:hint="@string/hint_edit_text_iterations"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextToleranceActivityGaussSeidel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextIterationsActivityGaussSeidel"
+        android:hint="@string/hint_edit_text_tolerance"
+        android:inputType="numberDecimal" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutResultsActivityGaussSeidel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextToleranceActivityGaussSeidel"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp" >
+
+        <Button
+            android:id="@+id/buttonCalculateActivityGaussSeidel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCalculateButtonClick"
+            android:text="@string/button_calculate" />
+
+        <Button
+            android:id="@+id/buttonExecutionTableActivityGaussSeidel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/buttonCalculateActivityGaussSeidel"
+            android:onClick="showExecutionTable"
+            android:text="@string/button_execution_table"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+</RelativeLayout>

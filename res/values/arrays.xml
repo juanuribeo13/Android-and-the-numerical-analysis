@@ -27,5 +27,6 @@
     </string-array>
     <string-array name="iterativeMethodsList">
         <item>Jacobi</item>
+        <item>Gauss Seidel</item>
     </string-array>
 </resources>

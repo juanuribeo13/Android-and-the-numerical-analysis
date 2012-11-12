@@ -59,6 +59,47 @@ public class IterativeMethods implements MethodGroup {
 		return result;
 	}
 
+	public ArrayList<Double> gaussSeidel(int iterations, double tolerance)
+			throws MaximumNumberOfIterationsExceededExeption {
+		Double[] initialValues = this.initialValues.clone();
+		ArrayList<Double> result = null;
+		executionTable = new ArrayList<Double[]>();
+		int counter = 1;
+		double error = tolerance + 1;
+		Double[] row = new Double[independentTerms.length + 2];
+		row[0] = (double) 0;
+		for (int i = 0; i < initialValues.length; i++) {
+			row[i + 1] = initialValues[1];
+		}
+		row[independentTerms.length + 1] = error;
+		executionTable.add(row);
+		while (error > tolerance && counter <= iterations) {
+			error = 0;
+			Double values[] = new Double[initialValues.length];
+			row = new Double[independentTerms.length + 2];
+			row[0] = (double) counter;
+			for (int i = 0; i < independentTerms.length; i++) {
+				values[i] = evaluateFunction(independentTerms[i], initialValues);
+				row[i + 1] = values[i];
+				error += Math.pow(values[i] - initialValues[i], 2);
+				initialValues[i] = values[i];
+			}
+			error = Math.sqrt(error);
+			row[independentTerms.length + 1] = error;
+			executionTable.add(row);
+			initialValues = values;
+			counter++;
+		}
+		if (error <= tolerance) {
+			result = new ArrayList(Arrays.asList(initialValues));
+			result.add(error);
+		} else {
+			throw new MaximumNumberOfIterationsExceededExeption(
+					"Maximum number of iterations exceeded");
+		}
+		return result;
+	}
+
 	public double evaluateFunction(String function, Double[] values) {
 		JEP jep = new JEP();
 		jep.addStandardFunctions();
