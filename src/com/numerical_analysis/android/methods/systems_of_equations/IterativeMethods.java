@@ -1,6 +1,5 @@
 package com.numerical_analysis.android.methods.systems_of_equations;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 

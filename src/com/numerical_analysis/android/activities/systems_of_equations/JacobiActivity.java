@@ -1,5 +1,8 @@
 package com.numerical_analysis.android.activities.systems_of_equations;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.ArrayList;
 import com.numerical_analysis.android.R;
 import com.numerical_analysis.android.activities.ExecutionTableActivity;
 import com.numerical_analysis.android.activities.SetIndependentTermsActivity;
@@ -14,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -86,6 +90,14 @@ public class JacobiActivity extends Activity {
 		}
 	}
 
+	@Override
+	public void onBackPressed() {
+		Intent intent = new Intent();
+		intent.putExtra("iterativeMethods", iterativeMethods);
+		setResult(RESULT_OK, intent);
+		super.onBackPressed();
+	}
+
 	public void onPreviousButtonClick(View view) {
 		// In case that the next button where invisible
 		findViewById(R.id.buttonNextActivityJacobi).setVisibility(View.VISIBLE);
@@ -134,6 +146,9 @@ public class JacobiActivity extends Activity {
 	}
 
 	public void onCalculateButtonClick(View view) {
+		LinearLayout layoutResults = (LinearLayout) findViewById(R.id.linearLayoutResultsActivityJacobi);
+		layoutResults.removeAllViews();
+
 		try {
 			int iterations = Integer
 					.parseInt(((EditText) findViewById(R.id.editTextIterationsActivityJacobi))
@@ -141,15 +156,29 @@ public class JacobiActivity extends Activity {
 			double tolerance = Double
 					.parseDouble(((EditText) findViewById(R.id.editTextToleranceActivityJacobi))
 							.getText().toString());
-			iterativeMethods.jacobi(iterations, tolerance);
+			ArrayList<Double> results = iterativeMethods.jacobi(iterations,
+					tolerance);
+
+			for (int i = 0; i < results.size() - 1; i++) {
+				Double result = results.get(i);
+				TextView textResult = new TextView(this);
+				textResult.setText("X" + (i + 1) + " = " + result);
+				layoutResults.addView(textResult);
+			}
+			NumberFormat formatter = new DecimalFormat("0.##E0");
+			TextView textError = new TextView(this);
+			textError.setText("Error = "
+					+ formatter.format(results.get(results.size() - 1)));
+			layoutResults.addView(textError);
 			enableExecutionTable();
 		} catch (NumberFormatException e) {
 			Toast.makeText(this, getString(R.string.invalid_parameters),
 					Toast.LENGTH_LONG).show();
 		} catch (MaximumNumberOfIterationsExceededExeption e) {
 			enableExecutionTable();
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			TextView textResult = new TextView(this);
+			textResult.setText(e.getMessage());
+			layoutResults.addView(textResult);
 		}
 	}
 

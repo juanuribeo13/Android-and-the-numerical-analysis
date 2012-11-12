@@ -18,6 +18,7 @@ public class IterativeMethodsActivity extends ListActivity {
 
 	private IterativeMethods iterativeMethods;
 	static final int SET_INDEPENDENT_TERMS = 0;
+	static final int METHOD = 1;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class IterativeMethodsActivity extends ListActivity {
 		if (action.equals("Jacobi")) {
 			Intent intent = new Intent(this, JacobiActivity.class);
 			intent.putExtra("iterativeMethods", iterativeMethods);
-			startActivity(intent);
+			startActivityForResult(intent, METHOD);
 		}
 	}
 
@@ -57,6 +58,9 @@ public class IterativeMethodsActivity extends ListActivity {
 			if (requestCode == SET_INDEPENDENT_TERMS) {
 				iterativeMethods.setIndependentTerms(data
 						.getStringArrayExtra("independentTerms"));
+			} else if (requestCode == METHOD) {
+				iterativeMethods = (IterativeMethods) data
+						.getSerializableExtra("iterativeMethods");
 			}
 		}
 	}
