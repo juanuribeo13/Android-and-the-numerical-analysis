@@ -5,6 +5,7 @@
         <item>Error Theory</item>
         <item>One Variable Equation</item>
         <item>Systems of Equations</item>
+        <item>Interpolation</item>
     </string-array>
     <string-array name="errorTheoryList"></string-array>
     <string-array name="oneVariableEquationList">
@@ -17,7 +18,7 @@
         <item>Secant</item>
         <item>Multiple Roots</item>
     </string-array>
-	<string-array name="systemsOfEquationsList">
+    <string-array name="systemsOfEquationsList">
         <item>Direct Methods</item>
         <item>Iterative Methods</item>
     </string-array>
@@ -29,4 +30,8 @@
         <item>Jacobi</item>
         <item>Gauss Seidel</item>
     </string-array>
+    <string-array name="interpolationList">
+        <item>Newton</item>
+    </string-array>
+
 </resources>

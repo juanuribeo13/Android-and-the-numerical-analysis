@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textViewMessageNActivitySetXAndFX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/text_view_enter_n"
+        tools:context=".SetIndependentTermsActivity" />
+
+    <EditText
+        android:id="@+id/editTextNActivitySetXAndFX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewMessageNActivitySetXAndFX"
+        android:layout_below="@+id/textViewMessageNActivitySetXAndFX"
+        android:hint="@string/hint_edit_text_matrix_size_activity_input_matrix"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/buttonSetActivitySetXAndFX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editTextNActivitySetXAndFX"
+        android:layout_alignBottom="@+id/editTextNActivitySetXAndFX"
+        android:layout_marginLeft="26dp"
+        android:layout_toRightOf="@+id/editTextNActivitySetXAndFX"
+        android:onClick="onSetButtonClick"
+        android:text="@string/button_set_activity_input_matrix" />
+
+    <TextView
+        android:id="@+id/textViewXActivitySetXAndFX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonSetActivitySetXAndFX"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/editTextXActivitySetXAndFX"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewXActivitySetXAndFX"
+        android:layout_marginTop="5dp"
+        android:inputType="numberDecimal|numberSigned" />
+
+    <TextView
+        android:id="@+id/textViewYActivitySetXAndFX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextXActivitySetXAndFX"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/editTextYActivitySetXAndFX"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewYActivitySetXAndFX"
+        android:layout_marginTop="5dp"
+        android:inputType="numberDecimal|numberSigned" />
+
+    <Button
+        android:id="@+id/buttonPreviousActivitySetXAndFX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextYActivitySetXAndFX"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:onClick="onPreviousButtonClick"
+        android:text="@string/button_previous" />
+
+    <Button
+        android:id="@+id/buttonNextActivitySetXAndFX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/editTextYActivitySetXAndFX"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:onClick="onNextButtonClick"
+        android:text="@string/button_next_activity_input_matrix" />
+
+    <Button
+        android:id="@+id/buttonFinishActivitySetXAndFX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonNextActivitySetXAndFX"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:onClick="onFinishButtonClick"
+        android:text="@string/button_finish_activity_input_matrix"
+        android:visibility="invisible" />
+
+</RelativeLayout>

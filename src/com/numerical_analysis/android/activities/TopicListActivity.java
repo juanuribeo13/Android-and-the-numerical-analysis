@@ -1,6 +1,7 @@
 package com.numerical_analysis.android.activities;
 
 import com.numerical_analysis.android.R;
+import com.numerical_analysis.android.activities.interpolation.InterpolationActivity;
 import com.numerical_analysis.android.activities.one_variable_equations.OneVariableEquationsActivity;
 import com.numerical_analysis.android.activities.systems_of_equations.SystemsOfEquationsActivity;
 
@@ -41,8 +42,11 @@ public class TopicListActivity extends ListActivity {
 		} else if (topic.equals("Error Theory")) {
 			Intent intent = new Intent(this, ErrorTheoryActivity.class);
 			startActivity(intent);
-		}else if (topic.equals("Systems of Equations")) {
+		} else if (topic.equals("Systems of Equations")) {
 			Intent intent = new Intent(this, SystemsOfEquationsActivity.class);
+			startActivity(intent);
+		} else if (topic.equals("Interpolation")) {
+			Intent intent = new Intent(this, InterpolationActivity.class);
 			startActivity(intent);
 		}
 	}
