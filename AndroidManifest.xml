@@ -128,6 +128,11 @@
             android:label="@string/title_activity_gauss_seidel"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".activities.systems_of_equations.DirectMatrixFactorizationActivity"
+            android:label="@string/title_activity_direct_matrix_factorization"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

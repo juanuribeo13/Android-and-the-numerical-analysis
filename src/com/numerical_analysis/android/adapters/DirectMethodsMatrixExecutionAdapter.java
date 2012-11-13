@@ -48,4 +48,32 @@ public class DirectMethodsMatrixExecutionAdapter implements
 		return tableRow;
 	}
 
+	public TableRow getUTittle(int n, Activity activity) {
+		TableRow tableRow = (TableRow) activity.getLayoutInflater().inflate(
+				R.layout.row_execution_table_activity_iterative_methods, null);
+		TextView u = new TextView(activity);
+		u.setText("U:");
+		tableRow.addView(u);
+		for (int i = 1; i < n; i++) {
+			TextView x = new TextView(activity);
+			x.setText("");
+			tableRow.addView(x);
+		}
+		return tableRow;
+	}
+
+	public TableRow getLTittle(int n, Activity activity) {
+		TableRow tableRow = (TableRow) activity.getLayoutInflater().inflate(
+				R.layout.row_execution_table_activity_iterative_methods, null);
+		TextView l = new TextView(activity);
+		l.setText("L:");
+		tableRow.addView(l);
+		for (int i = 1; i < n; i++) {
+			TextView x = new TextView(activity);
+			x.setText("");
+			tableRow.addView(x);
+		}
+		return tableRow;
+	}
+
 }

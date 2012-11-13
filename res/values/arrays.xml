@@ -24,6 +24,7 @@
     <string-array name="directMethodsList">
         <item>Input Matrix</item>
         <item>Gaussian Elimination</item>
+        <item>Direct Matrix Factorization</item>
     </string-array>
     <string-array name="iterativeMethodsList">
         <item>Jacobi</item>

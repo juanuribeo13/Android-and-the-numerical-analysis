@@ -5,21 +5,21 @@
     android:scrollbars="vertical" >
 
     <TextView
-        android:id="@+id/textViewResultActivityGaussianElimination"
+        android:id="@+id/textViewResultActivityDirectMatrixFactorization"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:text="@string/text_view_result" />
 
     <ScrollView
-        android:id="@+id/scrollViewResultAcitivityGaussianElimination"
+        android:id="@+id/scrollViewResultAcitivityDirectMatrixFactorization"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewResultActivityGaussianElimination"
+        android:layout_below="@id/textViewResultActivityDirectMatrixFactorization"
         android:fillViewport="false" >
 
         <LinearLayout
-            android:id="@+id/linearLayoutResultActivityGaussianElimination"
+            android:id="@+id/linearLayoutResultActivityDirectMatrixFactorization"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
@@ -27,7 +27,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/buttonExecutionActivityGaussianElimination"
+        android:id="@+id/buttonExecutionActivityDirectMatrixFactorization"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -38,32 +38,32 @@
         android:visibility="invisible" />
 
     <Button
-        android:id="@+id/buttonPartialPivoting"
+        android:id="@+id/buttonCholesky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonExecutionActivityGaussianElimination"
+        android:layout_above="@+id/buttonExecutionActivityDirectMatrixFactorization"
         android:layout_centerHorizontal="true"
-        android:onClick="onPartialPivotingButtonClick"
-        android:text="@string/button_partial_pivoting" />
+        android:onClick="onCholeskyButtonClick"
+        android:text="@string/button_cholesky" />
 
     <Button
-        android:id="@+id/buttonTotalPivoting"
+        android:id="@+id/buttonDoolittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/buttonPartialPivoting"
-        android:layout_alignBottom="@+id/buttonPartialPivoting"
+        android:layout_alignBaseline="@+id/buttonCholesky"
+        android:layout_alignBottom="@+id/buttonCholesky"
         android:layout_alignParentRight="true"
-        android:onClick="onTotalPivotingButtonClick"
-        android:text="@string/button_total_pivoting" />
+        android:onClick="onDoolittleButtonClick"
+        android:text="@string/button_doolittle" />
 
     <Button
-        android:id="@+id/buttonSimpleGaussianElimination"
+        android:id="@+id/buttonCrout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonExecutionActivityGaussianElimination"
+        android:layout_above="@+id/buttonExecutionActivityDirectMatrixFactorization"
         android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/buttonExecutionActivityGaussianElimination"
-        android:onClick="onSimpleGaussianEliminationButtonClick"
-        android:text="@string/button_simple" />
+        android:layout_toLeftOf="@+id/buttonExecutionActivityDirectMatrixFactorization"
+        android:onClick="onCroutButtonClick"
+        android:text="@string/button_crout" />
 
 </RelativeLayout>

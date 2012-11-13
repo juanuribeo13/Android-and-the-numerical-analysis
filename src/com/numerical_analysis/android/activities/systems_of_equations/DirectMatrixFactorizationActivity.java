@@ -3,7 +3,6 @@ package com.numerical_analysis.android.activities.systems_of_equations;
 import com.numerical_analysis.android.R;
 import com.numerical_analysis.android.activities.MatrixExecutionActivity;
 import com.numerical_analysis.android.adapters.DirectMethodsMatrixExecutionAdapter;
-import com.numerical_analysis.android.exceptions.NoUniqueSolutionException;
 import com.numerical_analysis.android.methods.systems_of_equations.DirectMethods;
 import com.numerical_analysis.android.utilities.Matrix;
 
@@ -11,34 +10,33 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class GaussianEliminationActivity extends Activity {
+public class DirectMatrixFactorizationActivity extends Activity {
 
 	private DirectMethods directMethods;
-	private Matrix matrix;
 	private LinearLayout linearLayout;
 	private Button execution;
-	private final String ACTIVITY_NAME="gaussianElimination";
+	private Matrix matrix;
+	private final String ACTIVITY_NAME="DirectMatrixFactorization";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_gaussian_elimination);
+		setContentView(R.layout.activity_direct_matrix_factorization);
 		directMethods = (DirectMethods) getIntent().getSerializableExtra(
 				"directMethods");
-		linearLayout = (LinearLayout) findViewById(R.id.linearLayoutResultActivityGaussianElimination);
+		linearLayout = (LinearLayout) findViewById(R.id.linearLayoutResultActivityDirectMatrixFactorization);
 		matrix = (Matrix) getIntent().getSerializableExtra("Matrix");
-		execution = (Button) findViewById(R.id.buttonExecutionActivityGaussianElimination);
+		execution = (Button) findViewById(R.id.buttonExecutionActivityDirectMatrixFactorization);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_simple_gaussian_elimination,
+		getMenuInflater().inflate(R.menu.activity_direct_matrix_factorization,
 				menu);
 		return true;
 	}
@@ -52,59 +50,10 @@ public class GaussianEliminationActivity extends Activity {
 		startActivity(intent);
 	}
 
-	public void onPartialPivotingButtonClick(View view) {
+	public void onCholeskyButtonClick(View view) {
 		Matrix matrix = (Matrix) this.matrix.clone();
 		linearLayout.removeAllViewsInLayout();
-		try {
-			double[] x = directMethods.gaussianEliminationWithPartialPivoting(
-					matrix, matrix.getB());
-			TextView[] results = new TextView[x.length];
-			int[] marks = matrix.getMarks();
-			for (int i = 0; i < x.length; i++) {
-				TextView textView = new TextView(this);
-				textView.setText("x" + marks[i] + " = " + x[i]);
-				results[i] = textView;
-				linearLayout.addView(textView);
-				linearLayout.invalidate();
-			}
-		} catch (NoUniqueSolutionException e) {
-			TextView textView = new TextView(this);
-			textView.setText(e.getMessage());
-			linearLayout.addView(textView);
-			linearLayout.invalidate();
-		}
-		execution.setVisibility(Button.VISIBLE);
-	}
-
-	public void onTotalPivotingButtonClick(View view) {
-		Matrix matrix = (Matrix) this.matrix.clone();
-		linearLayout.removeAllViewsInLayout();
-		try {
-			double[] x = directMethods.gaussianEliminationWithTotalPivoting(
-					matrix, matrix.getB());
-			TextView[] results = new TextView[x.length];
-			int[] marks = matrix.getMarks();
-			for (int i = 0; i < x.length; i++) {
-				TextView textView = new TextView(this);
-				textView.setText("x" + marks[i] + " = " + x[i]);
-				results[i] = textView;
-				linearLayout.addView(textView);
-				linearLayout.invalidate();
-			}
-		} catch (NoUniqueSolutionException e) {
-			TextView textView = new TextView(this);
-			textView.setText(e.getMessage());
-			linearLayout.addView(textView);
-			linearLayout.invalidate();
-		}
-		execution.setVisibility(Button.VISIBLE);
-	}
-
-	public void onSimpleGaussianEliminationButtonClick(View view) {
-		Matrix matrix = (Matrix) this.matrix.clone();
-		linearLayout.removeAllViewsInLayout();
-		double[] x = directMethods.simpleGaussianElimination(matrix,
-				matrix.getB());
+		double[] x = directMethods.cholesky(matrix);
 		TextView[] results = new TextView[x.length];
 		int[] marks = matrix.getMarks();
 		for (int i = 0; i < x.length; i++) {
@@ -117,13 +66,36 @@ public class GaussianEliminationActivity extends Activity {
 		execution.setVisibility(Button.VISIBLE);
 	}
 
-	@Override
-	public boolean onOptionsItemSelected(final MenuItem item) {
-
-		// Handle item selection
-		switch (item.getItemId()) {
+	public void onDoolittleButtonClick(View view) {
+		Matrix matrix = (Matrix) this.matrix.clone();
+		linearLayout.removeAllViewsInLayout();
+		double[] x = directMethods.doolittle(matrix);
+		TextView[] results = new TextView[x.length];
+		int[] marks = matrix.getMarks();
+		for (int i = 0; i < x.length; i++) {
+			TextView textView = new TextView(this);
+			textView.setText("x" + marks[i] + " = " + x[i]);
+			results[i] = textView;
+			linearLayout.addView(textView);
+			linearLayout.invalidate();
 		}
-
-		return super.onOptionsItemSelected(item);
+		execution.setVisibility(Button.VISIBLE);
 	}
+
+	public void onCroutButtonClick(View view) {
+		Matrix matrix = (Matrix) this.matrix.clone();
+		linearLayout.removeAllViewsInLayout();
+		double[] x = directMethods.crout(matrix);
+		TextView[] results = new TextView[x.length];
+		int[] marks = matrix.getMarks();
+		for (int i = 0; i < x.length; i++) {
+			TextView textView = new TextView(this);
+			textView.setText("x" + marks[i] + " = " + x[i]);
+			results[i] = textView;
+			linearLayout.addView(textView);
+			linearLayout.invalidate();
+		}
+		execution.setVisibility(Button.VISIBLE);
+	}
+
 }
