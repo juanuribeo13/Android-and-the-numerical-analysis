@@ -2,6 +2,7 @@ package com.numerical_analysis.android.activities.interpolation;
 
 import com.numerical_analysis.android.R;
 import com.numerical_analysis.android.activities.ExecutionTableActivity;
+import com.numerical_analysis.android.activities.HelpActivity;
 import com.numerical_analysis.android.activities.SetXAndFXActivity;
 import com.numerical_analysis.android.adapters.interpolation.NewtonExecutionTableAdapter;
 import com.numerical_analysis.android.exceptions.DivisionByZeroException;
@@ -67,6 +68,13 @@ public class NewtonInterpolationActivity extends Activity {
 			intent.putExtra("x", interpolation.getX());
 			intent.putExtra("y", interpolation.getY());
 			startActivityForResult(intent, SET_X_AND_FX);
+			return true;
+		case R.id.menu_help:
+			intent = new Intent(this, HelpActivity.class);
+			intent.putExtra(
+					"url",
+					"https://sites.google.com/site/numericalanalysiseafit/topics/interpolation/newton");
+			startActivity(intent);
 			return true;
 		}
 

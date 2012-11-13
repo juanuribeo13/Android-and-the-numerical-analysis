@@ -168,6 +168,11 @@
             android:label="@string/title_activity_neville"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".activities.HelpActivity"
+            android:label="@string/title_activity_help"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

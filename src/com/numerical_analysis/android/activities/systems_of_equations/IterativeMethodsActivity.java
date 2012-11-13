@@ -1,6 +1,7 @@
 package com.numerical_analysis.android.activities.systems_of_equations;
 
 import com.numerical_analysis.android.R;
+import com.numerical_analysis.android.activities.HelpActivity;
 import com.numerical_analysis.android.activities.SetIndependentTermsActivity;
 import com.numerical_analysis.android.methods.systems_of_equations.IterativeMethods;
 
@@ -80,6 +81,13 @@ public class IterativeMethodsActivity extends ListActivity {
 			intent.putExtra("independentTerms",
 					iterativeMethods.getIndependentTerms());
 			startActivityForResult(intent, SET_INDEPENDENT_TERMS);
+			return true;
+		case R.id.menu_help:
+			intent = new Intent(this, HelpActivity.class);
+			intent.putExtra(
+					"url",
+					"https://sites.google.com/site/numericalanalysiseafit/topics/systems-of-equations/iterative-methods");
+			startActivity(intent);
 			return true;
 		}
 

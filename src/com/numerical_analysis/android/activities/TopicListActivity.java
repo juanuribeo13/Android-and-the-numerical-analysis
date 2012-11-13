@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -29,6 +30,22 @@ public class TopicListActivity extends ListActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(final MenuItem item) {
+
+		// Handle item selection
+		switch (item.getItemId()) {
+		case R.id.menu_help:
+			Intent intent = new Intent(this, HelpActivity.class);
+			intent.putExtra("url",
+					"https://sites.google.com/site/numericalanalysiseafit/topics");
+			startActivity(intent);
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override

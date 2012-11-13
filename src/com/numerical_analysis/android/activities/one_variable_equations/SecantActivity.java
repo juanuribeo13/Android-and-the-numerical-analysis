@@ -2,6 +2,7 @@ package com.numerical_analysis.android.activities.one_variable_equations;
 
 import com.numerical_analysis.android.R;
 import com.numerical_analysis.android.activities.ExecutionTableActivity;
+import com.numerical_analysis.android.activities.HelpActivity;
 import com.numerical_analysis.android.activities.PlotterActivity;
 import com.numerical_analysis.android.activities.SetFunctionActivity;
 import com.numerical_analysis.android.adapters.one_variable_equations.SecantExecutionTableAdapter;
@@ -62,6 +63,13 @@ public class SecantActivity extends Activity {
 			intent = new Intent(this, SetFunctionActivity.class);
 			intent.putExtra("function", oneVariableEquations.getFunction());
 			startActivityForResult(intent, SET_FUNCTION);
+			return true;
+		case R.id.menu_help:
+			intent = new Intent(this, HelpActivity.class);
+			intent.putExtra(
+					"url",
+					"https://sites.google.com/site/numericalanalysiseafit/topics/one-variable-equations/secant");
+			startActivity(intent);
 			return true;
 		}
 

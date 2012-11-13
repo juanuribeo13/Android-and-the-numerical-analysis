@@ -5,7 +5,9 @@ import com.numerical_analysis.android.methods.ErrorTheory;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -25,6 +27,22 @@ public class ErrorTheoryActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_error_theory, menu);
 		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(final MenuItem item) {
+
+		// Handle item selection
+		switch (item.getItemId()) {
+		case R.id.menu_help:
+			Intent intent = new Intent(this, HelpActivity.class);
+			intent.putExtra("url",
+					"https://sites.google.com/site/numericalanalysiseafit/topics/error-theory");
+			startActivity(intent);
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
 	}
 
 	public void onSmallestPositiveNumberSimpleButtonClick(View view) {
