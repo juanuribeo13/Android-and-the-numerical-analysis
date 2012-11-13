@@ -75,6 +75,8 @@
     <string name="title_activity_newton_interpolation">Newton Interpolation</string>
     <string name="title_activity_set_xand_fx">Set X And F(X)</string>
     <string name="title_activity_direct_matrix_factorization">Direct Matrix Factorization</string>
+    <string name="title_activity_lagrange">Lagrange</string>
+    <string name="title_activity_neville">Neville</string>
     <string name="title_table_iteration">Iteration</string>
     <string name="title_table_x0">X0</string>
     <string name="title_table_x1">X1</string>

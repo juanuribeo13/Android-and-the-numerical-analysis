@@ -48,6 +48,64 @@ public class Interpolation implements MethodGroup {
 		return polynomial;
 	}
 
+	// TODO implement the method
+	public String lagrange() throws DivisionByZeroException {
+		Double executionTable[][] = new Double[x.length][x.length + 1];
+		for (int i = 0; i < x.length; i++) {
+			executionTable[i][0] = x[i];
+			executionTable[i][1] = y[i];
+		}
+		String polynomial = executionTable[0][1].toString();
+		for (int i = 2; i < x.length + 1; i++) {
+			int row = 0;
+			for (int j = i - 1; j < x.length; j++) {
+				double denominator = executionTable[row][0]
+						- executionTable[j][0];
+				row++;
+				if (denominator != 0) {
+					executionTable[j][i] = (executionTable[j - 1][i - 1] - executionTable[j][i - 1])
+							/ denominator;
+					if (j == i - 1) {
+						polynomial += "+" + executionTable[j][i];
+						for (int k = j - 1; k >= 0; k--) {
+							polynomial += "*(x-" + executionTable[k][0] + ")";
+						}
+					}
+				} else {
+					throw new DivisionByZeroException("Division by zero");
+				}
+			}
+		}
+		this.executionTable = new ArrayList(Arrays.asList(executionTable));
+		return polynomial;
+	}
+
+	public double neville(double x0) throws DivisionByZeroException {
+		Double executionTable[][] = new Double[x.length][x.length + 1];
+		for (int i = 0; i < x.length; i++) {
+			executionTable[i][0] = x[i];
+			executionTable[i][1] = y[i];
+		}
+		for (int i = 2; i < x.length + 1; i++) {
+			int row = 0;
+			for (int j = i - 1; j < x.length; j++) {
+				double denominator = executionTable[j][0]
+						- executionTable[row][0];
+				if (denominator != 0) {
+					executionTable[j][i] = ((x0 - executionTable[row][0])
+							* executionTable[j][i - 1] - (x0 - executionTable[j][0])
+							* executionTable[j - 1][i - 1])
+							/ denominator;
+				} else {
+					throw new DivisionByZeroException("Division by zero");
+				}
+				row++;
+			}
+		}
+		this.executionTable = new ArrayList(Arrays.asList(executionTable));
+		return executionTable[x.length - 1][x.length];
+	}
+
 	public double evaluatePolynomial(String polynomial, double value) {
 		JEP jep = new JEP();
 		jep.addStandardFunctions();

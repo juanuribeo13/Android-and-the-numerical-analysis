@@ -6,6 +6,7 @@ import com.numerical_analysis.android.activities.SetXAndFXActivity;
 import com.numerical_analysis.android.adapters.interpolation.NewtonExecutionTableAdapter;
 import com.numerical_analysis.android.exceptions.DivisionByZeroException;
 import com.numerical_analysis.android.methods.Interpolation;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -15,7 +16,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class NewtonInterpolationActivity extends Activity {
+public class LagrangeActivity extends Activity {
 
 	static final int SET_X_AND_FX = 0;
 	private Interpolation interpolation;
@@ -23,7 +24,7 @@ public class NewtonInterpolationActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_newton_interpolation);
+		setContentView(R.layout.activity_lagrange);
 
 		interpolation = (Interpolation) getIntent().getSerializableExtra(
 				"interpolation");
@@ -99,10 +100,11 @@ public class NewtonInterpolationActivity extends Activity {
 	}
 
 	private void executeMethod() {
-		TextView textPolynomial = (TextView) findViewById(R.id.textViewPolynomialActivityNewtonInterpolation);
+		TextView textPolynomial = (TextView) findViewById(R.id.textViewPolynomialActivityLagrange);
 		try {
+			// TODO change for Lagrange
 			String polynomial = interpolation.newton();
-			textPolynomial.setText("P(x)=" + polynomial);
+			textPolynomial.setText(polynomial);
 		} catch (DivisionByZeroException e) {
 			textPolynomial.setText(e.getMessage());
 		}
@@ -110,30 +112,29 @@ public class NewtonInterpolationActivity extends Activity {
 	}
 
 	public void onCalculateButtonClick(View view) {
-		TextView textPolynomial = (TextView) findViewById(R.id.textViewPolynomialActivityNewtonInterpolation);
+		TextView textPolynomial = (TextView) findViewById(R.id.textViewPolynomialActivityLagrange);
 		String polynomial = textPolynomial.getText().toString();
-		TextView textResult = (TextView) findViewById(R.id.textViewEvaluationActivityNewtonInterpolation);
-		EditText editValue = (EditText) findViewById(R.id.editTextXActivityNewtonInterpolation);
+		TextView textResult = (TextView) findViewById(R.id.textViewEvaluationActivityLagrange);
+		EditText editValue = (EditText) findViewById(R.id.editTextXActivityLagrange);
 		double value = Double.valueOf(editValue.getText().toString());
 		textResult.setText(String.valueOf(interpolation.evaluatePolynomial(
 				polynomial, value)));
 	}
 
 	private void setvisibilities(int visibility) {
-		findViewById(R.id.textViewPolynomialActivityNewtonInterpolation)
-				.setVisibility(visibility);
-		findViewById(R.id.textViewEvaluationActivityNewtonInterpolation)
-				.setVisibility(visibility);
-		findViewById(R.id.editTextXActivityNewtonInterpolation).setVisibility(
+		findViewById(R.id.textViewPolynomialActivityLagrange).setVisibility(
 				visibility);
-		findViewById(R.id.buttonCalculateActivityNewtonInterpolation)
-				.setVisibility(visibility);
+		findViewById(R.id.textViewEvaluationActivityLagrange).setVisibility(
+				visibility);
+		findViewById(R.id.editTextXActivityLagrange).setVisibility(visibility);
+		findViewById(R.id.buttonCalculateActivityLagrange).setVisibility(
+				visibility);
 		if (visibility == View.VISIBLE) {
-			findViewById(R.id.textViewWarningActivityNewtonInterpolation)
-					.setVisibility(View.GONE);
+			findViewById(R.id.textViewWarningActivityLagrange).setVisibility(
+					View.GONE);
 		} else {
-			findViewById(R.id.textViewWarningActivityNewtonInterpolation)
-					.setVisibility(View.VISIBLE);
+			findViewById(R.id.textViewWarningActivityLagrange).setVisibility(
+					View.VISIBLE);
 		}
 	}
 
@@ -146,7 +147,7 @@ public class NewtonInterpolationActivity extends Activity {
 	}
 
 	private void enableExecutionTable() {
-		findViewById(R.id.buttonExecutionTableActivityNewtonInterpolation)
-				.setVisibility(View.VISIBLE);
+		findViewById(R.id.buttonExecutionTableActivityLagrange).setVisibility(
+				View.VISIBLE);
 	}
 }

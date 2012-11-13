@@ -33,6 +33,8 @@
     </string-array>
     <string-array name="interpolationList">
         <item>Newton</item>
+        <item>Lagrange</item>
+        <item>Neville</item>
     </string-array>
 
 </resources>

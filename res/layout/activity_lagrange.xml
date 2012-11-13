@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textViewWarningActivityLagrange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:drawableTop="@drawable/warning"
+        android:gravity="center_horizontal"
+        android:text="@string/text_view_warning_interpolation"
+        android:textSize="20dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textViewPolynomialActivityLagrange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/textViewEvaluationActivityLagrange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewPolynomialActivityLagrange"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:id="@+id/editTextXActivityLagrange"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewEvaluationActivityLagrange"
+        android:hint="@string/hint_edit_text_x0"
+        android:inputType="numberDecimal|numberSigned" />
+
+    <Button
+        android:id="@+id/buttonCalculateActivityLagrange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextXActivityLagrange"
+        android:onClick="onCalculateButtonClick"
+        android:text="@string/button_calculate" />
+
+    <Button
+        android:id="@+id/buttonExecutionTableActivityLagrange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="showExecutionTable"
+        android:text="@string/button_execution_table"
+        android:visibility="invisible" />
+
+</RelativeLayout>
