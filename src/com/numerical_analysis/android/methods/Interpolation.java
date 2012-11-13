@@ -1,6 +1,9 @@
 package com.numerical_analysis.android.methods;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+
+import org.nfunk.jep.JEP;
 
 import com.numerical_analysis.android.exceptions.DivisionByZeroException;
 
@@ -22,17 +25,18 @@ public class Interpolation implements MethodGroup {
 		}
 		String polynomial = executionTable[0][1].toString();
 		for (int i = 2; i < x.length + 1; i++) {
-			for (int j = i + 1; j < x.length; j++) {
-				double denominator = executionTable[0][0]
+			int row = 0;
+			for (int j = i - 1; j < x.length; j++) {
+				double denominator = executionTable[row][0]
 						- executionTable[j][0];
+				row++;
 				if (denominator != 0) {
-					executionTable[i][j] = (executionTable[i - 1][j - 1] - executionTable[i - 1][j])
+					executionTable[j][i] = (executionTable[j - 1][i - 1] - executionTable[j][i - 1])
 							/ denominator;
-					if (j == i + 1) {
-						polynomial += "+" + executionTable[i][j];
+					if (j == i - 1) {
+						polynomial += "+" + executionTable[j][i];
 						for (int k = j - 1; k >= 0; k--) {
-							polynomial += "*(x-" + executionTable[j][j + 1]
-									+ ")";
+							polynomial += "*(x-" + executionTable[k][0] + ")";
 						}
 					}
 				} else {
@@ -40,7 +44,16 @@ public class Interpolation implements MethodGroup {
 				}
 			}
 		}
+		this.executionTable = new ArrayList(Arrays.asList(executionTable));
 		return polynomial;
+	}
+
+	public double evaluatePolynomial(String polynomial, double value) {
+		JEP jep = new JEP();
+		jep.addStandardFunctions();
+		jep.addVariable("x", value);
+		jep.parseExpression(polynomial);
+		return jep.getValue();
 	}
 
 	public ArrayList<Double[]> getExecutionTable() {

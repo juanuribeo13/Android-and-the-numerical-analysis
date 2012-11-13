@@ -113,10 +113,10 @@ public class SetXAndFXActivity extends Activity {
 	}
 
 	public void onFinishButtonClick(View view) {
-		EditText editX = (EditText) findViewById(R.id.editTextXActivitySetXAndFX);
-		editX.setText(String.valueOf(x[position]));
-		EditText editY = (EditText) findViewById(R.id.editTextYActivitySetXAndFX);
-		editY.setText(String.valueOf(y[position]));
+		EditText editTextX = (EditText) findViewById(R.id.editTextXActivitySetXAndFX);
+		x[position] = Double.valueOf(editTextX.getText().toString());
+		EditText editTextY = (EditText) findViewById(R.id.editTextYActivitySetXAndFX);
+		y[position] = Double.valueOf(editTextY.getText().toString());
 
 		Intent returnIntent = new Intent();
 		returnIntent.putExtra("x", x);

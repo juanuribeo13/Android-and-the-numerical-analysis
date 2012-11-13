@@ -36,6 +36,7 @@
     <string name="text_view_input_vector_activity_input_matrix">Please enter b: </string>
     <string name="text_view_enter_n">Please enter n</string>
     <string name="text_view_warning_iterative_methods">Please enter the independent terms before using this method, this can be done through the menu</string>
+    <string name="text_view_warning_interpolation">Please enter x and f(x) before using this method, this can be done through the menu</string>
     <string name="hint_edit_text_function_activity_set_fuction">Insert the function</string>
     <string name="hint_text_view_result">Result</string>
     <string name="hint_edit_text_x0">X0</string>
