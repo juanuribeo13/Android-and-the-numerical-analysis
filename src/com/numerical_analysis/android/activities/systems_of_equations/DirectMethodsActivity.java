@@ -9,21 +9,17 @@ import android.os.Bundle;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class DirectMethodsActivity extends ListActivity {
 
 	private static final int INPUT_MATRIX = 0;
 	private DirectMethods directMethods;
 	private Matrix matrix = null;
-
-	public Matrix getMatrix() {
-		return (Matrix) matrix.clone();
-	}
 
 	public void setMatrix(Matrix matrix) {
 		this.matrix = matrix;
@@ -38,13 +34,13 @@ public class DirectMethodsActivity extends ListActivity {
 		this.setListAdapter(new ArrayAdapter<String>(this,
 				R.layout.activity_direct_methods, list));
 		directMethods = new DirectMethods();
-		// This is only for testing remove it when testing be done
-		double[][] m = { { 20, -1, 1, -1 }, { 5, 35, -4, 8 },
-				{ 2, -10, 75, -1 }, { 3, -7, 4, -27 } };
-		double[] b = { 8, 50, -114, 10 };
-		matrix = new Matrix(m);
-		matrix.setB(b);
-		// Testing
+		// // This is only for testing remove it when testing be done
+		// double[][] m = { { 20, -1, 1, -1 }, { 5, 35, -4, 8 },
+		// { 2, -10, 75, -1 }, { 3, -7, 4, -27 } };
+		// double[] b = { 8, 50, -114, 10 };
+		// matrix = new Matrix(m);
+		// matrix.setB(b);
+		// // Testing
 	}
 
 	@Override
@@ -59,38 +55,28 @@ public class DirectMethodsActivity extends ListActivity {
 
 		String action = ((TextView) v).getText().toString();
 
-		if (action.equals("Input Matrix")) {
-			Intent inputMatrix = new Intent(this, InputMatrixActivity.class);
-			if (matrix != null) {
-				inputMatrix.putExtra("Matrix", matrix);
-			}
-			startActivityForResult(inputMatrix, INPUT_MATRIX);
-		} else if (matrix == null) {
-			Toast.makeText(this,
-					"Please enter the matrix before you use any method",
-					Toast.LENGTH_LONG).show();
-		} else if (action.equals("Gaussian Elimination")) {
+		if (action.equals("Gaussian Elimination")) {
 			Intent intent = new Intent(this, GaussianEliminationActivity.class);
-			intent.putExtra("Matrix", getMatrix());
+			intent.putExtra("Matrix", matrix);
 			intent.putExtra("directMethods", directMethods);
 			startActivity(intent);
 		} else if (action.equals("Direct Matrix Factorization")) {
 			Intent intent = new Intent(this,
 					DirectMatrixFactorizationActivity.class);
-			intent.putExtra("Matrix", getMatrix());
+			intent.putExtra("Matrix", matrix);
 			intent.putExtra("directMethods", directMethods);
 			startActivity(intent);
 		} else if (action.equals("LU Matrix Factorization")) {
 			Intent intent = new Intent(this,
 					LUMatrixFactorizationActivity.class);
-			intent.putExtra("Matrix", getMatrix());
+			intent.putExtra("Matrix", matrix);
 			intent.putExtra("directMethods", directMethods);
 			startActivity(intent);
 		} else if (action
 				.equals("LU Matrix Factorization with Partial Pivoting")) {
 			Intent intent = new Intent(this,
 					LUMatrixFactorizationWithPartialPivoting.class);
-			intent.putExtra("Matrix", getMatrix());
+			intent.putExtra("Matrix", matrix);
 			intent.putExtra("directMethods", directMethods);
 			startActivity(intent);
 		}
@@ -105,6 +91,24 @@ public class DirectMethodsActivity extends ListActivity {
 				setMatrix((Matrix) data.getSerializableExtra("Matrix"));
 			}
 		}
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(final MenuItem item) {
+
+		// Handle item selection
+		switch (item.getItemId()) {
+
+		case R.id.menu_input_matrix:
+			Intent inputMatrix = new Intent(this, InputMatrixActivity.class);
+			if (matrix != null) {
+				inputMatrix.putExtra("Matrix", matrix);
+			}
+			startActivityForResult(inputMatrix, INPUT_MATRIX);
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
 	}
 
 }

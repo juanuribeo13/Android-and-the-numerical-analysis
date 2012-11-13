@@ -4,28 +4,23 @@
     android:layout_height="match_parent"
     android:scrollbarAlwaysDrawVerticalTrack="false" >
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollViewInputVectorActivityInputMatrix"
+    <EditText
+        android:id="@+id/editTextInputVectorActivityInputMatrix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" >
-
-        <LinearLayout
-            android:id="@+id/linearLayoutInputVectorActivityInputMatrix"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:scrollbars="horizontal" >
-        </LinearLayout>
-    </HorizontalScrollView>
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/textViewCurrentMatrixFieldActivityInputMatrix"
+        android:ems="10"
+        android:hint="@string/hint_edit_text_input_vector_activity_input_matrix"
+        android:inputType="numberDecimal|numberSigned" />
 
     <TextView
         android:id="@+id/textViewInputVectorActivityInputMatrix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/horizontalScrollViewInputVectorActivityInputMatrix"
+        android:layout_above="@id/editTextInputVectorActivityInputMatrix"
         android:layout_marginRight="42dp"
-        android:layout_toLeftOf="@+id/horizontalScrollViewInputVectorActivityInputMatrix"
+        android:layout_toLeftOf="@+id/editTextInputVectorActivityInputMatrix"
         android:text="@string/text_view_input_vector_activity_input_matrix" />
 
     <EditText
@@ -113,5 +108,15 @@
         android:enabled="false"
         android:onClick="onFinishButtonClick"
         android:text="@string/button_finish_activity_input_matrix" />
+
+    <Button
+        android:id="@+id/ButtonNextBActivityInputMatrix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/editTextInputVectorActivityInputMatrix"
+        android:enabled="false"
+        android:onClick="onNextBButtonClick"
+        android:text="@string/button_next_activity_input_matrix" />
 
 </RelativeLayout>

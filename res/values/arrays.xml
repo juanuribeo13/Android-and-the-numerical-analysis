@@ -22,7 +22,6 @@
         <item>Iterative Methods</item>
     </string-array>
     <string-array name="directMethodsList">
-        <item>Input Matrix</item>
         <item>Gaussian Elimination</item>
         <item>Direct Matrix Factorization</item>
         <item>LU Matrix Factorization</item>

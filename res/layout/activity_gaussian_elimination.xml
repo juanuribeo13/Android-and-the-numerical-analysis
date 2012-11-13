@@ -5,6 +5,17 @@
     android:scrollbars="vertical" >
 
     <TextView
+        android:id="@+id/textViewWarningActivityGaussianElimination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:drawableTop="@drawable/warning"
+        android:gravity="center_horizontal"
+        android:text="@string/text_view_warning_input_matrix"
+        android:textSize="20dp"
+        android:visibility="gone" />
+    <TextView
         android:id="@+id/textViewResultActivityGaussianElimination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

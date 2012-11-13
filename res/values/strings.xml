@@ -10,7 +10,9 @@
     <string name="menu_set_independent_terms">Set Independent Terms</string>
     <string name="menu_set_x_and_fx">Set X And F(X)</string>
     <string name="menu_set_function">Set Function</string>
+    <string name="menu_input_matrix">Input Matrix</string>
     <string name="invalid_parameters">You have to enter all the values for the method to be executed</string>
+    <string name="missing_fields">Please enter the field before you press the button</string>
     <string name="image_activity_topic_list">Image Android Teacher</string>
     <string name="instruction_activity_topic_list">Touch to start</string>
     <string name="button_set_activity_set_function">Set</string>
@@ -34,11 +36,12 @@
     <string name="text_view_matrix_size_activity_input_matrix">Please enter n</string>
     <string name="text_view_result">Result: </string>
     <string name="text_view_execution_activity_matrix_execution">Execution: </string>
-    <string name="text_view_input_vector_activity_input_matrix">Please enter b: </string>
+    <string name="text_view_input_vector_activity_input_matrix">Please enter b1: </string>
     <string name="text_view_enter_n">Please enter n</string>
     <string name="text_view_warning_iterative_methods">Please enter the independent terms before using this method, this can be done through the menu</string>
     <string name="text_view_warning_interpolation">Please enter x and f(x) before using this method, this can be done through the menu</string>
     <string name="text_view_warning_one_variable_equations">Please enter the function before using this method, this can be done through the menu</string>
+    <string name="text_view_warning_input_matrix">Please enter a matrix before you use any method, this can be done through the menu</string>
     <string name="hint_edit_text_function_activity_set_fuction">Insert the function</string>
     <string name="hint_text_view_result">Result</string>
     <string name="hint_edit_text_x0">X0</string>
@@ -51,6 +54,7 @@
     <string name="hint_edit_text_ddf">F\'\'(X0)</string>
     <string name="hint_edit_text_relaxation">Relaxation</string>
     <string name="hint_edit_text_matrix_field_activity_input_matrix">A[i][j]</string>
+    <string name="hint_edit_text_input_vector_activity_input_matrix">b[i]</string>
     <string name="hint_edit_text_matrix_size_activity_input_matrix">Matrix size -> "n"</string>
     <string name="title_activity_one_variable_equations">One Variable Equations</string>
     <string name="title_activity_set_function">Set Function</string>
@@ -91,7 +95,5 @@
     <string name="title_table_error">Error</string>
     <string name="title_table_dy0">F\'(X0)</string>
     <string name="title_table_ddy0">F\'\'(X0)</string>
-    <string name="title_dialog_input_vector">Input B Vector</string>
-    <string name="dialog_input_vector">Please enter the b vector (Solution vector)</string>
 
 </resources>
