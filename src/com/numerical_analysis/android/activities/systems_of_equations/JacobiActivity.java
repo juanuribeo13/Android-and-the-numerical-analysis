@@ -156,8 +156,11 @@ public class JacobiActivity extends Activity {
 			double tolerance = Double
 					.parseDouble(((EditText) findViewById(R.id.editTextToleranceActivityJacobi))
 							.getText().toString());
-			ArrayList<Double> results = iterativeMethods.jacobi(iterations,
-					tolerance);
+			double lambda = Double
+					.parseDouble(((EditText) findViewById(R.id.editTextRelaxationActivityJacobi))
+							.getText().toString());
+			ArrayList<Double> results = iterativeMethods.jacobi(lambda,
+					iterations, tolerance);
 
 			for (int i = 0; i < results.size() - 1; i++) {
 				Double result = results.get(i);
@@ -193,6 +196,8 @@ public class JacobiActivity extends Activity {
 		findViewById(R.id.editTextIterationsActivityJacobi).setVisibility(
 				visibility);
 		findViewById(R.id.editTextToleranceActivityJacobi).setVisibility(
+				visibility);
+		findViewById(R.id.editTextRelaxationActivityJacobi).setVisibility(
 				visibility);
 		findViewById(R.id.buttonCalculateActivityJacobi).setVisibility(
 				visibility);

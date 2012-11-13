@@ -68,11 +68,19 @@
         android:hint="@string/hint_edit_text_tolerance"
         android:inputType="numberDecimal" />
 
+    <EditText
+        android:id="@+id/editTextRelaxationActivityGaussSeidel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextToleranceActivityGaussSeidel"
+        android:hint="@string/hint_edit_text_relaxation"
+        android:inputType="numberDecimal" />
+
     <LinearLayout
         android:id="@+id/linearLayoutResultsActivityGaussSeidel"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextToleranceActivityGaussSeidel"
+        android:layout_below="@id/editTextRelaxationActivityGaussSeidel"
         android:orientation="vertical" >
     </LinearLayout>
 

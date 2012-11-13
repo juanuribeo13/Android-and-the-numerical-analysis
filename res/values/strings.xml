@@ -42,6 +42,7 @@
     <string name="hint_edit_text_g">G(x)</string>
     <string name="hint_edit_text_df">F\'(X0)</string>
     <string name="hint_edit_text_ddf">F\'\'(X0)</string>
+    <string name="hint_edit_text_relaxation">Relaxation</string>
     <string name="hint_edit_text_matrix_field_activity_input_matrix">A[i][j]</string>
     <string name="hint_edit_text_matrix_size_activity_input_matrix">Matrix size -> "n"</string>
     <string name="title_activity_one_variable_equations">One Variable Equations</string>
