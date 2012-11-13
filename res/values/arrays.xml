@@ -9,7 +9,6 @@
     </string-array>
     <string-array name="errorTheoryList"></string-array>
     <string-array name="oneVariableEquationList">
-        <item>Set function</item>
         <item>Incremental search</item>
         <item>Bisection</item>
         <item>False rule</item>
@@ -35,6 +34,8 @@
     </string-array>
     <string-array name="interpolationList">
         <item>Newton</item>
+        <item>Lagrange</item>
+        <item>Neville</item>
     </string-array>
 
 </resources>

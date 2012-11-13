@@ -3,9 +3,10 @@ package com.numerical_analysis.android.activities.interpolation;
 import com.numerical_analysis.android.R;
 import com.numerical_analysis.android.activities.ExecutionTableActivity;
 import com.numerical_analysis.android.activities.SetXAndFXActivity;
-import com.numerical_analysis.android.adapters.interpolation.NewtonExecutionTableAdapter;
+import com.numerical_analysis.android.adapters.interpolation.NevilleExecutionTableAdapter;
 import com.numerical_analysis.android.exceptions.DivisionByZeroException;
 import com.numerical_analysis.android.methods.Interpolation;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -15,7 +16,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class NewtonInterpolationActivity extends Activity {
+public class NevilleActivity extends Activity {
 
 	static final int SET_X_AND_FX = 0;
 	private Interpolation interpolation;
@@ -23,7 +24,7 @@ public class NewtonInterpolationActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_newton_interpolation);
+		setContentView(R.layout.activity_neville);
 
 		interpolation = (Interpolation) getIntent().getSerializableExtra(
 				"interpolation");
@@ -32,7 +33,6 @@ public class NewtonInterpolationActivity extends Activity {
 			setvisibilities(View.GONE);
 		} else {
 			setvisibilities(View.VISIBLE);
-			executeMethod();
 		}
 	}
 
@@ -51,7 +51,6 @@ public class NewtonInterpolationActivity extends Activity {
 				interpolation.setX(data.getDoubleArrayExtra("x"));
 				interpolation.setY(data.getDoubleArrayExtra("y"));
 				setvisibilities(View.VISIBLE);
-				executeMethod();
 			}
 		}
 	}
@@ -81,47 +80,39 @@ public class NewtonInterpolationActivity extends Activity {
 		super.onBackPressed();
 	}
 
-	private void executeMethod() {
-		TextView textPolynomial = (TextView) findViewById(R.id.textViewPolynomialActivityNewtonInterpolation);
-		try {
-			String polynomial = interpolation.newton();
-			textPolynomial.setText("P(x)=" + polynomial);
-		} catch (DivisionByZeroException e) {
-			textPolynomial.setText(e.getMessage());
-		}
-		enableExecutionTable();
-	}
-
 	public void onCalculateButtonClick(View view) {
-		TextView textPolynomial = (TextView) findViewById(R.id.textViewPolynomialActivityNewtonInterpolation);
-		String polynomial = textPolynomial.getText().toString();
-		TextView textResult = (TextView) findViewById(R.id.textViewEvaluationActivityNewtonInterpolation);
-		EditText editValue = (EditText) findViewById(R.id.editTextXActivityNewtonInterpolation);
+		TextView textResult = (TextView) findViewById(R.id.textViewEvaluationActivityNeville);
+		EditText editValue = (EditText) findViewById(R.id.editTextXActivityNeville);
 		double value = Double.valueOf(editValue.getText().toString());
-		textResult.setText(String.valueOf(interpolation.evaluatePolynomial(
-				polynomial, value)));
+		double result;
+		try {
+			result = interpolation.neville(value);
+			textResult.setText(String.valueOf(result));
+			enableExecutionTable();
+		} catch (DivisionByZeroException e) {
+			textResult.setText(e.getMessage());
+			enableExecutionTable();
+		}
+
 	}
 
 	private void setvisibilities(int visibility) {
-		findViewById(R.id.textViewPolynomialActivityNewtonInterpolation)
-				.setVisibility(visibility);
-		findViewById(R.id.textViewEvaluationActivityNewtonInterpolation)
-				.setVisibility(visibility);
-		findViewById(R.id.editTextXActivityNewtonInterpolation).setVisibility(
+		findViewById(R.id.textViewEvaluationActivityNeville).setVisibility(
 				visibility);
-		findViewById(R.id.buttonCalculateActivityNewtonInterpolation)
-				.setVisibility(visibility);
+		findViewById(R.id.editTextXActivityNeville).setVisibility(visibility);
+		findViewById(R.id.buttonCalculateActivityNeville).setVisibility(
+				visibility);
 		if (visibility == View.VISIBLE) {
-			findViewById(R.id.textViewWarningActivityNewtonInterpolation)
-					.setVisibility(View.GONE);
+			findViewById(R.id.textViewWarningActivityNeville).setVisibility(
+					View.GONE);
 		} else {
-			findViewById(R.id.textViewWarningActivityNewtonInterpolation)
-					.setVisibility(View.VISIBLE);
+			findViewById(R.id.textViewWarningActivityNeville).setVisibility(
+					View.VISIBLE);
 		}
 	}
 
 	public void showExecutionTable(View view) {
-		NewtonExecutionTableAdapter adapter = new NewtonExecutionTableAdapter();
+		NevilleExecutionTableAdapter adapter = new NevilleExecutionTableAdapter();
 		Intent intent = new Intent(this, ExecutionTableActivity.class);
 		intent.putExtra("methodGroup", interpolation);
 		intent.putExtra("adapter", adapter);
@@ -129,7 +120,7 @@ public class NewtonInterpolationActivity extends Activity {
 	}
 
 	private void enableExecutionTable() {
-		findViewById(R.id.buttonExecutionTableActivityNewtonInterpolation)
-				.setVisibility(View.VISIBLE);
+		findViewById(R.id.buttonExecutionTableActivityNeville).setVisibility(
+				View.VISIBLE);
 	}
 }

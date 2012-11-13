@@ -47,6 +47,14 @@ public class InterpolationActivity extends ListActivity {
 			Intent intent = new Intent(this, NewtonInterpolationActivity.class);
 			intent.putExtra("interpolation", interpolation);
 			startActivityForResult(intent, METHOD);
+		} else if (action.equals("Lagrange")) {
+			Intent intent = new Intent(this, LagrangeActivity.class);
+			intent.putExtra("interpolation", interpolation);
+			startActivityForResult(intent, METHOD);
+		} else if (action.equals("Neville")) {
+			Intent intent = new Intent(this, NevilleActivity.class);
+			intent.putExtra("interpolation", interpolation);
+			startActivityForResult(intent, METHOD);
 		}
 	}
 

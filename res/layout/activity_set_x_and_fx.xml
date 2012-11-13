@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textViewMessageNActivitySetXAndFX"
         android:layout_below="@+id/textViewMessageNActivitySetXAndFX"
-        android:hint="@string/hint_edit_text_matrix_size_activity_input_matrix"
+        android:ems="10"
         android:inputType="number" >
 
         <requestFocus />

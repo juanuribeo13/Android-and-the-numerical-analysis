@@ -4,7 +4,7 @@
     android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/textViewWarningActivityNewtonInterpolation"
+        android:id="@+id/textViewWarningActivityNeville"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -16,38 +16,30 @@
         android:visibility="gone" />
 
     <TextView
-        android:id="@+id/textViewPolynomialActivityNewtonInterpolation"
+        android:id="@+id/textViewEvaluationActivityNeville"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
-
-    <TextView
-        android:id="@+id/textViewEvaluationActivityNewtonInterpolation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textViewPolynomialActivityNewtonInterpolation"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
 
     <EditText
-        android:id="@+id/editTextXActivityNewtonInterpolation"
+        android:id="@+id/editTextXActivityNeville"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewEvaluationActivityNewtonInterpolation"
+        android:layout_below="@id/textViewEvaluationActivityNeville"
         android:hint="@string/hint_edit_text_x0"
         android:inputType="numberDecimal|numberSigned" />
 
     <Button
-        android:id="@+id/buttonCalculateActivityNewtonInterpolation"
+        android:id="@+id/buttonCalculateActivityNeville"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextXActivityNewtonInterpolation"
+        android:layout_below="@id/editTextXActivityNeville"
         android:onClick="onCalculateButtonClick"
         android:text="@string/button_calculate" />
 
     <Button
-        android:id="@+id/buttonExecutionTableActivityNewtonInterpolation"
+        android:id="@+id/buttonExecutionTableActivityNeville"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
