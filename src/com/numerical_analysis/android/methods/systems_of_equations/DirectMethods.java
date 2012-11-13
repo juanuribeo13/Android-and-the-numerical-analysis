@@ -37,6 +37,48 @@ public class DirectMethods implements Serializable {
 		double[] x = regressiveSubstitution(matrixAb);
 		return x;
 	}
+	
+	public double[] gaussianEliminationWithPartialPivoting(Matrix matrixA, double[] b) throws NoUniqueSolutionException{
+		execution = new ArrayList<double[][]>();
+		Matrix matrixAb = matrixA.createAugmentedMatrix(matrixA, b);
+		double[][] ab = matrixAb.getMatrix();
+		int n = ab.length;
+		execution.add(matrixAb.copy(ab));
+		for (int k = 0; k < n - 1; k++) {
+			matrixAb=partialPivoting(matrixAb, k);
+			for (int i = k + 1; i < n; i++) {
+				double multiplier = ab[i][k] / ab[k][k];
+				for (int j = k; j <= n; j++) {
+					ab[i][j] = ab[i][j] - (multiplier * ab[k][j]);
+				}
+			}
+			execution.add(matrixAb.copy(ab));
+		}
+		matrixAb.setMatrix(ab);
+		double[] x = regressiveSubstitution(matrixAb);
+		return x;
+	}
+	
+	public double[] gaussianEliminationWithTotalPivoting(Matrix matrixA, double[] b) throws NoUniqueSolutionException{
+		execution = new ArrayList<double[][]>();
+		Matrix matrixAb = matrixA.createAugmentedMatrix(matrixA, b);
+		double[][] ab = matrixAb.getMatrix();
+		int n = ab.length;
+		execution.add(matrixAb.copy(ab));
+		for (int k = 0; k < n - 1; k++) {
+			matrixAb=totalPivoting(matrixAb, k);
+			for (int i = k + 1; i < n; i++) {
+				double multiplier = ab[i][k] / ab[k][k];
+				for (int j = k; j <= n; j++) {
+					ab[i][j] = ab[i][j] - (multiplier * ab[k][j]);
+				}
+			}
+			execution.add(matrixAb.copy(ab));
+		}
+		matrixAb.setMatrix(ab);
+		double[] x = regressiveSubstitution(matrixAb);
+		return x;
+	}
 
 	public ArrayList<double[][]> getExecution() {
 		return execution;
