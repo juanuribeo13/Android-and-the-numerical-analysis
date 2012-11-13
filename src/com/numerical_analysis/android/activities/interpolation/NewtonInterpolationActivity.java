@@ -28,23 +28,6 @@ public class NewtonInterpolationActivity extends Activity {
 		interpolation = (Interpolation) getIntent().getSerializableExtra(
 				"interpolation");
 
-		double[] x = new double[5];
-		double[] y = new double[5];
-
-		x[0] = 2.0;
-		y[0] = 8.0;
-		x[1] = 2.2;
-		y[1] = 13.584;
-		x[2] = 2.4;
-		y[2] = 20.432;
-		x[3] = 2.6;
-		y[3] = 28.688;
-		x[4] = 2.8;
-		y[4] = 38.496;
-
-		interpolation.setX(x);
-		interpolation.setY(y);
-
 		if (interpolation.getX() == null) {
 			setvisibilities(View.GONE);
 		} else {

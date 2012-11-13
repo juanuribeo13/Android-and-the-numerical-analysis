@@ -29,21 +29,6 @@ public class NevilleActivity extends Activity {
 		interpolation = (Interpolation) getIntent().getSerializableExtra(
 				"interpolation");
 
-		double[] x = new double[4];
-		double[] y = new double[4];
-
-		x[0] = 0;
-		y[0] = 1;
-		x[1] = 0.25;
-		y[1] = 2;
-		x[2] = 0.5;
-		y[2] = 4;
-		x[3] = 0.75;
-		y[3] = 8;
-
-		interpolation.setX(x);
-		interpolation.setY(y);
-
 		if (interpolation.getX() == null) {
 			setvisibilities(View.GONE);
 		} else {

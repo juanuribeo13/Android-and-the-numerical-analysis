@@ -28,21 +28,6 @@ public class LagrangeActivity extends Activity {
 		interpolation = (Interpolation) getIntent().getSerializableExtra(
 				"interpolation");
 
-		double[] x = new double[4];
-		double[] y = new double[4];
-
-		x[0] = 3.9;
-		y[0] = 1.379397;
-		x[1] = 4.1;
-		y[1] = 1.547228;
-		x[2] = 4.3;
-		y[2] = 1.733176;
-		x[3] = 4.5;
-		y[3] = 1.929815;
-
-		interpolation.setX(x);
-		interpolation.setY(y);
-
 		if (interpolation.getX() == null) {
 			setvisibilities(View.GONE);
 		} else {
