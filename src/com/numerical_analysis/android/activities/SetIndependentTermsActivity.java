@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SetIndependentTermsActivity extends Activity {
 
@@ -33,15 +34,20 @@ public class SetIndependentTermsActivity extends Activity {
 	}
 
 	public void onSetButtonClick(View view) {
-		EditText editTextN = (EditText) findViewById(R.id.editTextNActivitySetIndependentTerms);
-		int n = Integer.valueOf(editTextN.getText().toString());
-		independentTerms = new String[n];
+		try {
+			EditText editTextN = (EditText) findViewById(R.id.editTextNActivitySetIndependentTerms);
+			int n = Integer.valueOf(editTextN.getText().toString());
+			independentTerms = new String[n];
 
-		term = 0;
-		TextView viewTerm = (TextView) findViewById(R.id.textViewTermToEnter);
-		viewTerm.setText("Please insert x" + (term + 1));
+			term = 0;
+			TextView viewTerm = (TextView) findViewById(R.id.textViewTermToEnter);
+			viewTerm.setText("Please insert x" + (term + 1));
 
-		setVisibilities(View.VISIBLE);
+			setVisibilities(View.VISIBLE);
+		} catch (NumberFormatException e) {
+			Toast.makeText(this, "Please enter n to continue",
+					Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	public void onNextButtonClick(View view) {

@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class NewtonInterpolationActivity extends Activity {
 
@@ -101,13 +102,18 @@ public class NewtonInterpolationActivity extends Activity {
 	}
 
 	public void onCalculateButtonClick(View view) {
-		TextView textPolynomial = (TextView) findViewById(R.id.textViewPolynomialActivityNewtonInterpolation);
-		String polynomial = textPolynomial.getText().toString();
-		TextView textResult = (TextView) findViewById(R.id.textViewEvaluationActivityNewtonInterpolation);
-		EditText editValue = (EditText) findViewById(R.id.editTextXActivityNewtonInterpolation);
-		double value = Double.valueOf(editValue.getText().toString());
-		textResult.setText(String.valueOf(interpolation.evaluatePolynomial(
-				polynomial, value)));
+		try {
+			TextView textPolynomial = (TextView) findViewById(R.id.textViewPolynomialActivityNewtonInterpolation);
+			String polynomial = textPolynomial.getText().toString();
+			TextView textResult = (TextView) findViewById(R.id.textViewEvaluationActivityNewtonInterpolation);
+			EditText editValue = (EditText) findViewById(R.id.editTextXActivityNewtonInterpolation);
+			double value = Double.valueOf(editValue.getText().toString());
+			textResult.setText(String.valueOf(interpolation.evaluatePolynomial(
+					polynomial, value)));
+		} catch (NumberFormatException e) {
+			Toast.makeText(this, "Please enter X0 to continue",
+					Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	private void setvisibilities(int visibility) {

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SetXAndFXActivity extends Activity {
 
@@ -43,32 +44,13 @@ public class SetXAndFXActivity extends Activity {
 	}
 
 	public void onSetButtonClick(View view) {
-		EditText editTextN = (EditText) findViewById(R.id.editTextNActivitySetXAndFX);
-		int n = Integer.valueOf(editTextN.getText().toString());
-		x = new double[n];
-		y = new double[n];
+		try {
+			EditText editTextN = (EditText) findViewById(R.id.editTextNActivitySetXAndFX);
+			int n = Integer.valueOf(editTextN.getText().toString());
+			x = new double[n];
+			y = new double[n];
 
-		position = 0;
-		TextView viewX = (TextView) findViewById(R.id.textViewXActivitySetXAndFX);
-		viewX.setText("Please insert x" + (position + 1));
-		TextView viewY = (TextView) findViewById(R.id.textViewYActivitySetXAndFX);
-		viewY.setText("Please insert y" + (position + 1));
-
-		EditText editX = (EditText) findViewById(R.id.editTextXActivitySetXAndFX);
-		editX.setText(String.valueOf(x[position]));
-		EditText editY = (EditText) findViewById(R.id.editTextYActivitySetXAndFX);
-		editY.setText(String.valueOf(y[position]));
-
-		setVisibilities(View.VISIBLE);
-	}
-
-	public void onPreviousButtonClick(View view) {
-		EditText editTextX = (EditText) findViewById(R.id.editTextXActivitySetXAndFX);
-		x[position] = Double.valueOf(editTextX.getText().toString());
-		EditText editTextY = (EditText) findViewById(R.id.editTextYActivitySetXAndFX);
-		y[position] = Double.valueOf(editTextY.getText().toString());
-		if (position > 0) {
-			position--;
+			position = 0;
 			TextView viewX = (TextView) findViewById(R.id.textViewXActivitySetXAndFX);
 			viewX.setText("Please insert x" + (position + 1));
 			TextView viewY = (TextView) findViewById(R.id.textViewYActivitySetXAndFX);
@@ -78,44 +60,83 @@ public class SetXAndFXActivity extends Activity {
 			editX.setText(String.valueOf(x[position]));
 			EditText editY = (EditText) findViewById(R.id.editTextYActivitySetXAndFX);
 			editY.setText(String.valueOf(y[position]));
+
+			setVisibilities(View.VISIBLE);
+		} catch (NumberFormatException e) {
+			Toast.makeText(this, "Please enter n to continue",
+					Toast.LENGTH_SHORT).show();
+		}
+	}
+
+	public void onPreviousButtonClick(View view) {
+		try {
+			EditText editTextX = (EditText) findViewById(R.id.editTextXActivitySetXAndFX);
+			x[position] = Double.valueOf(editTextX.getText().toString());
+			EditText editTextY = (EditText) findViewById(R.id.editTextYActivitySetXAndFX);
+			y[position] = Double.valueOf(editTextY.getText().toString());
+			if (position > 0) {
+				position--;
+				TextView viewX = (TextView) findViewById(R.id.textViewXActivitySetXAndFX);
+				viewX.setText("Please insert x" + (position + 1));
+				TextView viewY = (TextView) findViewById(R.id.textViewYActivitySetXAndFX);
+				viewY.setText("Please insert y" + (position + 1));
+
+				EditText editX = (EditText) findViewById(R.id.editTextXActivitySetXAndFX);
+				editX.setText(String.valueOf(x[position]));
+				EditText editY = (EditText) findViewById(R.id.editTextYActivitySetXAndFX);
+				editY.setText(String.valueOf(y[position]));
+			}
+		} catch (NumberFormatException e) {
+			Toast.makeText(this, "Please enter the x and y values to continue",
+					Toast.LENGTH_SHORT).show();
 		}
 	}
 
 	public void onNextButtonClick(View view) {
 
-		EditText editTextX = (EditText) findViewById(R.id.editTextXActivitySetXAndFX);
-		x[position] = Double.valueOf(editTextX.getText().toString());
-		EditText editTextY = (EditText) findViewById(R.id.editTextYActivitySetXAndFX);
-		y[position] = Double.valueOf(editTextY.getText().toString());
-		if (position < x.length - 1) {
-			position++;
-			TextView viewX = (TextView) findViewById(R.id.textViewXActivitySetXAndFX);
-			viewX.setText("Please insert x" + (position + 1));
-			TextView viewY = (TextView) findViewById(R.id.textViewYActivitySetXAndFX);
-			viewY.setText("Please insert y" + (position + 1));
+		try {
+			EditText editTextX = (EditText) findViewById(R.id.editTextXActivitySetXAndFX);
+			x[position] = Double.valueOf(editTextX.getText().toString());
+			EditText editTextY = (EditText) findViewById(R.id.editTextYActivitySetXAndFX);
+			y[position] = Double.valueOf(editTextY.getText().toString());
+			if (position < x.length - 1) {
+				position++;
+				TextView viewX = (TextView) findViewById(R.id.textViewXActivitySetXAndFX);
+				viewX.setText("Please insert x" + (position + 1));
+				TextView viewY = (TextView) findViewById(R.id.textViewYActivitySetXAndFX);
+				viewY.setText("Please insert y" + (position + 1));
 
-			EditText editX = (EditText) findViewById(R.id.editTextXActivitySetXAndFX);
-			editX.setText(String.valueOf(x[position]));
-			EditText editY = (EditText) findViewById(R.id.editTextYActivitySetXAndFX);
-			editY.setText(String.valueOf(y[position]));
-		}
-		if (position == x.length - 1) {
-			findViewById(R.id.buttonFinishActivitySetXAndFX).setVisibility(
-					View.VISIBLE);
+				EditText editX = (EditText) findViewById(R.id.editTextXActivitySetXAndFX);
+				editX.setText(String.valueOf(x[position]));
+				EditText editY = (EditText) findViewById(R.id.editTextYActivitySetXAndFX);
+				editY.setText(String.valueOf(y[position]));
+			}
+			if (position == x.length - 1) {
+				findViewById(R.id.buttonFinishActivitySetXAndFX).setVisibility(
+						View.VISIBLE);
+			}
+		} catch (NumberFormatException e) {
+			Toast.makeText(this, "Please enter the x and y values to continue",
+					Toast.LENGTH_SHORT).show();
 		}
 	}
 
 	public void onFinishButtonClick(View view) {
-		EditText editTextX = (EditText) findViewById(R.id.editTextXActivitySetXAndFX);
-		x[position] = Double.valueOf(editTextX.getText().toString());
-		EditText editTextY = (EditText) findViewById(R.id.editTextYActivitySetXAndFX);
-		y[position] = Double.valueOf(editTextY.getText().toString());
+		try {
+			EditText editTextX = (EditText) findViewById(R.id.editTextXActivitySetXAndFX);
+			x[position] = Double.valueOf(editTextX.getText().toString());
+			EditText editTextY = (EditText) findViewById(R.id.editTextYActivitySetXAndFX);
+			y[position] = Double.valueOf(editTextY.getText().toString());
 
-		Intent returnIntent = new Intent();
-		returnIntent.putExtra("x", x);
-		returnIntent.putExtra("y", y);
-		setResult(RESULT_OK, returnIntent);
-		finish();
+			Intent returnIntent = new Intent();
+			returnIntent.putExtra("x", x);
+			returnIntent.putExtra("y", y);
+			setResult(RESULT_OK, returnIntent);
+			finish();
+		} catch (NumberFormatException e) {
+			Toast.makeText(this, "Please enter the x and y values to continue",
+					Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	private void setVisibilities(int visibility) {

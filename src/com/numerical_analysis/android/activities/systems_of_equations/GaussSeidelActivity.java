@@ -108,50 +108,60 @@ public class GaussSeidelActivity extends Activity {
 	}
 
 	public void onPreviousButtonClick(View view) {
-		// In case that the next button where invisible
-		findViewById(R.id.buttonNextActivityGaussSeidel).setVisibility(
-				View.VISIBLE);
+		try {
+			Double[] initialValues = iterativeMethods.getInitialValues();
+			EditText editValue = (EditText) findViewById(R.id.editTextValueActivityGaussSeidel);
+			initialValues[position] = Double.valueOf(editValue.getText()
+					.toString());
+			iterativeMethods.setInitialValues(initialValues);
+			position--;
 
-		Double[] initialValues = iterativeMethods.getInitialValues();
-		EditText editValue = (EditText) findViewById(R.id.editTextValueActivityGaussSeidel);
-		initialValues[position] = Double
-				.valueOf(editValue.getText().toString());
-		iterativeMethods.setInitialValues(initialValues);
-		position--;
+			TextView viewValue = (TextView) findViewById(R.id.textViewValueToEnterActivityGaussSeidel);
+			viewValue.setText("Please insert x" + (position + 1));
 
-		TextView viewValue = (TextView) findViewById(R.id.textViewValueToEnterActivityGaussSeidel);
-		viewValue.setText("Please insert x" + (position + 1));
-
-		if (initialValues[position] != null) {
-			editValue.setText(initialValues[position].toString());
-		}
-		if (position == 0) {
-			findViewById(R.id.buttonPreviousActivityGaussSeidel).setVisibility(
-					View.INVISIBLE);
+			if (initialValues[position] != null) {
+				editValue.setText(initialValues[position].toString());
+			}
+			if (position == 0) {
+				findViewById(R.id.buttonPreviousActivityGaussSeidel)
+						.setVisibility(View.INVISIBLE);
+			}
+			// In case that the next button where invisible
+			findViewById(R.id.buttonNextActivityGaussSeidel).setVisibility(
+					View.VISIBLE);
+		} catch (NumberFormatException e) {
+			Toast.makeText(this,
+					"Please enter x" + (position + 1) + " to continue",
+					Toast.LENGTH_SHORT).show();
 		}
 	}
 
 	public void onNextButtonClick(View view) {
-		// In case that the previous button where invisible
-		findViewById(R.id.buttonPreviousActivityGaussSeidel).setVisibility(
-				View.VISIBLE);
+		try {
+			Double[] initialValues = iterativeMethods.getInitialValues();
+			EditText editValue = (EditText) findViewById(R.id.editTextValueActivityGaussSeidel);
+			initialValues[position] = Double.valueOf(editValue.getText()
+					.toString());
+			iterativeMethods.setInitialValues(initialValues);
+			position++;
 
-		Double[] initialValues = iterativeMethods.getInitialValues();
-		EditText editValue = (EditText) findViewById(R.id.editTextValueActivityGaussSeidel);
-		initialValues[position] = Double
-				.valueOf(editValue.getText().toString());
-		iterativeMethods.setInitialValues(initialValues);
-		position++;
+			TextView viewValue = (TextView) findViewById(R.id.textViewValueToEnterActivityGaussSeidel);
+			viewValue.setText("Please insert x" + (position + 1));
 
-		TextView viewValue = (TextView) findViewById(R.id.textViewValueToEnterActivityGaussSeidel);
-		viewValue.setText("Please insert x" + (position + 1));
-
-		if (initialValues[position] != null) {
-			editValue.setText(initialValues[position].toString());
-		}
-		if (position == initialValues.length - 1) {
-			findViewById(R.id.buttonNextActivityGaussSeidel).setVisibility(
-					View.INVISIBLE);
+			if (initialValues[position] != null) {
+				editValue.setText(initialValues[position].toString());
+			}
+			if (position == initialValues.length - 1) {
+				findViewById(R.id.buttonNextActivityGaussSeidel).setVisibility(
+						View.INVISIBLE);
+			}
+			// In case that the previous button where invisible
+			findViewById(R.id.buttonPreviousActivityGaussSeidel).setVisibility(
+					View.VISIBLE);
+		} catch (NumberFormatException e) {
+			Toast.makeText(this,
+					"Please enter x" + (position + 1) + " to continue",
+					Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -187,6 +197,10 @@ public class GaussSeidelActivity extends Activity {
 		} catch (NumberFormatException e) {
 			Toast.makeText(this, getString(R.string.invalid_parameters),
 					Toast.LENGTH_LONG).show();
+		} catch (NullPointerException e) {
+			Toast.makeText(this,
+					"Please enter all the initial values to continue",
+					Toast.LENGTH_SHORT).show();
 		} catch (MaximumNumberOfIterationsExceededExeption e) {
 			enableExecutionTable();
 			TextView textResult = new TextView(this);

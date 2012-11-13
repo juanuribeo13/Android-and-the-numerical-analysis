@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class NevilleActivity extends Activity {
 
@@ -89,19 +90,23 @@ public class NevilleActivity extends Activity {
 	}
 
 	public void onCalculateButtonClick(View view) {
-		TextView textResult = (TextView) findViewById(R.id.textViewEvaluationActivityNeville);
-		EditText editValue = (EditText) findViewById(R.id.editTextXActivityNeville);
-		double value = Double.valueOf(editValue.getText().toString());
-		double result;
 		try {
-			result = interpolation.neville(value);
-			textResult.setText(String.valueOf(result));
-			enableExecutionTable();
-		} catch (DivisionByZeroException e) {
-			textResult.setText(e.getMessage());
-			enableExecutionTable();
+			TextView textResult = (TextView) findViewById(R.id.textViewEvaluationActivityNeville);
+			EditText editValue = (EditText) findViewById(R.id.editTextXActivityNeville);
+			double value = Double.valueOf(editValue.getText().toString());
+			double result;
+			try {
+				result = interpolation.neville(value);
+				textResult.setText(String.valueOf(result));
+				enableExecutionTable();
+			} catch (DivisionByZeroException e) {
+				textResult.setText(e.getMessage());
+				enableExecutionTable();
+			}
+		} catch (NumberFormatException e) {
+			Toast.makeText(this, "Please enter X0 to continue",
+					Toast.LENGTH_SHORT).show();
 		}
-
 	}
 
 	private void setvisibilities(int visibility) {

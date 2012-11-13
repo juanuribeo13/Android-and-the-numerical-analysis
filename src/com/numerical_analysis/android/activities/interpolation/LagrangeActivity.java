@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LagrangeActivity extends Activity {
 
@@ -103,18 +104,23 @@ public class LagrangeActivity extends Activity {
 	}
 
 	public void onCalculateButtonClick(View view) {
-		EditText editValue = (EditText) findViewById(R.id.editTextXActivityLagrange);
-		double value = Double.valueOf(editValue.getText().toString());
-		double[] results = interpolation.lagrange(equations, value);
+		try {
+			EditText editValue = (EditText) findViewById(R.id.editTextXActivityLagrange);
+			double value = Double.valueOf(editValue.getText().toString());
+			double[] results = interpolation.lagrange(equations, value);
 
-		TextView textPolynomial = (TextView) findViewById(R.id.textViewPolynomialActivityLagrange);
-		textPolynomial.setText("P(x)=" + results[0]);
-		LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearLayoutLActivityLagrange);
-		linearLayout.removeAllViews();
-		for (int i = 1; i < equations.length; i++) {
-			TextView textView = new TextView(this);
-			textView.setText("L" + (i - 1) + "(x)=" + results[i]);
-			linearLayout.addView(textView);
+			TextView textPolynomial = (TextView) findViewById(R.id.textViewPolynomialActivityLagrange);
+			textPolynomial.setText("P(x)=" + results[0]);
+			LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearLayoutLActivityLagrange);
+			linearLayout.removeAllViews();
+			for (int i = 1; i < equations.length; i++) {
+				TextView textView = new TextView(this);
+				textView.setText("L" + (i - 1) + "(x)=" + results[i]);
+				linearLayout.addView(textView);
+			}
+		} catch (NumberFormatException e) {
+			Toast.makeText(this, "Please enter X0 to continue",
+					Toast.LENGTH_SHORT).show();
 		}
 	}
 
