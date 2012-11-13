@@ -27,7 +27,7 @@ public class DirectMethodsMatrixExecutionAdapter implements
 		TableRow.LayoutParams layoutParams = new TableRow.LayoutParams();
 		layoutParams.setMargins(10, 0, 0, 0);
 		TableRow tableRow = (TableRow) activity.getLayoutInflater().inflate(
-				R.layout.row_execution_table_activity_iterative_methods, null);
+				R.layout.row_matrix_execution_activity, null);
 		for (int i = 0; i < ds.length; i++) {
 			TextView x = new TextView(activity);
 			x.setText(ds[i] + "");
@@ -39,7 +39,7 @@ public class DirectMethodsMatrixExecutionAdapter implements
 
 	public TableRow getEmptyRow(int n, Activity activity) {
 		TableRow tableRow = (TableRow) activity.getLayoutInflater().inflate(
-				R.layout.row_execution_table_activity_iterative_methods, null);
+				R.layout.row_matrix_execution_activity, null);
 		for (int i = 0; i < n; i++) {
 			TextView x = new TextView(activity);
 			x.setText("");
@@ -50,7 +50,7 @@ public class DirectMethodsMatrixExecutionAdapter implements
 
 	public TableRow getUTittle(int n, Activity activity) {
 		TableRow tableRow = (TableRow) activity.getLayoutInflater().inflate(
-				R.layout.row_execution_table_activity_iterative_methods, null);
+				R.layout.row_matrix_execution_activity, null);
 		TextView u = new TextView(activity);
 		u.setText("U:");
 		tableRow.addView(u);
@@ -64,7 +64,7 @@ public class DirectMethodsMatrixExecutionAdapter implements
 
 	public TableRow getLTittle(int n, Activity activity) {
 		TableRow tableRow = (TableRow) activity.getLayoutInflater().inflate(
-				R.layout.row_execution_table_activity_iterative_methods, null);
+				R.layout.row_matrix_execution_activity, null);
 		TextView l = new TextView(activity);
 		l.setText("L:");
 		tableRow.addView(l);

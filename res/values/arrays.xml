@@ -26,6 +26,8 @@
         <item>Input Matrix</item>
         <item>Gaussian Elimination</item>
         <item>Direct Matrix Factorization</item>
+        <item>LU Matrix Factorization</item>
+        <item>LU Matrix Factorization with Partial Pivoting</item>
     </string-array>
     <string-array name="iterativeMethodsList">
         <item>Jacobi</item>

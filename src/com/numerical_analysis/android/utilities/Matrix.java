@@ -7,7 +7,7 @@ public class Matrix implements Serializable, Cloneable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -3944599980026337033L;
 	private double[][] matrix;
 	private int rows;
 	private int columns;
@@ -132,6 +132,7 @@ public class Matrix implements Serializable, Cloneable {
 			ab[w][n] = b[w];
 		}
 		matrixA.setMatrix(ab);
+		matrixA.setB(b);
 		return matrixA;
 	}
 

@@ -148,6 +148,16 @@
             android:label="@string/title_activity_direct_matrix_factorization"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".activities.systems_of_equations.LUMatrixFactorizationActivity"
+            android:label="@string/title_activity_lumatrix_factorization"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.systems_of_equations.LUMatrixFactorizationWithPartialPivoting"
+            android:label="@string/title_activity_lumatrix_factorization_with_partial_pivoting"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

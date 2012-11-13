@@ -74,6 +74,7 @@
     <string name="title_activity_newton_interpolation">Newton Interpolation</string>
     <string name="title_activity_set_xand_fx">Set X And F(X)</string>
     <string name="title_activity_direct_matrix_factorization">Direct Matrix Factorization</string>
+    <string name="title_activity_lumatrix_factorization">LU Matrix Factorization</string>
     <string name="title_table_iteration">Iteration</string>
     <string name="title_table_x0">X0</string>
     <string name="title_table_x1">X1</string>
@@ -86,5 +87,6 @@
     <string name="title_table_ddy0">F\'\'(X0)</string>
     <string name="title_dialog_input_vector">Input B Vector</string>
     <string name="dialog_input_vector">Please enter the b vector (Solution vector)</string>
+    <string name="title_activity_lumatrix_factorization_with_partial_pivoting">LU Matrix Factorization with Partial Pivoting</string>
 
 </resources>

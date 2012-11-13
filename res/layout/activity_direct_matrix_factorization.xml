@@ -42,7 +42,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonExecutionActivityDirectMatrixFactorization"
-        android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/buttonExecutionActivityDirectMatrixFactorization"
+        android:layout_alignRight="@+id/buttonExecutionActivityDirectMatrixFactorization"
         android:onClick="onCholeskyButtonClick"
         android:text="@string/button_cholesky" />
 
@@ -53,6 +54,7 @@
         android:layout_alignBaseline="@+id/buttonCholesky"
         android:layout_alignBottom="@+id/buttonCholesky"
         android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/buttonExecutionActivityDirectMatrixFactorization"
         android:onClick="onDoolittleButtonClick"
         android:text="@string/button_doolittle" />
 

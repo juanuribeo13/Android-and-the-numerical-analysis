@@ -22,7 +22,7 @@ public class DirectMethodsActivity extends ListActivity {
 	private Matrix matrix = null;
 
 	public Matrix getMatrix() {
-		return matrix;
+		return (Matrix) matrix.clone();
 	}
 
 	public void setMatrix(Matrix matrix) {
@@ -77,6 +77,19 @@ public class DirectMethodsActivity extends ListActivity {
 		} else if (action.equals("Direct Matrix Factorization")) {
 			Intent intent = new Intent(this,
 					DirectMatrixFactorizationActivity.class);
+			intent.putExtra("Matrix", getMatrix());
+			intent.putExtra("directMethods", directMethods);
+			startActivity(intent);
+		} else if (action.equals("LU Matrix Factorization")) {
+			Intent intent = new Intent(this,
+					LUMatrixFactorizationActivity.class);
+			intent.putExtra("Matrix", getMatrix());
+			intent.putExtra("directMethods", directMethods);
+			startActivity(intent);
+		} else if (action
+				.equals("LU Matrix Factorization with Partial Pivoting")) {
+			Intent intent = new Intent(this,
+					LUMatrixFactorizationWithPartialPivoting.class);
 			intent.putExtra("Matrix", getMatrix());
 			intent.putExtra("directMethods", directMethods);
 			startActivity(intent);
