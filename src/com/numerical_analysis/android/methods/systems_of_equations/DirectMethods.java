@@ -12,18 +12,20 @@ public class DirectMethods implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ArrayList<double[][]> execution;
+	private ArrayList<double[][]> gaussianEliminationexecution;
+	double[][] uExecution;
+	double[][] lExecution;
 
 	public DirectMethods() {
-		execution = new ArrayList<double[][]>();
+		gaussianEliminationexecution = new ArrayList<double[][]>();
 	}
 
 	public double[] simpleGaussianElimination(Matrix matrixA, double[] b) {
-		execution = new ArrayList<double[][]>();
+		gaussianEliminationexecution = new ArrayList<double[][]>();
 		Matrix matrixAb = matrixA.createAugmentedMatrix(matrixA, b);
 		double[][] ab = matrixAb.getMatrix();
 		int n = ab.length;
-		execution.add(matrixAb.copy(ab));
+		gaussianEliminationexecution.add(matrixAb.copy(ab));
 		for (int k = 0; k < n - 1; k++) {
 			for (int i = k + 1; i < n; i++) {
 				double multiplier = ab[i][k] / ab[k][k];
@@ -31,15 +33,67 @@ public class DirectMethods implements Serializable {
 					ab[i][j] = ab[i][j] - (multiplier * ab[k][j]);
 				}
 			}
-			execution.add(matrixAb.copy(ab));
+			gaussianEliminationexecution.add(matrixAb.copy(ab));
 		}
 		matrixAb.setMatrix(ab);
 		double[] x = regressiveSubstitution(matrixAb);
 		return x;
 	}
 
-	public ArrayList<double[][]> getExecution() {
-		return execution;
+	public double[][] getuExecution() {
+		return uExecution;
+	}
+
+	public double[][] getlExecution() {
+		return lExecution;
+	}
+
+	public double[] gaussianEliminationWithPartialPivoting(Matrix matrixA,
+			double[] b) throws NoUniqueSolutionException {
+		gaussianEliminationexecution = new ArrayList<double[][]>();
+		Matrix matrixAb = matrixA.createAugmentedMatrix(matrixA, b);
+		double[][] ab = matrixAb.getMatrix();
+		int n = ab.length;
+		gaussianEliminationexecution.add(matrixAb.copy(ab));
+		for (int k = 0; k < n - 1; k++) {
+			matrixAb = partialPivoting(matrixAb, k);
+			for (int i = k + 1; i < n; i++) {
+				double multiplier = ab[i][k] / ab[k][k];
+				for (int j = k; j <= n; j++) {
+					ab[i][j] = ab[i][j] - (multiplier * ab[k][j]);
+				}
+			}
+			gaussianEliminationexecution.add(matrixAb.copy(ab));
+		}
+		matrixAb.setMatrix(ab);
+		double[] x = regressiveSubstitution(matrixAb);
+		return x;
+	}
+
+	public double[] gaussianEliminationWithTotalPivoting(Matrix matrixA,
+			double[] b) throws NoUniqueSolutionException {
+		gaussianEliminationexecution = new ArrayList<double[][]>();
+		Matrix matrixAb = matrixA.createAugmentedMatrix(matrixA, b);
+		double[][] ab = matrixAb.getMatrix();
+		int n = ab.length;
+		gaussianEliminationexecution.add(matrixAb.copy(ab));
+		for (int k = 0; k < n - 1; k++) {
+			matrixAb = totalPivoting(matrixAb, k);
+			for (int i = k + 1; i < n; i++) {
+				double multiplier = ab[i][k] / ab[k][k];
+				for (int j = k; j <= n; j++) {
+					ab[i][j] = ab[i][j] - (multiplier * ab[k][j]);
+				}
+			}
+			gaussianEliminationexecution.add(matrixAb.copy(ab));
+		}
+		matrixAb.setMatrix(ab);
+		double[] x = regressiveSubstitution(matrixAb);
+		return x;
+	}
+
+	public ArrayList<double[][]> getGaussianEliminationExecution() {
+		return gaussianEliminationexecution;
 	}
 
 	public double[] regressiveSubstitution(Matrix matrixAb) {
@@ -126,7 +180,7 @@ public class DirectMethods implements Serializable {
 		return matrixAb;
 	}
 
-	public double[] choleski(Matrix matrixA) {
+	public double[] cholesky(Matrix matrixA) {
 		int n = matrixA.getRows();
 		double[][] a = matrixA.getMatrix();
 		double[][] u = new double[n][n];
@@ -166,10 +220,12 @@ public class DirectMethods implements Serializable {
 		double[] z = progressiveSubstitution(matrixLb);
 		Matrix matrixUz = matrixA.createAugmentedMatrix(new Matrix(u), z);
 		double[] x = regressiveSubstitution(matrixUz);
+		lExecution = l;
+		uExecution = u;
 		return x;
 	}
 
-	public double[] croult(Matrix matrixA) {
+	public double[] crout(Matrix matrixA) {
 		int n = matrixA.getRows();
 		double[][] a = matrixA.getMatrix();
 		double[][] u = new double[n][n];
@@ -210,10 +266,12 @@ public class DirectMethods implements Serializable {
 		double[] z = progressiveSubstitution(matrixLb);
 		Matrix matrixUz = matrixA.createAugmentedMatrix(new Matrix(u), z);
 		double[] x = regressiveSubstitution(matrixUz);
+		lExecution = l;
+		uExecution = u;
 		return x;
 	}
 
-	public double[] doolitle(Matrix matrixA) {
+	public double[] doolittle(Matrix matrixA) {
 		int n = matrixA.getRows();
 		double[][] a = matrixA.getMatrix();
 		double[][] u = new double[n][n];
@@ -254,6 +312,8 @@ public class DirectMethods implements Serializable {
 		double[] z = progressiveSubstitution(matrixLb);
 		Matrix matrixUz = matrixA.createAugmentedMatrix(new Matrix(u), z);
 		double[] x = regressiveSubstitution(matrixUz);
+		lExecution = l;
+		uExecution = u;
 		return x;
 	}
 

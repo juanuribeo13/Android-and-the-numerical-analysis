@@ -69,9 +69,14 @@ public class DirectMethodsActivity extends ListActivity {
 			Toast.makeText(this,
 					"Please enter the matrix before you use any method",
 					Toast.LENGTH_LONG).show();
-		} else if (action.equals("Simple Gaussian Elimination")) {
+		} else if (action.equals("Gaussian Elimination")) {
+			Intent intent = new Intent(this, GaussianEliminationActivity.class);
+			intent.putExtra("Matrix", getMatrix());
+			intent.putExtra("directMethods", directMethods);
+			startActivity(intent);
+		} else if (action.equals("Direct Matrix Factorization")) {
 			Intent intent = new Intent(this,
-					SimpleGaussianEliminationActivity.class);
+					DirectMatrixFactorizationActivity.class);
 			intent.putExtra("Matrix", getMatrix());
 			intent.putExtra("directMethods", directMethods);
 			startActivity(intent);

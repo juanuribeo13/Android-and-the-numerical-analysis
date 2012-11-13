@@ -99,7 +99,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".activities.systems_of_equations.SimpleGaussianEliminationActivity"
+            android:name=".activities.systems_of_equations.GaussianEliminationActivity"
             android:label="@string/title_activity_simple_gaussian_elimination"
             android:screenOrientation="portrait" >
         </activity>
@@ -141,6 +141,11 @@
         <activity
             android:name=".activities.SetXAndFXActivity"
             android:label="@string/title_activity_set_xand_fx"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activities.systems_of_equations.DirectMatrixFactorizationActivity"
+            android:label="@string/title_activity_direct_matrix_factorization"
             android:screenOrientation="portrait" >
         </activity>
     </application>

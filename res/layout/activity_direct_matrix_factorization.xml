@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical" >
+
+    <TextView
+        android:id="@+id/textViewResultActivityDirectMatrixFactorization"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="@string/text_view_result" />
+
+    <ScrollView
+        android:id="@+id/scrollViewResultAcitivityDirectMatrixFactorization"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewResultActivityDirectMatrixFactorization"
+        android:fillViewport="false" >
+
+        <LinearLayout
+            android:id="@+id/linearLayoutResultActivityDirectMatrixFactorization"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/buttonExecutionActivityDirectMatrixFactorization"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:onClick="showMatrixExecution"
+        android:text="@string/button_matrix_execution"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/buttonCholesky"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonExecutionActivityDirectMatrixFactorization"
+        android:layout_centerHorizontal="true"
+        android:onClick="onCholeskyButtonClick"
+        android:text="@string/button_cholesky" />
+
+    <Button
+        android:id="@+id/buttonDoolittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonCholesky"
+        android:layout_alignBottom="@+id/buttonCholesky"
+        android:layout_alignParentRight="true"
+        android:onClick="onDoolittleButtonClick"
+        android:text="@string/button_doolittle" />
+
+    <Button
+        android:id="@+id/buttonCrout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonExecutionActivityDirectMatrixFactorization"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/buttonExecutionActivityDirectMatrixFactorization"
+        android:onClick="onCroutButtonClick"
+        android:text="@string/button_crout" />
+
+</RelativeLayout>

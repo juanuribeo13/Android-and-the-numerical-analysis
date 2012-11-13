@@ -2,7 +2,7 @@ package com.numerical_analysis.android.utilities;
 
 import java.io.Serializable;
 
-public class Matrix implements Serializable {
+public class Matrix implements Serializable, Cloneable {
 
 	/**
 	 * 
@@ -20,6 +20,16 @@ public class Matrix implements Serializable {
 
 	public void setB(double[] b) {
 		this.b = b;
+	}
+
+	public Object clone() {
+		try {
+			Matrix cloned = (Matrix) super.clone();
+			return cloned;
+		} catch (CloneNotSupportedException e) {
+			System.out.println(e);
+			return null;
+		}
 	}
 
 	/**
@@ -109,7 +119,7 @@ public class Matrix implements Serializable {
 	}
 
 	public Matrix createAugmentedMatrix(Matrix matrixA, double[] b) {
-		int n = matrixA.getColumns();
+		int n = matrixA.getRows();
 		int n1 = n + 1;
 		double[][] a = matrixA.getMatrix();
 		double[][] ab = new double[n][n1];

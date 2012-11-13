@@ -25,7 +25,15 @@ public class MatrixExecutionActivity extends Activity {
 
 		DirectMethodsMatrixExecutionAdapter adapter = (DirectMethodsMatrixExecutionAdapter) getIntent()
 				.getSerializableExtra("adapter");
-		showTable(directMethods.getExecution(), adapter);
+		String activityName = (String) getIntent().getSerializableExtra(
+				"activityName");
+		if (activityName.equals("gaussianElimination")) {
+			showTable(directMethods.getGaussianEliminationExecution(), adapter);
+		} else {
+			showLUTable(directMethods.getlExecution(),
+					directMethods.getuExecution(), adapter);
+		}
+
 	}
 
 	@Override
@@ -44,6 +52,22 @@ public class MatrixExecutionActivity extends Activity {
 				table.addView(row);
 			}
 			table.addView(adapter.getEmptyRow(execution.get(i).length, this));
+		}
+	}
+
+	private void showLUTable(double[][] l, double[][] u,
+			DirectMethodsMatrixExecutionAdapter adapter) {
+		TableLayout table = (TableLayout) findViewById(R.id.tableLayoutMatrixExecution);
+		table.addView(adapter.getLTittle(l.length, this));
+		for (double[] doubles : l) {
+			TableRow row = adapter.getRow(doubles, this);
+			table.addView(row);
+		}
+		table.addView(adapter.getEmptyRow(l.length, this));
+		table.addView(adapter.getUTittle(u.length, this));
+		for (double[] doubles : u) {
+			TableRow row = adapter.getRow(doubles, this);
+			table.addView(row);
 		}
 	}
 }
