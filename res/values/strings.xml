@@ -9,6 +9,7 @@
     <string name="menu_execution">View Execution</string>
     <string name="menu_set_independent_terms">Set Independent Terms</string>
     <string name="menu_set_x_and_fx">Set X And F(X)</string>
+    <string name="menu_set_function">Set Function</string>
     <string name="invalid_parameters">You have to enter all the values for the method to be executed</string>
     <string name="image_activity_topic_list">Image Android Teacher</string>
     <string name="instruction_activity_topic_list">Touch to start</string>
@@ -37,6 +38,7 @@
     <string name="text_view_enter_n">Please enter n</string>
     <string name="text_view_warning_iterative_methods">Please enter the independent terms before using this method, this can be done through the menu</string>
     <string name="text_view_warning_interpolation">Please enter x and f(x) before using this method, this can be done through the menu</string>
+    <string name="text_view_warning_one_variable_equations">Please enter the function before using this method, this can be done through the menu</string>
     <string name="hint_edit_text_function_activity_set_fuction">Insert the function</string>
     <string name="hint_text_view_result">Result</string>
     <string name="hint_edit_text_x0">X0</string>

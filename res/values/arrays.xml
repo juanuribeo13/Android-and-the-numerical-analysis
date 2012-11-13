@@ -9,7 +9,6 @@
     </string-array>
     <string-array name="errorTheoryList"></string-array>
     <string-array name="oneVariableEquationList">
-        <item>Set function</item>
         <item>Incremental search</item>
         <item>Bisection</item>
         <item>False rule</item>

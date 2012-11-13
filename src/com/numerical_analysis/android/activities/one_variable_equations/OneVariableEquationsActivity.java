@@ -14,11 +14,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class OneVariableEquationsActivity extends ListActivity {
 
 	static final int SET_FUNCTION = 0;
+	static final int METHOD = 1;
 
 	private OneVariableEquations oneVariableEquations;
 
@@ -46,43 +46,34 @@ public class OneVariableEquationsActivity extends ListActivity {
 
 		String action = ((TextView) v).getText().toString();
 
-		if (action.equals("Set function")) {
-			Intent intent = new Intent(this, SetFunctionActivity.class);
-			intent.putExtra("function", oneVariableEquations.getFunction());
-			startActivityForResult(intent, SET_FUNCTION);
-		} else if (oneVariableEquations.getFunction() == null
-				|| oneVariableEquations.getFunction().equals("")) {
-			Toast.makeText(this,
-					"Please set the function before you use any method",
-					Toast.LENGTH_LONG).show();
-		} else if (action.equals("Incremental search")) {
+		if (action.equals("Incremental search")) {
 			Intent intent = new Intent(this, IncrementalSearchActivity.class);
 			intent.putExtra("oneVariableEquations", oneVariableEquations);
-			startActivity(intent);
+			startActivityForResult(intent, METHOD);
 		} else if (action.equals("Bisection")) {
 			Intent intent = new Intent(this, BisectionActivity.class);
 			intent.putExtra("oneVariableEquations", oneVariableEquations);
-			startActivity(intent);
+			startActivityForResult(intent, METHOD);
 		} else if (action.equals("False rule")) {
 			Intent intent = new Intent(this, FalseRuleActivity.class);
 			intent.putExtra("oneVariableEquations", oneVariableEquations);
-			startActivity(intent);
+			startActivityForResult(intent, METHOD);
 		} else if (action.equals("Fixed point")) {
 			Intent intent = new Intent(this, FixedPointActivity.class);
 			intent.putExtra("oneVariableEquations", oneVariableEquations);
-			startActivity(intent);
+			startActivityForResult(intent, METHOD);
 		} else if (action.equals("Newton")) {
 			Intent intent = new Intent(this, NewtonActivity.class);
 			intent.putExtra("oneVariableEquations", oneVariableEquations);
-			startActivity(intent);
+			startActivityForResult(intent, METHOD);
 		} else if (action.equals("Secant")) {
 			Intent intent = new Intent(this, SecantActivity.class);
 			intent.putExtra("oneVariableEquations", oneVariableEquations);
-			startActivity(intent);
+			startActivityForResult(intent, METHOD);
 		} else if (action.equals("Multiple Roots")) {
 			Intent intent = new Intent(this, MultipleRootsActivity.class);
 			intent.putExtra("oneVariableEquations", oneVariableEquations);
-			startActivity(intent);
+			startActivityForResult(intent, METHOD);
 		}
 	}
 
@@ -94,6 +85,9 @@ public class OneVariableEquationsActivity extends ListActivity {
 			if (requestCode == SET_FUNCTION) {
 				oneVariableEquations.setFunction(data
 						.getStringExtra("Function"));
+			} else if (requestCode == METHOD) {
+				oneVariableEquations = (OneVariableEquations) data
+						.getSerializableExtra("oneVariableEquations");
 			}
 		}
 	}
@@ -101,17 +95,20 @@ public class OneVariableEquationsActivity extends ListActivity {
 	@Override
 	public boolean onOptionsItemSelected(final MenuItem item) {
 
+		Intent intent;
 		// Handle item selection
 		switch (item.getItemId()) {
 
 		case R.id.menu_plot:
-			Intent intent = new Intent(this, PlotterActivity.class);
+			intent = new Intent(this, PlotterActivity.class);
 			intent.putExtra("oneVariableEquations", oneVariableEquations);
 			startActivity(intent);
 			return true;
 
-		case R.id.menu_settings:
-
+		case R.id.menu_set_function:
+			intent = new Intent(this, SetFunctionActivity.class);
+			intent.putExtra("function", oneVariableEquations.getFunction());
+			startActivityForResult(intent, SET_FUNCTION);
 			return true;
 		}
 
