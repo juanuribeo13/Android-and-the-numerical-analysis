@@ -19,14 +19,21 @@
         android:id="@+id/textViewPolynomialActivityLagrange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutLActivityLagrange"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewPolynomialActivityLagrange"
+        android:orientation="vertical" >
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textViewEvaluationActivityLagrange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewPolynomialActivityLagrange"
+        android:layout_below="@id/linearLayoutLActivityLagrange"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
 
@@ -45,15 +52,5 @@
         android:layout_below="@id/editTextXActivityLagrange"
         android:onClick="onCalculateButtonClick"
         android:text="@string/button_calculate" />
-
-    <Button
-        android:id="@+id/buttonExecutionTableActivityLagrange"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="showExecutionTable"
-        android:text="@string/button_execution_table"
-        android:visibility="invisible" />
 
 </RelativeLayout>
