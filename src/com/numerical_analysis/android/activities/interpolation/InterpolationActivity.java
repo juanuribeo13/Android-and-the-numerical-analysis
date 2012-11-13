@@ -89,7 +89,7 @@ public class InterpolationActivity extends ListActivity {
 		case R.id.menu_help:
 			intent = new Intent(this, HelpActivity.class);
 			intent.putExtra("url",
-					"https://sites.google.com/site/numericalanalysiseafit/topics/interpolacion2");
+					"https://sites.google.com/site/numericalanalysiseafit/topics/interpolation");
 			startActivity(intent);
 			return true;
 		}
