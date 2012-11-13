@@ -4,7 +4,6 @@ import com.numerical_analysis.android.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,12 +30,6 @@ public class SetIndependentTermsActivity extends Activity {
 			TextView viewTerm = (TextView) findViewById(R.id.textViewTermToEnter);
 			viewTerm.setText("Please insert x" + (term + 1));
 		}
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_set_independent_terms, menu);
-		return true;
 	}
 
 	public void onSetButtonClick(View view) {

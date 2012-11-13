@@ -4,7 +4,6 @@ import com.numerical_analysis.android.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -41,12 +40,6 @@ public class SetXAndFXActivity extends Activity {
 		} else {
 			setVisibilities(View.INVISIBLE);
 		}
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_set_x_and_fx, menu);
-		return true;
 	}
 
 	public void onSetButtonClick(View view) {

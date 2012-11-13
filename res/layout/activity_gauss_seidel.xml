@@ -39,7 +39,7 @@
         android:layout_alignTop="@+id/buttonPreviousActivityGaussSeidel"
         android:layout_marginLeft="14dp"
         android:layout_toRightOf="@id/buttonPreviousActivityGaussSeidel"
-        android:ems="10"
+        android:ems="5"
         android:inputType="numberDecimal|numberSigned" />
 
     <Button
