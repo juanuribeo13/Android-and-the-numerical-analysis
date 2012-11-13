@@ -2,6 +2,8 @@ package com.numerical_analysis.android.activities.one_variable_equations;
 
 import com.numerical_analysis.android.R;
 import com.numerical_analysis.android.activities.ExecutionTableActivity;
+import com.numerical_analysis.android.activities.PlotterActivity;
+import com.numerical_analysis.android.activities.SetFunctionActivity;
 import com.numerical_analysis.android.adapters.one_variable_equations.FixedPointExecutionTableAdapter;
 import com.numerical_analysis.android.exceptions.RootFoundException;
 import com.numerical_analysis.android.exceptions.RootNotFoundException;
@@ -11,6 +13,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,6 +21,7 @@ import android.widget.Toast;
 
 public class FixedPointActivity extends Activity {
 
+	static final int SET_FUNCTION = 0;
 	private OneVariableEquations oneVariableEquations;
 
 	@Override
@@ -29,12 +33,61 @@ public class FixedPointActivity extends Activity {
 		oneVariableEquations = (OneVariableEquations) getIntent()
 				.getSerializableExtra("oneVariableEquations");
 		function.setText(oneVariableEquations.getFunction());
+		if (oneVariableEquations.getFunction() == null) {
+			setvisibilities(View.GONE);
+		}
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_fixed_point, menu);
+		getMenuInflater().inflate(R.menu.activity_one_variable_equations, menu);
 		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(final MenuItem item) {
+
+		Intent intent;
+		// Handle item selection
+		switch (item.getItemId()) {
+
+		case R.id.menu_plot:
+			intent = new Intent(this, PlotterActivity.class);
+			intent.putExtra("oneVariableEquations", oneVariableEquations);
+			startActivity(intent);
+			return true;
+
+		case R.id.menu_set_function:
+			intent = new Intent(this, SetFunctionActivity.class);
+			intent.putExtra("function", oneVariableEquations.getFunction());
+			startActivityForResult(intent, SET_FUNCTION);
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+
+		if (resultCode == RESULT_OK) {
+			if (requestCode == SET_FUNCTION) {
+				oneVariableEquations.setFunction(data
+						.getStringExtra("Function"));
+				setvisibilities(View.VISIBLE);
+				TextView function = (TextView) findViewById(R.id.textViewFunctionActivityFixedPoint);
+				function.setText(oneVariableEquations.getFunction());
+			}
+		}
+	}
+
+	@Override
+	public void onBackPressed() {
+		Intent intent = new Intent();
+		intent.putExtra("oneVariableEquations", oneVariableEquations);
+		setResult(RESULT_OK, intent);
+		super.onBackPressed();
 	}
 
 	public void onCalculateButtonClick(View view) {
@@ -72,6 +125,28 @@ public class FixedPointActivity extends Activity {
 		} catch (RootNotFoundException e) {
 			textRoot.setText(e.getMessage());
 			enableExecutionTable();
+		}
+	}
+
+	private void setvisibilities(int visibility) {
+		findViewById(R.id.textViewFunctionActivityFixedPoint).setVisibility(
+				visibility);
+		findViewById(R.id.editTextX0ActivityFixedPoint).setVisibility(
+				visibility);
+		findViewById(R.id.editTextIterationsActivityFixedPoint).setVisibility(
+				visibility);
+		findViewById(R.id.editTextToleranceActivityFixedPoint).setVisibility(
+				visibility);
+		findViewById(R.id.editTextGActivityFixedPoint)
+				.setVisibility(visibility);
+		findViewById(R.id.buttonCalculateActivityFixedPoint).setVisibility(
+				visibility);
+		if (visibility == View.VISIBLE) {
+			findViewById(R.id.textViewWarningActivityFixedPoint).setVisibility(
+					View.GONE);
+		} else {
+			findViewById(R.id.textViewWarningActivityFixedPoint).setVisibility(
+					View.VISIBLE);
 		}
 	}
 
