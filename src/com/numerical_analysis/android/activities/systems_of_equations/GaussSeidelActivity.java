@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import com.numerical_analysis.android.R;
 import com.numerical_analysis.android.activities.ExecutionTableActivity;
+import com.numerical_analysis.android.activities.HelpActivity;
 import com.numerical_analysis.android.activities.SetIndependentTermsActivity;
 import com.numerical_analysis.android.adapters.IterativeMethodsExecutionTableAdapter;
 import com.numerical_analysis.android.exceptions.MaximumNumberOfIterationsExceededExeption;
@@ -67,6 +68,13 @@ public class GaussSeidelActivity extends Activity {
 			intent.putExtra("independentTerms",
 					iterativeMethods.getIndependentTerms());
 			startActivityForResult(intent, SET_INDEPENDENT_TERMS);
+			return true;
+		case R.id.menu_help:
+			intent = new Intent(this, HelpActivity.class);
+			intent.putExtra(
+					"url",
+					"https://sites.google.com/site/numericalanalysiseafit/topics/systems-of-equations/iterative-methods/gauss-seidel-method");
+			startActivity(intent);
 			return true;
 		}
 

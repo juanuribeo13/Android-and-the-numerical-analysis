@@ -1,11 +1,12 @@
 package com.numerical_analysis.android.activities.systems_of_equations;
 
 import com.numerical_analysis.android.R;
-
+import com.numerical_analysis.android.activities.HelpActivity;
 import android.os.Bundle;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -27,6 +28,24 @@ public class SystemsOfEquationsActivity extends ListActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_systems_of_equations, menu);
 		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(final MenuItem item) {
+
+		// Handle item selection
+		switch (item.getItemId()) {
+
+		case R.id.menu_help:
+			Intent intent = new Intent(this, HelpActivity.class);
+			intent.putExtra(
+					"url",
+					"https://sites.google.com/site/numericalanalysiseafit/topics/systems-of-equations");
+			startActivity(intent);
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override

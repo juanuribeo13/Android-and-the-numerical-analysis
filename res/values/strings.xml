@@ -10,6 +10,7 @@
     <string name="menu_set_independent_terms">Set Independent Terms</string>
     <string name="menu_set_x_and_fx">Set X And F(X)</string>
     <string name="menu_set_function">Set Function</string>
+    <string name="menu_help">Help</string>
     <string name="invalid_parameters">You have to enter all the values for the method to be executed</string>
     <string name="image_activity_topic_list">Image Android Teacher</string>
     <string name="instruction_activity_topic_list">Touch to start</string>
@@ -81,6 +82,7 @@
     <string name="title_activity_lumatrix_factorization_with_partial_pivoting">LU Matrix Factorization with Partial Pivoting</string>
     <string name="title_activity_lagrange">Lagrange</string>
     <string name="title_activity_neville">Neville</string>
+    <string name="title_activity_help">Help</string>
     <string name="title_table_iteration">Iteration</string>
     <string name="title_table_x0">X0</string>
     <string name="title_table_x1">X1</string>

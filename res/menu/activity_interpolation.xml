@@ -4,5 +4,9 @@
         android:id="@+id/menu_set_x_and_fx"
         android:orderInCategory="100"
         android:title="@string/menu_set_x_and_fx"/>
+    <item
+        android:id="@+id/menu_help"
+        android:orderInCategory="200"
+        android:title="@string/menu_help"/>
 
 </menu>

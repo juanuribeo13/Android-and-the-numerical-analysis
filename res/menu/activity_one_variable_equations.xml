@@ -8,5 +8,9 @@
         android:id="@+id/menu_plot"
         android:orderInCategory="200"
         android:title="@string/menu_plot"/>
+    <item
+        android:id="@+id/menu_help"
+        android:orderInCategory="300"
+        android:title="@string/menu_help"/>
 
 </menu>
