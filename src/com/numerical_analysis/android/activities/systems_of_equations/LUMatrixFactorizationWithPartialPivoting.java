@@ -1,6 +1,7 @@
 package com.numerical_analysis.android.activities.systems_of_equations;
 
 import com.numerical_analysis.android.R;
+import com.numerical_analysis.android.activities.HelpActivity;
 import com.numerical_analysis.android.activities.InputMatrixActivity;
 import com.numerical_analysis.android.activities.MatrixExecutionActivity;
 import com.numerical_analysis.android.adapters.DirectMethodsMatrixExecutionAdapter;
@@ -81,6 +82,14 @@ public class LUMatrixFactorizationWithPartialPivoting extends Activity {
 			}
 			startActivityForResult(inputMatrix, INPUT_MATRIX);
 			return true;
+		case R.id.menu_help:
+			Intent intent = new Intent(this, HelpActivity.class);
+			intent.putExtra(
+					"url",
+					"https://sites.google.com/site/numericalanalysiseafit/topics/systems-of-equations/direct-methods/factorizations/lu-factorization-with-pivoting");
+			startActivity(intent);
+			return true;
+
 		}
 
 		return super.onOptionsItemSelected(item);

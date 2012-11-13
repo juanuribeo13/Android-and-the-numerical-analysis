@@ -1,6 +1,7 @@
 package com.numerical_analysis.android.activities.systems_of_equations;
 
 import com.numerical_analysis.android.R;
+import com.numerical_analysis.android.activities.HelpActivity;
 import com.numerical_analysis.android.activities.InputMatrixActivity;
 import com.numerical_analysis.android.methods.systems_of_equations.DirectMethods;
 import com.numerical_analysis.android.utilities.Matrix;
@@ -105,6 +106,13 @@ public class DirectMethodsActivity extends ListActivity {
 				inputMatrix.putExtra("Matrix", matrix);
 			}
 			startActivityForResult(inputMatrix, INPUT_MATRIX);
+			return true;
+		case R.id.menu_help:
+			Intent intent = new Intent(this, HelpActivity.class);
+			intent.putExtra(
+					"url",
+					"https://sites.google.com/site/numericalanalysiseafit/topics/systems-of-equations/direct-methods");
+			startActivity(intent);
 			return true;
 		}
 
